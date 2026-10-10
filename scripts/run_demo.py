@@ -49,7 +49,8 @@ def area(h):
 
 
 def find_main(baseline, pattern):
-    c = [h for h in windows() if h not in baseline and title(h) and area(h) > 400 * 300
+    cap = lambda h: U.GetWindowLongW(h, -16) & 0xC00000 == 0xC00000  # есть заголовок: заставки не подходят
+    c = [h for h in windows() if h not in baseline and title(h) and cap(h) and area(h) > 400 * 300
          and (not pattern or re.search(pattern, title(h)))]
     return max(c, key=area) if c else None
 
@@ -104,21 +105,23 @@ def rel(h, x, y):
 
 # ---------- шаги ----------
 def click_text(h, text):
-    win = Desktop(backend='uia').window(handle=h)
     low = text.lower()
     best = None
-    for c in win.descendants():
-        try:
-            n = c.window_text().strip().lower()
-            r = c.rectangle()
-            if not n or r.width() <= 0:
-                continue
-            if n == low:
-                best = r; break
-            if low in n and not best:
-                best = r
-        except Exception:
-            pass
+    for hw in dict.fromkeys([U.GetForegroundWindow(), h]):  # сначала активное окно (диалог)
+        for c in Desktop(backend='uia').window(handle=hw).descendants():
+            try:
+                n = c.window_text().strip().lower()
+                r = c.rectangle()
+                if not n or r.width() <= 0:
+                    continue
+                if n == low:
+                    best = r; break
+                if low in n and not best:
+                    best = r
+            except Exception:
+                pass
+        if best:
+            break
     if not best:
         log(f'click_text: "{text}" не найден'); return
     x, y = (best.left + best.right) // 2, (best.top + best.bottom) // 2
@@ -177,8 +180,8 @@ while time.time() < deadline:
     h = find_main(baseline, demo.get('title'))
     if h:
         U.ShowWindowAsync(h, 3); U.SetForegroundWindow(h); time.sleep(1)
-        if find_main(baseline, demo.get('title')) == h and area(h) > 1800 * 1000:
-            break  # заставка прошла, окно развёрнуто
+        if U.IsZoomed(h):
+            break
 log(f'окно: {title(h) if h else None} {rect(h) if h else None}')
 if h:
     hide_others(h); U.ShowWindowAsync(h, 3); U.SetForegroundWindow(h)
