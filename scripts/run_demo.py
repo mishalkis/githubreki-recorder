@@ -147,6 +147,10 @@ def run_step(h, s, marks):
         seg = max(30, s.get('ms', 800) // max(1, len(pts) - 1))
         for p in pts[1:]: move(*p, seg)
         btn(0)
+    elif d == 'scroll':  # колесо мыши: clicks<0 вниз; курсор в точке x,y окна (по умолчанию центр)
+        move(*rel(h, s.get('x', 960), s.get('y', 500)), 300)
+        for _ in range(abs(s['clicks'])):
+            U.mouse_event(0x800, 0, 0, -120 if s['clicks'] < 0 else 120, 0); time.sleep(0.08)
     elif d == 'mark': marks.append({'name': s['name'], 't': now()})
     else: log(f'неизвестный шаг {d}')
 
