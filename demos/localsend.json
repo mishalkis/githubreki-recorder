@@ -39,6 +39,57 @@
     {
       "do": "wait",
       "s": 1
+    },
+    {
+      "do": "click",
+      "x": 717,
+      "y": 1008
+    },
+    {
+      "do": "wait",
+      "s": 2
+    },
+    {
+      "do": "mark",
+      "name": "ru_settings"
+    },
+    {
+      "do": "click",
+      "x": 95,
+      "y": 191
+    },
+    {
+      "do": "wait",
+      "s": 1.5
+    },
+    {
+      "do": "mark",
+      "name": "send_tab"
+    },
+    {
+      "do": "click",
+      "x": 864,
+      "y": 138
+    },
+    {
+      "do": "wait",
+      "s": 3
+    },
+    {
+      "do": "type",
+      "text": "C:\\demo\\test.png"
+    },
+    {
+      "do": "hotkey",
+      "keys": "enter"
+    },
+    {
+      "do": "wait",
+      "s": 2.5
+    },
+    {
+      "do": "mark",
+      "name": "file_selected"
     }
   ]
 }
