@@ -16,7 +16,6 @@ t0 = time.time()
 def log(m):
     line = f'{time.strftime("%H:%M:%S")} {m}'
     print(line, flush=True)
-    open(f'{OUT}/log.txt', 'a', encoding='utf-8').write(line + '\n')
 
 
 def now():
@@ -154,7 +153,7 @@ baseline = set(windows())
 
 ff = subprocess.Popen(['ffmpeg', '-y', '-f', 'gdigrab', '-framerate', '30', '-draw_mouse', '1', '-i', 'desktop',
                        '-c:v', 'libx264', '-preset', 'ultrafast', '-pix_fmt', 'yuv420p', f'{OUT}/demo.mp4'],
-                      stdin=subprocess.PIPE, stderr=open(f'{OUT}/ffmpeg.log', 'w'))
+                      stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=open(f'{OUT}/ffmpeg.log', 'w'))
 atexit.register(lambda: ff.poll() is None and ff.kill())
 while not (os.path.exists(f'{OUT}/demo.mp4') and os.path.getsize(f'{OUT}/demo.mp4') > 0):
     time.sleep(0.05)
