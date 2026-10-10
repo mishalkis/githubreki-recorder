@@ -1,0 +1,19 @@
+{
+  "winget_id": "Upscayl.Upscayl",
+  "launch": "Upscayl",
+  "title": "Upscayl",
+  "settle": 4,
+  "pre": [],
+  "inputs": ["test.png"],
+  "steps": [
+    {"do": "wait", "s": 3},
+    {"do": "click_text", "text": "Select Image"},
+    {"do": "wait", "s": 2},
+    {"do": "type", "text": "C:\\demo\\test.png"},
+    {"do": "hotkey", "keys": "enter"},
+    {"do": "wait", "s": 3},
+    {"do": "mark", "name": "image_loaded"},
+    {"do": "click_text", "text": "Upscayl"},
+    {"do": "wait", "s": 10}
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "winget_id": "LocalSend.LocalSend",
+  "launch": "LocalSend",
+  "title": "LocalSend",
+  "settle": 4,
+  "pre": [],
+  "inputs": ["test.png"],
+  "steps": [
+    {"do": "wait", "s": 3},
+    {"do": "click_text", "text": "Settings"},
+    {"do": "wait", "s": 2}
+  ]
+}
