@@ -93,8 +93,6 @@
     }
   ],
   "dump": [
-    "%APPDATA%\\**\\*localsend*",
-    "%APPDATA%\\*ocal*end*\\**",
-    "%LOCALAPPDATA%\\*ocal*end*\\**"
+    "%APPDATA%\\LocalSend\\*.json"
   ]
 }

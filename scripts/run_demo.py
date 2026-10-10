@@ -215,8 +215,9 @@ time.sleep(1)
 
 for pat in demo.get('dump', []):  # отладка: вывести в лог файлы настроек программы
     for f in glob.glob(os.path.expandvars(pat), recursive=True):
-        if os.path.isfile(f) and os.path.getsize(f) < 20000:
-            log(f'dump {f}: ' + open(f, encoding='utf-8', errors='replace').read()[:2000])
+        if f.endswith('.json') and os.path.getsize(f) < 20000:  # только короткие значения: в файлах бывают ключи
+            d = json.load(open(f, encoding='utf-8'))
+            log(f'dump {f}: ' + json.dumps({k: v for k, v in d.items() if len(str(v)) < 30}, ensure_ascii=False))
         else:
             log(f'dump {f}')
 ff.stdin.write(b'q'); ff.stdin.flush()

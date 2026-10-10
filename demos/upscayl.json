@@ -3,9 +3,7 @@
   "launch": "Upscayl",
   "title": "Upscayl",
   "settle": 4,
-  "pre": [
-    "powershell -STA -NoProfile -c \"Add-Type -AssemblyName System.Windows.Forms,System.Drawing; [Windows.Forms.Clipboard]::SetDataObject([Drawing.Image]::FromFile('C:\\demo\\test.png'), $true)\""
-  ],
+  "pre": [],
   "inputs": [
     "test.png"
   ],
@@ -50,12 +48,20 @@
     },
     {
       "do": "click",
-      "x": 1135,
-      "y": 530
+      "x": 115,
+      "y": 299
+    },
+    {
+      "do": "wait",
+      "s": 4
+    },
+    {
+      "do": "type",
+      "text": "C:\\demo\\test.png"
     },
     {
       "do": "hotkey",
-      "keys": "ctrl+v"
+      "keys": "enter"
     },
     {
       "do": "wait",
