@@ -13,7 +13,11 @@ jobs:
       - uses: actions/checkout@v4
       - name: record
         shell: pwsh
-        run: ./scripts/record.ps1 -WingetId '${{ inputs.winget_id }}' -Exe '${{ inputs.exe }}' -Seconds ${{ inputs.seconds }}
+        env:
+          WINGET_ID: ${{ inputs.winget_id }}
+          EXE: ${{ inputs.exe }}
+          SECONDS_: ${{ inputs.seconds }}
+        run: ./scripts/record.ps1 -WingetId $env:WINGET_ID -Exe $env:EXE -Seconds ([int]$env:SECONDS_)
       - uses: actions/upload-artifact@v4
         if: always()
         with:
