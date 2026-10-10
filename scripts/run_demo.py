@@ -64,6 +64,8 @@ def hide_others(keep):
 
 
 def hide_taskbar():
+    full = W.RECT(0, 0, 1920, 1080)
+    U.SystemParametersInfoW(0x2F, 0, ctypes.byref(full), 2)  # рабочая область = весь экран
     for cls in ('Shell_TrayWnd', 'Shell_SecondaryTrayWnd'):
         h = U.FindWindowW(cls, None)
         if h:
@@ -106,21 +108,23 @@ def rel(h, x, y):
 # ---------- шаги ----------
 def click_text(h, text):
     low = text.lower()
-    best = None
+    best, cands = None, []
     for hw in dict.fromkeys([U.GetForegroundWindow(), h]):  # сначала активное окно (диалог)
+        if not hw:
+            continue
         for c in Desktop(backend='uia').window(handle=hw).descendants():
             try:
                 n = c.window_text().strip().lower()
                 r = c.rectangle()
                 if not n or r.width() <= 0:
                     continue
-                if n == low:
-                    best = r; break
-                if low in n and not best:
-                    best = r
+                k = (n != low, r.width() * r.height())  # точное имя, затем самый маленький элемент
+                if n == low or low in n:
+                    cands.append((k, r))
             except Exception:
                 pass
-        if best:
+        if cands:
+            best = min(cands, key=lambda c: c[0])[1]
             break
     if not best:
         log(f'click_text: "{text}" не найден'); return
@@ -154,6 +158,28 @@ subprocess.run(['powershell', '-NoProfile', '-c', '(New-Object -ComObject Shell.
 hide_others(0)
 baseline = set(windows())
 
+# запуск
+launch = os.path.expandvars(demo['launch'])
+if not re.search(r'[\\/]|\.exe$', launch):
+    lnks = glob.glob(os.path.expandvars(r'%ProgramData%\Microsoft\Windows\Start Menu\**\*.lnk'), recursive=True) + \
+           glob.glob(os.path.expandvars(r'%APPDATA%\Microsoft\Windows\Start Menu\**\*.lnk'), recursive=True)
+    launch = next((l for l in lnks if launch.lower() in os.path.basename(l).lower()), launch)
+log(f'запуск {launch}')
+os.startfile(launch)
+
+h = None; deadline = time.time() + 240
+while time.time() < deadline:
+    time.sleep(1.5)
+    h = find_main(baseline, demo.get('title'))
+    if h:
+        U.ShowWindowAsync(h, 3); U.SetForegroundWindow(h); time.sleep(1)
+        if U.IsZoomed(h):
+            break
+log(f'окно: {title(h) if h else None} {rect(h) if h else None}')
+if h:
+    hide_others(h); U.ShowWindowAsync(h, 3); U.SetForegroundWindow(h)
+time.sleep(demo.get('settle', 3))
+
 ff = subprocess.Popen(['ffmpeg', '-y', '-f', 'gdigrab', '-framerate', '30', '-draw_mouse', '1', '-i', 'desktop',
                        '-c:v', 'libx264', '-preset', 'ultrafast', '-pix_fmt', 'yuv420p', f'{OUT}/demo.mp4'],
                       stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=open(f'{OUT}/ffmpeg.log', 'w'))
@@ -164,28 +190,6 @@ t0 = time.time(); started = time.strftime('%Y-%m-%dT%H:%M:%S%z')
 log('запись пошла')
 move(960, 540, 10)
 
-# запуск
-launch = os.path.expandvars(demo['launch'])
-if not re.search(r'[\\/]|\.exe$', launch):
-    lnks = glob.glob(os.path.expandvars(r'%ProgramData%\Microsoft\Windows\Start Menu\**\*.lnk'), recursive=True) + \
-           glob.glob(os.path.expandvars(r'%APPDATA%\Microsoft\Windows\Start Menu\**\*.lnk'), recursive=True)
-    launch = next((l for l in lnks if launch.lower() in os.path.basename(l).lower()), launch)
-log(f'запуск {launch}')
-os.startfile(launch)
-
-h = None; deadline = time.time() + 90
-while time.time() < deadline:
-    time.sleep(1.5)
-    log('поиск окна')
-    h = find_main(baseline, demo.get('title'))
-    if h:
-        U.ShowWindowAsync(h, 3); U.SetForegroundWindow(h); time.sleep(1)
-        if U.IsZoomed(h):
-            break
-log(f'окно: {title(h) if h else None} {rect(h) if h else None}')
-if h:
-    hide_others(h); U.ShowWindowAsync(h, 3); U.SetForegroundWindow(h)
-time.sleep(demo.get('settle', 3))
 
 steps_out, marks = [], []
 for i, s in enumerate(demo['steps'], 1):
