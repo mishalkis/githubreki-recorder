@@ -92,7 +92,7 @@ def btn(down):
 
 
 def click(x, y):
-    move(x, y); time.sleep(0.15)
+    move(x, y); time.sleep(0.15); btn(1); time.sleep(0.08); btn(0); time.sleep(0.3)
 
 
 def send_keys(spec):
