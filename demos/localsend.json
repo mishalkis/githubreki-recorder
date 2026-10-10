@@ -3,7 +3,10 @@
   "launch": "LocalSend",
   "title": "LocalSend",
   "settle": 4,
-  "pre": [],
+  "pre": [
+    "New-Item -ItemType Directory -Force \"$env:APPDATA\\LocalSend\" | Out-Null",
+    "Set-Content -Encoding ascii \"$env:APPDATA\\LocalSend\\settings.json\" '{\"flutter.ls_locale\":\"ru\"}'"
+  ],
   "inputs": [
     "test.png"
   ],
@@ -13,45 +16,8 @@
       "s": 2
     },
     {
-      "do": "click",
-      "x": 104,
-      "y": 236
-    },
-    {
-      "do": "wait",
-      "s": 1.5
-    },
-    {
-      "do": "click",
-      "x": 1283,
-      "y": 316
-    },
-    {
-      "do": "wait",
-      "s": 1.5
-    },
-    {
-      "do": "scroll",
-      "clicks": -16,
-      "x": 960,
-      "y": 500
-    },
-    {
-      "do": "wait",
-      "s": 1
-    },
-    {
-      "do": "click",
-      "x": 717,
-      "y": 600
-    },
-    {
-      "do": "wait",
-      "s": 2
-    },
-    {
       "do": "mark",
-      "name": "ru_settings"
+      "name": "home"
     },
     {
       "do": "click",
