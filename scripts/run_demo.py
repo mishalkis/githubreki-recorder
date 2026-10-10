@@ -177,7 +177,9 @@ while time.time() < deadline:
             break
 log(f'окно: {title(h) if h else None} {rect(h) if h else None}')
 if h:
-    hide_others(h); U.ShowWindowAsync(h, 3); U.SetForegroundWindow(h)
+    hide_others(h); U.ShowWindowAsync(h, 3); U.SetForegroundWindow(h); time.sleep(1)
+    U.SetWindowPos(h, 0, 0, 0, 1920, 1080, 4)  # на весь экран, поверх скрытой панели задач
+    log(f'окно после SetWindowPos {rect(h)} zoomed={U.IsZoomed(h)}')
 time.sleep(demo.get('settle', 3))
 
 ff = subprocess.Popen(['ffmpeg', '-y', '-f', 'gdigrab', '-framerate', '30', '-draw_mouse', '1', '-i', 'desktop',

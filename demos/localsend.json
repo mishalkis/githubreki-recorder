@@ -4,10 +4,31 @@
   "title": "LocalSend",
   "settle": 4,
   "pre": [],
-  "inputs": ["test.png"],
+  "inputs": [
+    "test.png"
+  ],
   "steps": [
-    {"do": "wait", "s": 3},
-    {"do": "click_text", "text": "Settings"},
-    {"do": "wait", "s": 2}
+    {
+      "do": "wait",
+      "s": 2
+    },
+    {
+      "do": "click",
+      "x": 104,
+      "y": 236
+    },
+    {
+      "do": "wait",
+      "s": 2
+    },
+    {
+      "do": "click",
+      "x": 104,
+      "y": 191
+    },
+    {
+      "do": "wait",
+      "s": 2
+    }
   ]
 }

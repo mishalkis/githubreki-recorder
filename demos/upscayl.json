@@ -13,52 +13,17 @@
       "s": 2
     },
     {
-      "do": "click_text",
-      "text": "Next"
+      "do": "click",
+      "x": 1037,
+      "y": 540
     },
     {
       "do": "wait",
       "s": 1
-    },
-    {
-      "do": "click_text",
-      "text": "Next"
-    },
-    {
-      "do": "wait",
-      "s": 1
-    },
-    {
-      "do": "click_text",
-      "text": "Next"
-    },
-    {
-      "do": "wait",
-      "s": 1
-    },
-    {
-      "do": "click_text",
-      "text": "Next"
-    },
-    {
-      "do": "wait",
-      "s": 1
-    },
-    {
-      "do": "wait",
-      "s": 3
-    },
-    {
-      "do": "click_text",
-      "text": "Select Image"
-    },
-    {
-      "do": "wait",
-      "s": 2
     },
     {
       "do": "type",
-      "text": "C:\\demo\\test.png"
+      "text": "Рус"
     },
     {
       "do": "hotkey",
@@ -66,19 +31,43 @@
     },
     {
       "do": "wait",
-      "s": 3
+      "s": 1
     },
     {
-      "do": "mark",
-      "name": "image_loaded"
-    },
-    {
-      "do": "click_text",
-      "text": "Upscayl"
+      "do": "click",
+      "x": 960,
+      "y": 636
     },
     {
       "do": "wait",
-      "s": 10
+      "s": 1.5
+    },
+    {
+      "do": "click",
+      "x": 960,
+      "y": 636
+    },
+    {
+      "do": "wait",
+      "s": 1.5
+    },
+    {
+      "do": "click",
+      "x": 960,
+      "y": 636
+    },
+    {
+      "do": "wait",
+      "s": 1.5
+    },
+    {
+      "do": "click",
+      "x": 960,
+      "y": 636
+    },
+    {
+      "do": "wait",
+      "s": 1.5
     }
   ]
 }
