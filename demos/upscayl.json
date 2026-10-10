@@ -35,39 +35,50 @@
     },
     {
       "do": "click",
-      "x": 960,
-      "y": 636
+      "x": 1703,
+      "y": 149
     },
     {
       "do": "wait",
       "s": 1.5
+    },
+    {
+      "do": "mark",
+      "name": "main_screen"
     },
     {
       "do": "click",
-      "x": 960,
-      "y": 636
+      "x": 115,
+      "y": 299
     },
     {
       "do": "wait",
-      "s": 1.5
+      "s": 3
+    },
+    {
+      "do": "type",
+      "text": "C:\\demo\\test.png"
+    },
+    {
+      "do": "hotkey",
+      "keys": "enter"
+    },
+    {
+      "do": "wait",
+      "s": 2
+    },
+    {
+      "do": "mark",
+      "name": "image_loaded"
     },
     {
       "do": "click",
-      "x": 960,
-      "y": 636
+      "x": 85,
+      "y": 794
     },
     {
       "do": "wait",
-      "s": 1.5
-    },
-    {
-      "do": "click",
-      "x": 960,
-      "y": 636
-    },
-    {
-      "do": "wait",
-      "s": 1.5
+      "s": 12
     }
   ]
 }

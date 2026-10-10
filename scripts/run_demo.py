@@ -65,7 +65,9 @@ def hide_others(keep):
 
 def hide_taskbar():
     full = W.RECT(0, 0, 1920, 1080)
-    U.SystemParametersInfoW(0x2F, 0, ctypes.byref(full), 2)  # рабочая область = весь экран
+    ok = U.SystemParametersInfoW(0x2F, 0, ctypes.byref(full), 3)  # рабочая область = весь экран
+    chk = W.RECT(); U.SystemParametersInfoW(0x30, 0, ctypes.byref(chk), 0)
+    log(f'workarea set={ok} now={chk.left},{chk.top},{chk.right},{chk.bottom}')
     for cls in ('Shell_TrayWnd', 'Shell_SecondaryTrayWnd'):
         h = U.FindWindowW(cls, None)
         if h:
