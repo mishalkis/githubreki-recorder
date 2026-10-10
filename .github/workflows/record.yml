@@ -1,0 +1,21 @@
+name: record
+on:
+  workflow_dispatch:
+    inputs:
+      winget_id: { description: winget id, default: KDE.Krita }
+      exe: { description: "путь или имя процесса (пусто = ярлык из меню Пуск)", default: "" }
+      seconds: { description: секунд записи, default: "15" }
+jobs:
+  record:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: record
+        shell: pwsh
+        run: ./scripts/record.ps1 -WingetId '${{ inputs.winget_id }}' -Exe '${{ inputs.exe }}' -Seconds ${{ inputs.seconds }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: out
+          path: out/
