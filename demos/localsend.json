@@ -91,5 +91,10 @@
       "do": "mark",
       "name": "file_selected"
     }
+  ],
+  "dump": [
+    "%APPDATA%\\**\\*localsend*",
+    "%APPDATA%\\*ocal*end*\\**",
+    "%LOCALAPPDATA%\\*ocal*end*\\**"
   ]
 }

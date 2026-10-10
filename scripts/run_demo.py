@@ -213,6 +213,12 @@ for i, s in enumerate(demo['steps'], 1):
     log(f'шаг {i} {s["do"]} {ts}-{now()}')
 time.sleep(1)
 
+for pat in demo.get('dump', []):  # отладка: вывести в лог файлы настроек программы
+    for f in glob.glob(os.path.expandvars(pat), recursive=True):
+        if os.path.isfile(f) and os.path.getsize(f) < 20000:
+            log(f'dump {f}: ' + open(f, encoding='utf-8', errors='replace').read()[:2000])
+        else:
+            log(f'dump {f}')
 ff.stdin.write(b'q'); ff.stdin.flush()
 try: ff.wait(30)
 except Exception: ff.kill()
