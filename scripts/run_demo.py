@@ -60,7 +60,7 @@ def hide_others(keep):
         cls = ctypes.create_unicode_buffer(64)
         U.GetClassNameW(h, cls, 64)
         if h != keep and cls.value not in ('Progman', 'WorkerW') and not cls.value.startswith('Shell_'):
-            U.ShowWindow(h, 6)  # SW_MINIMIZE
+            U.ShowWindowAsync(h, 6)  # SW_MINIMIZE
 
 
 def hide_taskbar():
@@ -145,6 +145,8 @@ def run_step(h, s, marks):
 
 # ---------- основной ход ----------
 os.makedirs(OUT, exist_ok=True)
+import faulthandler
+faulthandler.dump_traceback_later(100, repeat=True, file=open(f'{OUT}/trace.txt', 'w'))
 hide_taskbar()
 subprocess.run(['powershell', '-NoProfile', '-c', '(New-Object -ComObject Shell.Application).MinimizeAll()'])
 hide_others(0)
@@ -172,14 +174,15 @@ os.startfile(launch)
 h = None; deadline = time.time() + 90
 while time.time() < deadline:
     time.sleep(1.5)
+    log('поиск окна')
     h = find_main(baseline, demo.get('title'))
     if h:
-        U.ShowWindow(h, 3); U.SetForegroundWindow(h); time.sleep(1)
+        U.ShowWindowAsync(h, 3); U.SetForegroundWindow(h); time.sleep(1)
         if find_main(baseline, demo.get('title')) == h and area(h) > 1800 * 1000:
             break  # заставка прошла, окно развёрнуто
 log(f'окно: {title(h) if h else None} {rect(h) if h else None}')
 if h:
-    hide_others(h); U.ShowWindow(h, 3); U.SetForegroundWindow(h)
+    hide_others(h); U.ShowWindowAsync(h, 3); U.SetForegroundWindow(h)
 time.sleep(demo.get('settle', 3))
 
 steps_out, marks = [], []

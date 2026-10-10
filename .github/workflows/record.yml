@@ -8,7 +8,7 @@ permissions:
 jobs:
   record:
     runs-on: windows-latest
-    timeout-minutes: 15
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
       - name: record
