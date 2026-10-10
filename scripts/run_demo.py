@@ -92,7 +92,7 @@ def btn(down):
 
 
 def click(x, y):
-    move(x, y); time.sleep(0.15); btn(1); time.sleep(0.08); btn(0); time.sleep(0.3)
+    move(x, y); move(x + 2, y + 1, 60); time.sleep(0.25)  # лишнее движение: Flutter/Electron обновляют hover по move; btn(1); time.sleep(0.08); btn(0); time.sleep(0.3)
 
 
 def send_keys(spec):
