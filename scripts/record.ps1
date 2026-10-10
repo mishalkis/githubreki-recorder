@@ -1,5 +1,8 @@
-param($WingetId, $Exe = '', [int]$Seconds = 15)
+param($Demo)
 $ErrorActionPreference = 'Continue'
+if ($Demo -notmatch '^[a-z0-9-]+$') { throw 'bad demo name' }
+$cfg = Get-Content "demos/$Demo.json" -Raw -Encoding UTF8 | ConvertFrom-Json
+$WingetId = $cfg.winget_id
 New-Item -ItemType Directory -Force out | Out-Null
 $log = 'out/log.txt'
 function Log($m) { "$(Get-Date -f HH:mm:ss) $m" | Tee-Object -Append $log }
@@ -44,32 +47,16 @@ if ($dm.w -lt 1920) {
 
 # установка
 $ti = Get-Date
-if (Get-Command winget -ErrorAction SilentlyContinue) {
-  winget install --id $WingetId --silent --accept-package-agreements --accept-source-agreements 2>&1 | Tee-Object -Append $log
-  Log "winget exit $LASTEXITCODE"
-} else { Log 'winget missing' }
-Log "install seconds: $([int]((Get-Date) - $ti).TotalSeconds)"
+winget install --id $WingetId --silent --accept-package-agreements --accept-source-agreements 2>&1 | Tee-Object -Append $log
+Log "winget exit $LASTEXITCODE; install seconds: $([int]((Get-Date) - $ti).TotalSeconds)"
 
-# ffmpeg
+# входные файлы и подготовка
+foreach ($f in $cfg.inputs) { New-Item -ItemType Directory -Force C:\demo | Out-Null; Copy-Item "demos/inputs/$f" C:\demo\ -Force; Log "input $f" }
+foreach ($c in $cfg.pre) { Log "pre: $c"; try { Invoke-Expression $c } catch { Log "pre failed: $_" } }
+
+# ffmpeg и python
 if (-not (Get-Command ffmpeg -ErrorAction SilentlyContinue)) { choco install ffmpeg -y --no-progress | Out-Null }
-$dur = $Seconds + 10
-$ff = Start-Process ffmpeg -ArgumentList "-y -f gdigrab -framerate 30 -i desktop -t $dur -c:v libx264 -preset ultrafast -pix_fmt yuv420p out/demo.mp4" -PassThru -RedirectStandardError out/ffmpeg.log -WindowStyle Hidden
-Start-Sleep 2
+python -m pip install -q pywinauto pillow 2>&1 | Out-Null
 
-# запуск
-if (-not $Exe) {
-  $name = ($WingetId -split '\.')[-1]
-  $lnk = Get-ChildItem "$env:ProgramData\Microsoft\Windows\Start Menu", "$env:APPDATA\Microsoft\Windows\Start Menu" -Recurse -Filter *.lnk -ErrorAction SilentlyContinue | Where-Object Name -like "*$name*" | Select-Object -First 1
-  $Exe = $lnk.FullName; Log "shortcut: $Exe"
-}
-$p = Start-Process $Exe -PassThru
-Start-Sleep 8
-Shot '01_launched.png'
-Get-Process | Where-Object MainWindowHandle -ne 0 | ForEach-Object {
-  Log "window: $($_.ProcessName) '$($_.MainWindowTitle)'"
-  if ($_.ProcessName -like "*$(($WingetId -split '\.')[-1])*") { [U]::ShowWindow($_.MainWindowHandle, 3) | Out-Null; [U]::SetForegroundWindow($_.MainWindowHandle) | Out-Null }
-}
-Start-Sleep ([Math]::Max(1, $Seconds - 8))
-Shot '02_later.png'
-$ff.WaitForExit(($dur + 30) * 1000) | Out-Null
-Log "ffmpeg exit $($ff.ExitCode); total seconds: $([int]((Get-Date) - $t0).TotalSeconds)"
+python scripts/run_demo.py "demos/$Demo.json" 2>&1 | Tee-Object -Append $log
+Log "total seconds: $([int]((Get-Date) - $t0).TotalSeconds)"

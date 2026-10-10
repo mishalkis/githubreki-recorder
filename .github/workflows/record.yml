@@ -2,9 +2,7 @@ name: record
 on:
   workflow_dispatch:
     inputs:
-      winget_id: { description: winget id, default: KDE.Krita }
-      exe: { description: "путь или имя процесса (пусто = ярлык из меню Пуск)", default: "" }
-      seconds: { description: секунд записи, default: "15" }
+      demo: { description: "slug сценария из demos/<slug>.json", default: krita }
 jobs:
   record:
     runs-on: windows-latest
@@ -14,10 +12,10 @@ jobs:
       - name: record
         shell: pwsh
         env:
-          WINGET_ID: ${{ inputs.winget_id }}
-          EXE: ${{ inputs.exe }}
-          SECONDS_: ${{ inputs.seconds }}
-        run: ./scripts/record.ps1 -WingetId $env:WINGET_ID -Exe $env:EXE -Seconds ([int]$env:SECONDS_)
+          DEMO: ${{ inputs.demo }}
+        run: |
+          if ($env:DEMO -notmatch '^[a-z0-9-]+$') { throw 'bad demo name' }
+          ./scripts/record.ps1 -Demo $env:DEMO
       - uses: actions/upload-artifact@v4
         if: always()
         with:

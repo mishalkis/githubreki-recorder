@@ -1,0 +1,21 @@
+{
+  "winget_id": "KDE.Krita",
+  "launch": "Krita",
+  "title": "Krita",
+  "settle": 4,
+  "pre": [
+    "Set-Content -Encoding ascii \"$env:LOCALAPPDATA\\klanguageoverridesrc\" \"[Language]`nkrita=ru\"",
+    "Get-Content \"$env:LOCALAPPDATA\\klanguageoverridesrc\""
+  ],
+  "inputs": [],
+  "steps": [
+    {"do": "wait", "s": 2},
+    {"do": "hotkey", "keys": "ctrl+n"},
+    {"do": "wait", "s": 2},
+    {"do": "click_text", "text": "Создать"},
+    {"do": "wait", "s": 3},
+    {"do": "mark", "name": "canvas"},
+    {"do": "drag", "path": [[500,400],[700,300],[900,500],[1100,350]], "ms": 1200},
+    {"do": "wait", "s": 1}
+  ]
+}
