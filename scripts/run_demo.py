@@ -1,10 +1,11 @@
 """Запись демо: python run_demo.py demos/<slug>.json
 Запускает ffmpeg, программу, выполняет шаги, пишет out/timeline.json."""
-import ctypes, glob, json, os, re, subprocess, sys, time
+import atexit, ctypes, glob, json, os, re, subprocess, sys, time
 from ctypes import wintypes as W
 from PIL import ImageGrab
 from pywinauto import Desktop, keyboard
 
+sys.stdout.reconfigure(encoding='utf-8')
 ctypes.windll.user32.SetProcessDPIAware()
 U = ctypes.windll.user32
 OUT = 'out'
@@ -152,6 +153,7 @@ baseline = set(windows())
 ff = subprocess.Popen(['ffmpeg', '-y', '-f', 'gdigrab', '-framerate', '30', '-draw_mouse', '1', '-i', 'desktop',
                        '-c:v', 'libx264', '-preset', 'ultrafast', '-pix_fmt', 'yuv420p', f'{OUT}/demo.mp4'],
                       stdin=subprocess.PIPE, stderr=open(f'{OUT}/ffmpeg.log', 'w'))
+atexit.register(lambda: ff.poll() is None and ff.kill())
 while not (os.path.exists(f'{OUT}/demo.mp4') and os.path.getsize(f'{OUT}/demo.mp4') > 0):
     time.sleep(0.05)
 t0 = time.time(); started = time.strftime('%Y-%m-%dT%H:%M:%S%z')
