@@ -145,7 +145,7 @@ def run_step(h, s, marks):
 # ---------- основной ход ----------
 os.makedirs(OUT, exist_ok=True)
 hide_taskbar()
-subprocess.run('powershell -c "(New-Object -ComObject Shell.Application).MinimizeAll()"', shell=True)
+subprocess.run(['powershell', '-NoProfile', '-c', '(New-Object -ComObject Shell.Application).MinimizeAll()'])
 hide_others(0)
 baseline = set(windows())
 

@@ -3,6 +3,8 @@ on:
   workflow_dispatch:
     inputs:
       demo: { description: "slug сценария из demos/<slug>.json", default: krita }
+permissions:
+  contents: read
 jobs:
   record:
     runs-on: windows-latest
