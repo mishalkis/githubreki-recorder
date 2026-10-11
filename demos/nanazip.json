@@ -1,0 +1,24 @@
+{
+ "winget_id": "M2Team.NanaZip",
+ "launch": "NanaZip",
+ "title": "NanaZip",
+ "settle": 4,
+ "pre": [],
+ "inputs": [
+  "pack"
+ ],
+ "steps": [
+  {
+   "do": "wait",
+   "s": 4
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_start"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  }
+ ]
+}

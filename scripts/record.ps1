@@ -51,7 +51,7 @@ winget install --id $WingetId --silent --accept-package-agreements --accept-sour
 Log "winget exit $LASTEXITCODE; install seconds: $([int]((Get-Date) - $ti).TotalSeconds)"
 
 # входные файлы и подготовка
-foreach ($f in $cfg.inputs) { New-Item -ItemType Directory -Force C:\demo | Out-Null; Copy-Item "demos/inputs/$f" C:\demo\ -Force; Log "input $f" }
+foreach ($f in $cfg.inputs) { New-Item -ItemType Directory -Force C:\demo | Out-Null; Copy-Item "demos/inputs/$f" C:\demo\ -Recurse -Force; Log "input $f" }
 foreach ($c in $cfg.pre) { Log "pre: $c"; try { Invoke-Expression $c } catch { Log "pre failed: $_" } }
 
 # ffmpeg и python

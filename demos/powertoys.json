@@ -1,0 +1,25 @@
+{
+ "winget_id": "Microsoft.PowerToys",
+ "launch": "PowerToys",
+ "title": "PowerToys|Параметры",
+ "settle": 6,
+ "pre": [
+  "New-Item -ItemType Directory -Force \"$env:LOCALAPPDATA\\Microsoft\\PowerToys\" | Out-Null",
+  "Set-Content -Encoding ascii \"$env:LOCALAPPDATA\\Microsoft\\PowerToys\\settings.json\" '{\"name\":\"\",\"version\":\"1.0\",\"properties\":{\"language\":\"ru\"}}'"
+ ],
+ "inputs": [],
+ "steps": [
+  {
+   "do": "wait",
+   "s": 5
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_start"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  }
+ ]
+}

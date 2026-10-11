@@ -1,0 +1,51 @@
+{
+ "winget_id": "Audacity.Audacity",
+ "launch": "Audacity",
+ "title": "Audacity",
+ "settle": 6,
+ "pre": [
+  "New-Item -ItemType Directory -Force \"$env:APPDATA\\audacity\" | Out-Null",
+  "Set-Content -Encoding ascii \"$env:APPDATA\\audacity\\audacity.cfg\" \"[Locale]`nLanguage=ru\""
+ ],
+ "inputs": [
+  "voice_noisy.wav"
+ ],
+ "steps": [
+  {
+   "do": "wait",
+   "s": 4
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_start"
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+o"
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_open"
+  },
+  {
+   "do": "type",
+   "text": "C:\\demo\\voice_noisy.wav"
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 4
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_opened"
+  }
+ ]
+}

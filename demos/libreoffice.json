@@ -1,0 +1,28 @@
+{
+ "winget_id": "TheDocumentFoundation.LibreOffice",
+ "launch": "LibreOffice Writer",
+ "title": "Writer|LibreOffice|Без имени",
+ "settle": 8,
+ "pre": [
+  "New-Item -ItemType Directory -Force \"$env:APPDATA\\LibreOffice\\4\\user\" | Out-Null",
+  "Copy-Item C:\\demo\\lo_registry.xcu \"$env:APPDATA\\LibreOffice\\4\\user\\registrymodifications.xcu\" -Force"
+ ],
+ "inputs": [
+  "lo_registry.xcu",
+  "report.docx"
+ ],
+ "steps": [
+  {
+   "do": "wait",
+   "s": 6
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_start"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  }
+ ]
+}

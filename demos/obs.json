@@ -1,0 +1,26 @@
+{
+ "winget_id": "OBSProject.OBSStudio",
+ "launch": "OBS Studio",
+ "title": "OBS",
+ "settle": 6,
+ "pre": [
+  "New-Item -ItemType Directory -Force \"$env:APPDATA\\obs-studio\" | Out-Null",
+  "Set-Content -Encoding ascii \"$env:APPDATA\\obs-studio\\user.ini\" \"[General]`nLanguage=ru-RU`nFirstRun=true`n\"",
+  "Set-Content -Encoding ascii \"$env:APPDATA\\obs-studio\\global.ini\" \"[General]`nLanguage=ru-RU`nFirstRun=true`n\""
+ ],
+ "inputs": [],
+ "steps": [
+  {
+   "do": "wait",
+   "s": 5
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_start"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  }
+ ]
+}

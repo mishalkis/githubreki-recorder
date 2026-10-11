@@ -1,0 +1,52 @@
+{
+ "winget_id": "GIMP.GIMP.3",
+ "launch": "GIMP",
+ "title": "GIMP|GNU",
+ "settle": 6,
+ "pre": [
+  "foreach($v in '2.10','3.0'){ New-Item -ItemType Directory -Force \"$env:APPDATA\\GIMP\\$v\" | Out-Null; Set-Content -Encoding ascii \"$env:APPDATA\\GIMP\\$v\\gimprc\" '(language \"ru\")' }",
+  "$env:LANGUAGE='ru'; $env:LANG='ru_RU'"
+ ],
+ "inputs": [
+  "landscape.jpg",
+  "meadow.jpg"
+ ],
+ "steps": [
+  {
+   "do": "wait",
+   "s": 8
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_start"
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+o"
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_open"
+  },
+  {
+   "do": "type",
+   "text": "C:\\demo\\landscape.jpg"
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 5
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_opened"
+  }
+ ]
+}
