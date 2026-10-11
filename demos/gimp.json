@@ -162,8 +162,57 @@
    "name": "balance_dialog"
   },
   {
+   "do": "drag",
+   "path": [
+    [
+     488,
+     235
+    ],
+    [
+     515,
+     235
+    ],
+    [
+     540,
+     235
+    ]
+   ],
+   "ms": 600
+  },
+  {
+   "do": "drag",
+   "path": [
+    [
+     488,
+     291
+    ],
+    [
+     470,
+     291
+    ],
+    [
+     450,
+     291
+    ]
+   ],
+   "ms": 600
+  },
+  {
    "do": "wait",
-   "s": 1
+   "s": 1.5
+  },
+  {
+   "do": "mark",
+   "name": "balance_after"
+  },
+  {
+   "do": "click",
+   "x": 543,
+   "y": 434
+  },
+  {
+   "do": "wait",
+   "s": 2
   },
   {
    "do": "hotkey",
@@ -171,15 +220,43 @@
   },
   {
    "do": "wait",
-   "s": 2.5
+   "s": 3
   },
   {
    "do": "mark",
    "name": "open_layers_dialog"
   },
   {
+   "do": "hotkey",
+   "keys": "ctrl+l"
+  },
+  {
+   "do": "type",
+   "text": "C:\\demo\\meadow.jpg"
+  },
+  {
    "do": "wait",
    "s": 1
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "mark",
+   "name": "montage_layer"
   }
  ],
  "args": "C:\\demo\\landscape.jpg",

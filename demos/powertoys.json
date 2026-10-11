@@ -3,7 +3,9 @@
  "launch": "PowerToys",
  "title": "PowerToys|Параметры",
  "settle": 6,
- "pre": [],
+ "pre": [
+  "Set-WinUserLanguageList -LanguageList ru-RU -Force"
+ ],
  "inputs": [],
  "steps": [
   {
@@ -41,7 +43,7 @@
   },
   {
    "do": "wait",
-   "s": 4
+   "s": 5
   },
   {
    "do": "mark",
@@ -56,20 +58,11 @@
    "s": 2
   },
   {
-   "do": "mark",
-   "name": "run_open"
-  },
-  {
-   "do": "type",
-   "text": "15*7"
-  },
-  {
-   "do": "wait",
-   "s": 2
+   "do": "winlist"
   },
   {
    "do": "mark",
-   "name": "run_result"
+   "name": "run_try"
   },
   {
    "do": "hotkey",
@@ -90,6 +83,18 @@
   {
    "do": "mark",
    "name": "cmdpal_open"
+  },
+  {
+   "do": "type",
+   "text": "15*7"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "cmdpal_result"
   },
   {
    "do": "hotkey",
