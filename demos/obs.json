@@ -24,8 +24,36 @@
    "s": 1
   },
   {
+   "do": "click_text",
+   "text": "Захват экрана"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
    "do": "uia_dump",
-   "name": "uia_plus"
+   "name": "uia_create"
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_props"
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 2
   }
  ]
 }

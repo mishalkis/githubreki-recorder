@@ -17,13 +17,24 @@
    "s": 6
   },
   {
-   "do": "uia_dump",
-   "name": "uia_start"
+   "do": "click",
+   "x": 1235,
+   "y": 683
   },
   {
    "do": "wait",
    "s": 1
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_w2"
   }
  ],
- "winget_args": "UI_LANGS=en_US,ru"
+ "winget_args": "UI_LANGS=en_US,ru",
+ "post": [
+  "Select-String -Path \"$env:APPDATA\\LibreOffice\\4\\user\\registrymodifications.xcu\" -Pattern 'ooLocale|FirstRun|TipOfTheDay' | Select-Object -First 8 | ForEach-Object { $_.Line.Substring(0,[Math]::Min(180,$_.Line.Length)) }",
+  "Get-ChildItem 'C:\\Program Files\\LibreOffice\\program' -Filter 'resource*' | Select-Object -ExpandProperty Name",
+  "(Get-ChildItem 'C:\\Program Files\\LibreOffice\\program\\resource' -ErrorAction SilentlyContinue | Select-Object -First 30 -ExpandProperty Name) -join ' '",
+  "(Get-ChildItem 'C:\\Program Files\\LibreOffice\\share\\config' -ErrorAction SilentlyContinue | Select-Object -First 20 -ExpandProperty Name) -join ' '"
+ ]
 }

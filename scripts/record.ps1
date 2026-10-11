@@ -64,4 +64,5 @@ if (-not (Get-Command ffmpeg -ErrorAction SilentlyContinue)) { choco install ffm
 python -m pip install -q pywinauto pillow 2>&1 | Out-Null
 
 python scripts/run_demo.py "demos/$Demo.json" 2>&1 | Tee-Object -Append $log
+foreach ($c in $cfg.post) { Log "post: $c"; try { Invoke-Expression $c 2>&1 | Out-String | Tee-Object -Append $log } catch { Log "post failed: $_" } }
 Log "total seconds: $([int]((Get-Date) - $t0).TotalSeconds)"

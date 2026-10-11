@@ -4,8 +4,7 @@
  "title": "PowerToys|Параметры",
  "settle": 6,
  "pre": [
-  "New-Item -ItemType Directory -Force \"$env:LOCALAPPDATA\\Microsoft\\PowerToys\" | Out-Null",
-  "Set-Content -Encoding ascii \"$env:LOCALAPPDATA\\Microsoft\\PowerToys\\settings.json\" '{\"name\":\"\",\"version\":\"1.0\",\"properties\":{\"language\":\"ru\"}}'"
+  "Set-WinUserLanguageList -LanguageList ru-RU -Force"
  ],
  "inputs": [],
  "steps": [
@@ -22,11 +21,18 @@
    "s": 2
   },
   {
+   "do": "click",
+   "x": 1483,
+   "y": 864
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
    "do": "uia_dump",
-   "name": "uia_general"
+   "name": "uia_lang"
   }
  ],
- "dump": [
-  "%LOCALAPPDATA%\\Microsoft\\PowerToys\\settings.json"
- ]
+ "dump": []
 }

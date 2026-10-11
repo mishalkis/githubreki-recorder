@@ -17,8 +17,9 @@
    "s": 8
   },
   {
-   "do": "hotkey",
-   "keys": "esc"
+   "do": "click",
+   "x": 713,
+   "y": 15
   },
   {
    "do": "wait",
@@ -38,7 +39,7 @@
   },
   {
    "do": "type",
-   "text": "C:\\demo\\landscape.jpg"
+   "text": "C:/demo/landscape.jpg"
   },
   {
    "do": "hotkey",

@@ -3,7 +3,9 @@
  "launch": "NanaZip",
  "title": "NanaZip",
  "settle": 4,
- "pre": [],
+ "pre": [
+  "Set-WinUserLanguageList -LanguageList ru-RU -Force"
+ ],
  "inputs": [
   "pack"
  ],
@@ -13,16 +15,42 @@
    "s": 3
   },
   {
-   "do": "click_text",
-   "text": "Options..."
+   "do": "click",
+   "x": 500,
+   "y": 86
+  },
+  {
+   "do": "type",
+   "text": "C:\\demo\\pack"
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
   },
   {
    "do": "wait",
    "s": 2
   },
   {
+   "do": "hotkey",
+   "keys": "ctrl+a"
+  },
+  {
+   "do": "wait",
+   "s": 0.5
+  },
+  {
+   "do": "click",
+   "x": 28,
+   "y": 47
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
    "do": "uia_dump",
-   "name": "uia_options"
+   "name": "uia_add"
   }
  ]
 }

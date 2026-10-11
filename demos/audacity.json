@@ -16,9 +16,43 @@
    "s": 4
   },
   {
+   "do": "hotkey",
+   "keys": "ctrl+o"
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "type",
+   "text": "C:\\demo\\voice_noisy.wav"
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 4
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+p"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
    "do": "uia_dump",
-   "name": "uia_start"
+   "name": "uia_prefs"
   }
  ],
- "winget_version": "3.7.7"
+ "winget_version": "3.7.7",
+ "post": [
+  "Get-ChildItem 'C:\\Program Files\\Audacity' | Select-Object -ExpandProperty Name",
+  "Get-ChildItem 'C:\\Program Files\\Audacity\\Languages' | Select-Object -First 5 -ExpandProperty Name",
+  "Get-Content \"$env:APPDATA\\audacity\\audacity.cfg\" | Select-String -Pattern 'Lang|Locale'",
+  "Get-ChildItem \"$env:APPDATA\\audacity\" | Select-Object -ExpandProperty Name"
+ ]
 }

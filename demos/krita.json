@@ -34,6 +34,28 @@
    "s": 2
   },
   {
+   "do": "drag",
+   "path": [
+    [
+     1655,
+     543
+    ],
+    [
+     1400,
+     543
+    ],
+    [
+     1250,
+     543
+    ]
+   ],
+   "ms": 600
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
    "do": "click_text",
    "text": "Параметры инст"
   },
@@ -42,21 +64,8 @@
    "s": 1
   },
   {
-   "do": "click",
-   "x": 1905,
-   "y": 141
-  },
-  {
-   "do": "wait",
-   "s": 1
-  },
-  {
    "do": "uia_dump",
-   "name": "uia_combo"
-  },
-  {
-   "do": "hotkey",
-   "keys": "esc"
+   "name": "uia_wide"
   },
   {
    "do": "click_text",
@@ -72,11 +81,19 @@
   },
   {
    "do": "wait",
-   "s": 1
+   "s": 0.5
+  },
+  {
+   "do": "click_text",
+   "text": "Animation"
+  },
+  {
+   "do": "wait",
+   "s": 4
   },
   {
    "do": "uia_dump",
-   "name": "uia_ws"
+   "name": "uia_anim"
   }
  ]
 }
