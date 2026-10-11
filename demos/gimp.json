@@ -30,12 +30,55 @@
    "s": 1
   },
   {
+   "do": "click",
+   "x": 439,
+   "y": 286
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "mark",
+   "name": "curves_dialog"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
    "do": "hotkey",
    "keys": "esc"
   },
   {
    "do": "wait",
-   "s": 0.5
+   "s": 1
+  },
+  {
+   "do": "click",
+   "x": 407,
+   "y": 36
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "click",
+   "x": 465,
+   "y": 61
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "mark",
+   "name": "balance_dialog"
+  },
+  {
+   "do": "wait",
+   "s": 1
   }
  ],
  "args": "C:\\demo\\landscape.jpg",

@@ -16,23 +16,36 @@
   },
   {
    "do": "scroll",
-   "clicks": -6,
+   "clicks": -3,
    "x": 1400,
    "y": 600
   },
   {
    "do": "wait",
-   "s": 1.5
+   "s": 1.2
   },
   {
    "do": "scroll",
-   "clicks": 6,
+   "clicks": 3,
    "x": 1400,
    "y": 600
   },
   {
    "do": "wait",
    "s": 1
+  },
+  {
+   "do": "click",
+   "x": 1548,
+   "y": 711
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "mark",
+   "name": "run_enabled"
   },
   {
    "do": "hotkey",
@@ -77,6 +90,37 @@
   {
    "do": "mark",
    "name": "fancyzones_editor"
+  },
+  {
+   "do": "click",
+   "x": 838,
+   "y": 400
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "mark",
+   "name": "zones_columns"
+  },
+  {
+   "do": "click",
+   "x": 1294,
+   "y": 400
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "mark",
+   "name": "zones_grid"
+  },
+  {
+   "do": "click",
+   "x": 1637,
+   "y": 123
   },
   {
    "do": "wait",

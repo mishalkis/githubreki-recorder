@@ -197,6 +197,7 @@ def run_step(h, s, marks):
         time.sleep(0.3)
     elif d == 'move': move(*rel(h, s['x'], s['y']), s.get('ms', 500))
     elif d == 'uia_dump': uia_dump(h, s.get('name', 'uia'), s.get('depth_all', True))
+    elif d == 'keys': keyboard.send_keys(s['keys'], with_spaces=True, pause=0.05)  # сырой синтаксис pywinauto: {TAB}, {ENTER}, ^a
     elif d == 'winlist':
         for hw in windows():
             r = rect(hw)
