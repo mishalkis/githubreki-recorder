@@ -1,4 +1,5 @@
 name: record
+run-name: record ${{ inputs.demo }}
 on:
   workflow_dispatch:
     inputs:
@@ -8,7 +9,7 @@ permissions:
 jobs:
   record:
     runs-on: windows-latest
-    timeout-minutes: 8
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - name: record

@@ -95,8 +95,28 @@ def click(x, y):
     move(x, y); time.sleep(0.15); btn(1); time.sleep(0.08); btn(0); time.sleep(0.3)
 
 
+VK = {'win': 0x5B, 'ctrl': 0x11, 'alt': 0x12, 'shift': 0x10, '`': 0xC0, 'space': 0x20, 'enter': 0x0D, 'tab': 0x09,
+      'esc': 0x1B, 'left': 0x25, 'up': 0x26, 'right': 0x27, 'down': 0x28, 'delete': 0x2E, 'home': 0x24, 'end': 0x23,
+      'pgup': 0x21, 'pgdn': 0x22, 'backspace': 0x08}
+for _i in range(1, 13): VK[f'f{_i}'] = 0x6F + _i
+
+
+def vk_of(k):
+    if k in VK: return VK[k]
+    return ord(k.upper()) if len(k) == 1 else None
+
+
+def send_vk(mods, key):
+    seq = [VK[m] for m in mods] + [vk_of(key)]
+    for v in seq: U.keybd_event(v, 0, 0, 0); time.sleep(0.05)
+    time.sleep(0.1)
+    for v in reversed(seq): U.keybd_event(v, 0, 2, 0); time.sleep(0.05)
+
+
 def send_keys(spec):
     *mods, key = spec.lower().split('+')
+    if 'win' in mods or key in ('`', 'space'):
+        return send_vk(mods, key)
     pre = ''.join({'ctrl': '^', 'alt': '%', 'shift': '+'}[m] for m in mods)
     k = key if len(key) == 1 else '{' + key.upper() + '}'
     keyboard.send_keys(pre + k, pause=0.05)
@@ -134,6 +154,23 @@ def click_text(h, text):
     log(f'click_text "{text}" -> {x},{y}'); click(x, y)
 
 
+def uia_dump(h, name, _=True):  # отладка: имена и рамки элементов UIA активного окна и главного окна
+    lines = []
+    for hw in dict.fromkeys([U.GetForegroundWindow(), h]):
+        if not hw: continue
+        lines.append(f'== window {title(hw)!r} {rect(hw)}')
+        try:
+            for c in Desktop(backend='uia').window(handle=hw).descendants():
+                try:
+                    n = c.window_text().strip(); r = c.rectangle()
+                    if n and r.width() > 0: lines.append(f'{c.element_info.control_type}\t{n[:60]}\t{r.left},{r.top},{r.right},{r.bottom}')
+                except Exception: pass
+        except Exception as e:
+            lines.append(f'err {e!r}')
+    open(f'{OUT}/{name}.txt', 'w', encoding='utf-8').write('\n'.join(lines))
+    log(f'uia_dump {name}: {len(lines)} строк')
+
+
 def run_step(h, s, marks):
     d = s['do']
     if d == 'wait': time.sleep(s['s'])
@@ -151,6 +188,15 @@ def run_step(h, s, marks):
         move(*rel(h, s.get('x', 960), s.get('y', 500)), 300)
         for _ in range(abs(s['clicks'])):
             U.mouse_event(0x800, 0, 0, -120 if s['clicks'] < 0 else 120, 0); time.sleep(0.08)
+    elif d == 'rclick':
+        x, y = rel(h, s['x'], s['y']); move(x, y); time.sleep(0.15)
+        U.mouse_event(8, 0, 0, 0, 0); time.sleep(0.08); U.mouse_event(16, 0, 0, 0, 0); time.sleep(0.3)
+    elif d == 'dblclick':
+        x, y = rel(h, s['x'], s['y']); move(x, y); time.sleep(0.15)
+        for _ in range(2): btn(1); time.sleep(0.05); btn(0); time.sleep(0.08)
+        time.sleep(0.3)
+    elif d == 'move': move(*rel(h, s['x'], s['y']), s.get('ms', 500))
+    elif d == 'uia_dump': uia_dump(h, s.get('name', 'uia'), s.get('depth_all', True))
     elif d == 'mark': marks.append({'name': s['name'], 't': now()})
     else: log(f'неизвестный шаг {d}')
 
