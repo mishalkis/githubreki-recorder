@@ -15,14 +15,16 @@
  ],
  "steps": [
   {
-   "do": "wait",
-   "s": 3
+   "do": "winlist"
   },
   {
-   "do": "uia_dump",
-   "name": "uia_w"
+   "do": "wait",
+   "s": 1
   }
  ],
  "winget_args": "UI_LANGS=en_US,ru",
- "post": []
+ "post": [
+  "Get-ChildItem \"$env:APPDATA\\LibreOffice\\4\\user\" | Select-Object -ExpandProperty Name",
+  "Select-String -Path \"$env:APPDATA\\LibreOffice\\4\\user\\registrymodifications.xcu\" -Pattern 'ooLocale|FirstRun' | ForEach-Object { $_.Line.Substring(0,[Math]::Min(160,$_.Line.Length)) }"
+ ]
 }

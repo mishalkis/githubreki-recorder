@@ -22,7 +22,7 @@
   },
   {
    "do": "click",
-   "x": 260,
+   "x": 407,
    "y": 36
   },
   {
@@ -30,12 +30,12 @@
    "s": 1
   },
   {
-   "do": "uia_dump",
-   "name": "uia_menu"
+   "do": "hotkey",
+   "keys": "esc"
   },
   {
    "do": "wait",
-   "s": 1
+   "s": 0.5
   }
  ],
  "args": "C:\\demo\\landscape.jpg",
@@ -54,7 +54,5 @@
    "s": 1
   }
  ],
- "post": [
-  "Get-ChildItem 'C:\\Program Files\\GIMP 3\\bin' -Filter 'gimp*.exe' | Select-Object -ExpandProperty Name"
- ]
+ "post": []
 }

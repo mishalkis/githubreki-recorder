@@ -57,7 +57,7 @@ Log "winget exit $LASTEXITCODE; install seconds: $([int]((Get-Date) - $ti).Total
 
 # входные файлы и подготовка
 foreach ($f in $cfg.inputs) { New-Item -ItemType Directory -Force C:\demo | Out-Null; Copy-Item "demos/inputs/$f" C:\demo\ -Recurse -Force; Log "input $f" }
-foreach ($c in $cfg.pre) { Log "pre: $c"; try { Invoke-Expression $c } catch { Log "pre failed: $_" } }
+foreach ($c in $cfg.pre) { Log "pre: $c"; try { Invoke-Expression $c 2>&1 | Out-String | Tee-Object -Append $log } catch { Log "pre failed: $_" } }
 
 # ffmpeg и python
 if (-not (Get-Command ffmpeg -ErrorAction SilentlyContinue)) { choco install ffmpeg -y --no-progress | Out-Null }

@@ -8,16 +8,79 @@
  "steps": [
   {
    "do": "wait",
-   "s": 3
+   "s": 1
   },
   {
-   "do": "click",
-   "x": 100,
-   "y": 73
+   "do": "mark",
+   "name": "settings"
+  },
+  {
+   "do": "scroll",
+   "clicks": -6,
+   "x": 1400,
+   "y": 600
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "scroll",
+   "clicks": 6,
+   "x": 1400,
+   "y": 600
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "hotkey",
+   "keys": "alt+space"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "mark",
+   "name": "run_open"
+  },
+  {
+   "do": "type",
+   "text": "15*7"
   },
   {
    "do": "wait",
    "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "run_result"
+  },
+  {
+   "do": "hotkey",
+   "keys": "esc"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "hotkey",
+   "keys": "win+shift+`"
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "mark",
+   "name": "fancyzones_editor"
+  },
+  {
+   "do": "wait",
+   "s": 1
   }
  ],
  "dump": [],
@@ -60,8 +123,27 @@
    "s": 2
   },
   {
-   "do": "uia_dump",
-   "name": "uia_afterlang"
+   "do": "click",
+   "x": 1016,
+   "y": 925
+  },
+  {
+   "do": "wait",
+   "s": 12
+  },
+  {
+   "do": "winlist"
+  },
+  {
+   "do": "launch",
+   "target": "PowerToys"
+  },
+  {
+   "do": "wait",
+   "s": 8
+  },
+  {
+   "do": "winlist"
   }
  ]
 }

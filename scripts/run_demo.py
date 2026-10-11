@@ -197,6 +197,12 @@ def run_step(h, s, marks):
         time.sleep(0.3)
     elif d == 'move': move(*rel(h, s['x'], s['y']), s.get('ms', 500))
     elif d == 'uia_dump': uia_dump(h, s.get('name', 'uia'), s.get('depth_all', True))
+    elif d == 'winlist':
+        for hw in windows():
+            r = rect(hw)
+            if title(hw) or (r[2] - r[0]) > 200: log(f'win {title(hw)!r} {r} iconic={bool(U.IsIconic(hw))}')
+    elif d == 'launch':
+        t = resolve(s['target']); log(f'launch {t}'); os.startfile(t)
     elif d == 'mark': marks.append({'name': s['name'], 't': now()})
     else: log(f'неизвестный шаг {d}')
 
@@ -211,11 +217,16 @@ hide_others(0)
 baseline = set(windows())
 
 # запуск
-launch = os.path.expandvars(demo['launch'])
-if not re.search(r'[\\/]|\.exe$', launch):
-    lnks = glob.glob(os.path.expandvars(r'%ProgramData%\Microsoft\Windows\Start Menu\**\*.lnk'), recursive=True) + \
-           glob.glob(os.path.expandvars(r'%APPDATA%\Microsoft\Windows\Start Menu\**\*.lnk'), recursive=True)
-    launch = next((l for l in lnks if launch.lower() in os.path.basename(l).lower()), launch)
+def resolve(name):
+    name = os.path.expandvars(name)
+    if not re.search(r'[\\/]|\.exe$', name):
+        lnks = glob.glob(os.path.expandvars(r'%ProgramData%\Microsoft\Windows\Start Menu\**\*.lnk'), recursive=True) + \
+               glob.glob(os.path.expandvars(r'%APPDATA%\Microsoft\Windows\Start Menu\**\*.lnk'), recursive=True)
+        name = next((l for l in lnks if name.lower() in os.path.basename(l).lower()), name)
+    return name
+
+
+launch = resolve(demo['launch'])
 if demo.get('args') and launch.lower().endswith('.lnk'):  # ярлык -> exe, чтобы передать аргументы (например файл)
     tgt = subprocess.run(['powershell', '-NoProfile', '-c', f"(New-Object -ComObject WScript.Shell).CreateShortcut('{launch}').TargetPath"],
                          capture_output=True, text=True).stdout.strip()

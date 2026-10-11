@@ -15,13 +15,17 @@
    "s": 3
   },
   {
+   "do": "mark",
+   "name": "start"
+  },
+  {
    "do": "click",
    "x": 500,
    "y": 86
   },
   {
    "do": "type",
-   "text": "C:\\demo"
+   "text": "C:\\demo\\pack"
   },
   {
    "do": "hotkey",
@@ -42,7 +46,11 @@
   },
   {
    "do": "wait",
-   "s": 0.5
+   "s": 1
+  },
+  {
+   "do": "mark",
+   "name": "selected"
   },
   {
    "do": "click",
@@ -51,11 +59,37 @@
   },
   {
    "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "add_dialog"
+  },
+  {
+   "do": "click",
+   "x": 1103,
+   "y": 774
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "mark",
+   "name": "archive_done"
+  },
+  {
+   "do": "dblclick",
+   "x": 50,
+   "y": 143
+  },
+  {
+   "do": "wait",
    "s": 2.5
   },
   {
-   "do": "uia_dump",
-   "name": "uia_add"
+   "do": "mark",
+   "name": "archive_opened"
   }
  ]
 }
