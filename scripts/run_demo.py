@@ -216,8 +216,14 @@ if not re.search(r'[\\/]|\.exe$', launch):
     lnks = glob.glob(os.path.expandvars(r'%ProgramData%\Microsoft\Windows\Start Menu\**\*.lnk'), recursive=True) + \
            glob.glob(os.path.expandvars(r'%APPDATA%\Microsoft\Windows\Start Menu\**\*.lnk'), recursive=True)
     launch = next((l for l in lnks if launch.lower() in os.path.basename(l).lower()), launch)
-log(f'запуск {launch}')
-os.startfile(launch)
+if demo.get('args') and launch.lower().endswith('.lnk'):  # ярлык -> exe, чтобы передать аргументы (например файл)
+    tgt = subprocess.run(['powershell', '-NoProfile', '-c', f"(New-Object -ComObject WScript.Shell).CreateShortcut('{launch}').TargetPath"],
+                         capture_output=True, text=True).stdout.strip()
+    log(f'ярлык -> {tgt}')
+    launch = tgt or launch
+log(f'запуск {launch} {demo.get("args", "")}')
+if demo.get('args'): os.startfile(launch, arguments=os.path.expandvars(demo['args']))
+else: os.startfile(launch)
 
 h = None; deadline = time.time() + 240
 while time.time() < deadline:
@@ -233,6 +239,19 @@ if h:
     U.SetWindowPos(h, 0, 0, 0, 1920, 1080, 4)  # на весь экран, поверх скрытой панели задач
     log(f'окно после SetWindowPos {rect(h)} zoomed={U.IsZoomed(h)}')
 time.sleep(demo.get('settle', 3))
+if demo.get('setup'):  # подготовка до записи: закрыть приветствия, сменить язык и т.п.
+    for i, st in enumerate(demo['setup'], 1):
+        try: run_step(h, st, [])
+        except Exception as e: log(f'setup {i} {st} упал: {e!r}')
+        log(f'setup {i} {st["do"]}')
+    ImageGrab.grab(all_screens=True).save(f'{OUT}/setup_end.png')
+    if demo.get('refind', True):  # окно могло пересоздаться (перезапуск программы)
+        time.sleep(1)
+        h2 = find_main(set(), demo.get('title'))
+        if h2:
+            h = h2; hide_others(h); U.ShowWindowAsync(h, 3); U.SetForegroundWindow(h); time.sleep(1)
+            U.SetWindowPos(h, 0, 0, 0, 1920, 1080, 4); time.sleep(1)
+            log(f'окно после setup: {title(h)} {rect(h)}')
 
 ff = subprocess.Popen(['ffmpeg', '-y', '-f', 'gdigrab', '-framerate', '30', '-draw_mouse', '1', '-i', 'desktop',
                        '-c:v', 'libx264', '-preset', 'ultrafast', '-pix_fmt', 'yuv420p', f'{OUT}/demo.mp4'],

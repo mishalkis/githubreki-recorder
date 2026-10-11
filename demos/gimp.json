@@ -14,7 +14,35 @@
  "steps": [
   {
    "do": "wait",
-   "s": 8
+   "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "opened"
+  },
+  {
+   "do": "click",
+   "x": 260,
+   "y": 36
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_menu"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  }
+ ],
+ "args": "C:\\demo\\landscape.jpg",
+ "setup": [
+  {
+   "do": "wait",
+   "s": 3
   },
   {
    "do": "click",
@@ -24,38 +52,9 @@
   {
    "do": "wait",
    "s": 1
-  },
-  {
-   "do": "hotkey",
-   "keys": "ctrl+o"
-  },
-  {
-   "do": "wait",
-   "s": 3
-  },
-  {
-   "do": "hotkey",
-   "keys": "ctrl+l"
-  },
-  {
-   "do": "type",
-   "text": "C:/demo/landscape.jpg"
-  },
-  {
-   "do": "hotkey",
-   "keys": "enter"
-  },
-  {
-   "do": "wait",
-   "s": 5
-  },
-  {
-   "do": "mark",
-   "name": "opened"
-  },
-  {
-   "do": "wait",
-   "s": 1
   }
+ ],
+ "post": [
+  "Get-ChildItem 'C:\\Program Files\\GIMP 3\\bin' -Filter 'gimp*.exe' | Select-Object -ExpandProperty Name"
  ]
 }

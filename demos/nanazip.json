@@ -21,7 +21,7 @@
   },
   {
    "do": "type",
-   "text": "C:\\demo\\pack"
+   "text": "C:\\demo"
   },
   {
    "do": "hotkey",
@@ -30,6 +30,11 @@
   {
    "do": "wait",
    "s": 2
+  },
+  {
+   "do": "click",
+   "x": 50,
+   "y": 143
   },
   {
    "do": "hotkey",

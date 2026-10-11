@@ -12,7 +12,7 @@
  "steps": [
   {
    "do": "wait",
-   "s": 4
+   "s": 3
   },
   {
    "do": "click",
@@ -32,8 +32,29 @@
    "s": 1.5
   },
   {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "click",
+   "x": 990,
+   "y": 569
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
    "do": "uia_dump",
-   "name": "uia_create"
+   "name": "uia_screen"
+  },
+  {
+   "do": "hotkey",
+   "keys": "down"
   },
   {
    "do": "hotkey",
@@ -45,15 +66,40 @@
   },
   {
    "do": "uia_dump",
-   "name": "uia_props"
+   "name": "uia_after"
   },
   {
    "do": "hotkey",
    "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "click",
+   "x": 1702,
+   "y": 866
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_rec"
+  },
+  {
+   "do": "click",
+   "x": 1702,
+   "y": 866
   },
   {
    "do": "wait",
    "s": 2
   }
+ ],
+ "post": [
+  "Get-ChildItem \"$env:APPDATA\\obs-studio\\logs\" | Sort-Object LastWriteTime | Select-Object -Last 1 | ForEach-Object { Get-Content $_.FullName | Select-String -Pattern 'rror|ail|adapter|d3d|encoder|Adapter|Device' | Select-Object -First 25 | ForEach-Object { $_.Line } }"
  ]
 }

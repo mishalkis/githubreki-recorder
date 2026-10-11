@@ -5,7 +5,8 @@
  "settle": 6,
  "pre": [
   "New-Item -ItemType Directory -Force \"$env:APPDATA\\audacity\" | Out-Null",
-  "Set-Content -Encoding ascii \"$env:APPDATA\\audacity\\audacity.cfg\" \"[Locale]`nLanguage=ru\""
+  "Set-Content -Encoding ascii \"$env:APPDATA\\audacity\\audacity.cfg\" \"[Locale]`nLanguage=ru\"",
+  "Set-WinUserLanguageList -LanguageList ru-RU -Force"
  ],
  "inputs": [
   "voice_noisy.wav"
@@ -13,27 +14,16 @@
  "steps": [
   {
    "do": "wait",
-   "s": 4
-  },
-  {
-   "do": "hotkey",
-   "keys": "ctrl+o"
-  },
-  {
-   "do": "wait",
    "s": 3
   },
   {
-   "do": "type",
-   "text": "C:\\demo\\voice_noisy.wav"
-  },
-  {
-   "do": "hotkey",
-   "keys": "enter"
+   "do": "click",
+   "x": 960,
+   "y": 600
   },
   {
    "do": "wait",
-   "s": 4
+   "s": 1
   },
   {
    "do": "hotkey",
@@ -50,9 +40,8 @@
  ],
  "winget_version": "3.7.7",
  "post": [
-  "Get-ChildItem 'C:\\Program Files\\Audacity' | Select-Object -ExpandProperty Name",
-  "Get-ChildItem 'C:\\Program Files\\Audacity\\Languages' | Select-Object -First 5 -ExpandProperty Name",
   "Get-Content \"$env:APPDATA\\audacity\\audacity.cfg\" | Select-String -Pattern 'Lang|Locale'",
   "Get-ChildItem \"$env:APPDATA\\audacity\" | Select-Object -ExpandProperty Name"
- ]
+ ],
+ "args": "C:\\demo\\voice_noisy.wav"
 }
