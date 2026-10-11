@@ -60,7 +60,10 @@ foreach ($f in $cfg.inputs) { New-Item -ItemType Directory -Force C:\demo | Out-
 foreach ($c in $cfg.pre) { Log "pre: $c"; try { Invoke-Expression $c 2>&1 | Out-String | Tee-Object -Append $log } catch { Log "pre failed: $_" } }
 
 # ffmpeg и python
-if (-not (Get-Command ffmpeg -ErrorAction SilentlyContinue)) { choco install ffmpeg -y --no-progress | Out-Null }
+for ($i = 1; $i -le 3 -and -not (Get-Command ffmpeg -ErrorAction SilentlyContinue); $i++) {
+  Log "ffmpeg install try $i"; choco install ffmpeg -y --no-progress 2>&1 | Select-Object -Last 3 | Tee-Object -Append $log
+  $env:PATH = [Environment]::GetEnvironmentVariable('PATH','Machine') + ';' + [Environment]::GetEnvironmentVariable('PATH','User') + ';C:\ProgramData\chocolatey\bin'
+}
 python -m pip install -q pywinauto pillow 2>&1 | Out-Null
 
 python scripts/run_demo.py "demos/$Demo.json" 2>&1 | Tee-Object -Append $log
