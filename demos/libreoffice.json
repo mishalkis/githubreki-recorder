@@ -24,5 +24,6 @@
    "do": "wait",
    "s": 1
   }
- ]
+ ],
+ "winget_args": "UI_LANGS=en_US,ru"
 }

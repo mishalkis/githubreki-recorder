@@ -263,7 +263,11 @@ for pat in demo.get('dump', []):  # отладка: вывести в лог ф�
     for f in glob.glob(os.path.expandvars(pat), recursive=True):
         if f.endswith('.json') and os.path.getsize(f) < 20000:  # только короткие значения: в файлах бывают ключи
             d = json.load(open(f, encoding='utf-8'))
-            log(f'dump {f}: ' + json.dumps({k: v for k, v in d.items() if len(str(v)) < 30}, ensure_ascii=False))
+            def flat(x, pre=''):  # только короткие скаляры, вложенные ключи через точку
+                for k, v in x.items():
+                    if isinstance(v, dict): yield from flat(v, pre + k + '.')
+                    elif not isinstance(v, (list, dict)) and len(str(v)) < 30: yield pre + k, v
+            log(f'dump {f}: ' + json.dumps(dict(flat(d)), ensure_ascii=False))
         else:
             log(f'dump {f}')
 ff.stdin.write(b'q'); ff.stdin.flush()

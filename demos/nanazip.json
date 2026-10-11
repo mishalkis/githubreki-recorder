@@ -10,15 +10,19 @@
  "steps": [
   {
    "do": "wait",
-   "s": 4
+   "s": 3
   },
   {
-   "do": "uia_dump",
-   "name": "uia_start"
+   "do": "click_text",
+   "text": "Options..."
   },
   {
    "do": "wait",
-   "s": 1
+   "s": 2
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_options"
   }
  ]
 }

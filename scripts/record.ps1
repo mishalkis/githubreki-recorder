@@ -47,7 +47,12 @@ if ($dm.w -lt 1920) {
 
 # установка
 $ti = Get-Date
-winget install --id $WingetId --silent --accept-package-agreements --accept-source-agreements 2>&1 | Tee-Object -Append $log
+winget show --id $WingetId --versions --accept-source-agreements 2>&1 | Select-Object -First 12 | Tee-Object -Append $log
+$wa = @('install','--id',$WingetId,'--silent','--accept-package-agreements','--accept-source-agreements')
+if ($cfg.winget_version) { $wa += @('--version',$cfg.winget_version) }
+if ($cfg.winget_args) { $wa += @('--custom',$cfg.winget_args) }
+Log "winget $($wa -join ' ')"
+winget @wa 2>&1 | Tee-Object -Append $log
 Log "winget exit $LASTEXITCODE; install seconds: $([int]((Get-Date) - $ti).TotalSeconds)"
 
 # входные файлы и подготовка

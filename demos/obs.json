@@ -12,15 +12,20 @@
  "steps": [
   {
    "do": "wait",
-   "s": 5
+   "s": 4
   },
   {
-   "do": "uia_dump",
-   "name": "uia_start"
+   "do": "click",
+   "x": 15,
+   "y": 982
   },
   {
    "do": "wait",
    "s": 1
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_plus"
   }
  ]
 }

@@ -11,15 +11,22 @@
  "steps": [
   {
    "do": "wait",
-   "s": 5
+   "s": 4
   },
   {
-   "do": "uia_dump",
-   "name": "uia_start"
+   "do": "click_text",
+   "text": "General"
   },
   {
    "do": "wait",
-   "s": 1
+   "s": 2
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_general"
   }
+ ],
+ "dump": [
+  "%LOCALAPPDATA%\\Microsoft\\PowerToys\\settings.json"
  ]
 }

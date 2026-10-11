@@ -18,34 +18,7 @@
   {
    "do": "uia_dump",
    "name": "uia_start"
-  },
-  {
-   "do": "hotkey",
-   "keys": "ctrl+o"
-  },
-  {
-   "do": "wait",
-   "s": 3
-  },
-  {
-   "do": "uia_dump",
-   "name": "uia_open"
-  },
-  {
-   "do": "type",
-   "text": "C:\\demo\\voice_noisy.wav"
-  },
-  {
-   "do": "hotkey",
-   "keys": "enter"
-  },
-  {
-   "do": "wait",
-   "s": 4
-  },
-  {
-   "do": "uia_dump",
-   "name": "uia_opened"
   }
- ]
+ ],
+ "winget_version": "3.7.7"
 }
