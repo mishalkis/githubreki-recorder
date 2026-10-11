@@ -41,7 +41,7 @@
   },
   {
    "do": "wait",
-   "s": 1.5
+   "s": 4
   },
   {
    "do": "mark",
@@ -53,7 +53,7 @@
   },
   {
    "do": "wait",
-   "s": 1.5
+   "s": 2
   },
   {
    "do": "mark",
@@ -70,6 +70,26 @@
   {
    "do": "mark",
    "name": "run_result"
+  },
+  {
+   "do": "hotkey",
+   "keys": "esc"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "hotkey",
+   "keys": "win+alt+space"
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "mark",
+   "name": "cmdpal_open"
   },
   {
    "do": "hotkey",

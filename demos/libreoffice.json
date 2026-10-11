@@ -5,10 +5,11 @@
  "settle": 8,
  "pre": [
   "New-Item -ItemType Directory -Force \"$env:APPDATA\\LibreOffice\\4\\user\" | Out-Null",
-  "Set-WinUserLanguageList -LanguageList ru-RU -Force",
+  "$v=((Get-Item 'C:\\Program Files\\LibreOffice\\program\\soffice.exe').VersionInfo.ProductVersion -split '\\.')[0..2] -join '.'; Log \"LO version $v\"; foreach($base in \"https://download.documentfoundation.org/libreoffice/stable/$v\",\"https://downloadarchive.documentfoundation.org/libreoffice/old/$v.0\"){ try { $u=\"$base/win/x86_64/LibreOffice_${v}_Win_x86-64_langpack_ru.msi\"; Invoke-WebRequest -Uri $u -OutFile C:\\demo\\lp.msi -UseBasicParsing -ErrorAction Stop; Log \"langpack from $u\"; break } catch { Log \"langpack fail $u\" } }; if (Test-Path C:\\demo\\lp.msi) { Start-Process msiexec -ArgumentList '/i','C:\\demo\\lp.msi','/qn' -Wait; Log 'langpack installed' }",
   "Start-Process 'C:\\Program Files\\LibreOffice\\program\\soffice.exe' -ArgumentList '--headless','--terminate_after_init' -Wait; Start-Sleep 3",
-  "$f=\"$env:APPDATA\\LibreOffice\\4\\user\\registrymodifications.xcu\"; $x=Get-Content $f -Raw -Encoding UTF8; $x=[regex]::Replace($x,'(oor:name=\"ooLocale\"[^>]*><value>)[^<]*','${1}ru'); $x=[regex]::Replace($x,'(oor:name=\"FirstRun\"[^>]*><value>)[^<]*','${1}false'); Set-Content $f $x -Encoding UTF8",
-  "Select-String -Path \"$env:APPDATA\\LibreOffice\\4\\user\\registrymodifications.xcu\" -Pattern 'ooLocale|FirstRun' | ForEach-Object { $_.Line.Substring(0,[Math]::Min(160,$_.Line.Length)) }"
+  "$f=\"$env:APPDATA\\LibreOffice\\4\\user\\registrymodifications.xcu\"; $x=Get-Content $f -Raw -Encoding UTF8; $x=[regex]::Replace($x,'(oor:name=\"ooLocale\"[^>]*><value>)[^<]*','${1}ru'); $x=[regex]::Replace($x,'(oor:name=\"FirstRun\"[^>]*><value>)[^<]*','${1}false'); $x=$x -replace '</oor:items>','<item oor:path=\"/org.openoffice.Office.Common/Misc\"><prop oor:name=\"ShowTipOfTheDay\" oor:op=\"fuse\"><value>false</value></prop></item></oor:items>'; Set-Content $f $x -Encoding UTF8",
+  "Get-ChildItem 'C:\\Program Files\\LibreOffice\\share\\registry' | Select-Object -ExpandProperty Name | Out-String",
+  "(Get-ChildItem 'C:\\Program Files\\LibreOffice\\program\\resource\\ru' -Recurse -ErrorAction SilentlyContinue | Measure-Object).Count"
  ],
  "inputs": [
   "report.docx"
@@ -23,74 +24,12 @@
    "name": "writer_ready"
   },
   {
-   "do": "click",
-   "x": 900,
-   "y": 300
-  },
-  {
-   "do": "type",
-   "text": "Квартальный отчёт"
-  },
-  {
-   "do": "hotkey",
-   "keys": "ctrl+1"
-  },
-  {
-   "do": "wait",
-   "s": 0.5
-  },
-  {
-   "do": "hotkey",
-   "keys": "enter"
-  },
-  {
-   "do": "type",
-   "text": "Продажи выросли на 20 процентов."
-  },
-  {
-   "do": "wait",
-   "s": 1
-  },
-  {
-   "do": "mark",
-   "name": "heading_applied"
-  },
-  {
-   "do": "launch",
-   "target": "LibreOffice Calc"
-  },
-  {
-   "do": "wait",
-   "s": 7
-  },
-  {
    "do": "winlist"
-  },
-  {
-   "do": "keys",
-   "keys": "10{TAB}20{TAB}30{TAB}"
-  },
-  {
-   "do": "type",
-   "text": "=СУММ"
-  },
-  {
-   "do": "keys",
-   "keys": "(A1:C1){ENTER}"
-  },
-  {
-   "do": "wait",
-   "s": 1
-  },
-  {
-   "do": "mark",
-   "name": "calc_sum"
   }
  ],
  "winget_args": "UI_LANGS=en_US,ru",
  "post": [
-  "Get-ChildItem \"$env:APPDATA\\LibreOffice\\4\\user\" | Select-Object -ExpandProperty Name",
-  "Select-String -Path \"$env:APPDATA\\LibreOffice\\4\\user\\registrymodifications.xcu\" -Pattern 'ooLocale|FirstRun' | ForEach-Object { $_.Line.Substring(0,[Math]::Min(160,$_.Line.Length)) }"
+  "Select-String -Path \"$env:APPDATA\\LibreOffice\\4\\user\\registrymodifications.xcu\" -Pattern 'ooLocale|FirstRun|Tip' | ForEach-Object { $_.Line.Substring(0,[Math]::Min(160,$_.Line.Length)) }"
  ],
  "setup": [
   {

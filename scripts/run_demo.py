@@ -198,6 +198,10 @@ def run_step(h, s, marks):
     elif d == 'move': move(*rel(h, s['x'], s['y']), s.get('ms', 500))
     elif d == 'uia_dump': uia_dump(h, s.get('name', 'uia'), s.get('depth_all', True))
     elif d == 'keys': keyboard.send_keys(s['keys'], with_spaces=True, pause=0.05)  # сырой синтаксис pywinauto: {TAB}, {ENTER}, ^a
+    elif d == 'restore':  # вернуть свёрнутое окно (например модальный диалог, свёрнутый hide_others)
+        for hw in windows():
+            if re.search(s['title'], title(hw)):
+                U.ShowWindow(hw, 9); U.SetForegroundWindow(hw); log(f'restore {title(hw)!r}'); time.sleep(0.5)
     elif d == 'winlist':
         for hw in windows():
             r = rect(hw)

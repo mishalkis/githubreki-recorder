@@ -47,12 +47,97 @@
    "s": 1
   },
   {
-   "do": "hotkey",
-   "keys": "esc"
+   "do": "drag",
+   "path": [
+    [
+     460,
+     300
+    ],
+    [
+     452,
+     280
+    ],
+    [
+     445,
+     255
+    ]
+   ],
+   "ms": 700
   },
   {
    "do": "wait",
    "s": 1
+  },
+  {
+   "do": "mark",
+   "name": "curves_dragged"
+  },
+  {
+   "do": "drag",
+   "path": [
+    [
+     365,
+     380
+    ],
+    [
+     365,
+     395
+    ]
+   ],
+   "ms": 500
+  },
+  {
+   "do": "drag",
+   "path": [
+    [
+     555,
+     215
+    ],
+    [
+     555,
+     190
+    ]
+   ],
+   "ms": 500
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "click",
+   "x": 253,
+   "y": 581
+  },
+  {
+   "do": "wait",
+   "s": 1.2
+  },
+  {
+   "do": "mark",
+   "name": "curves_before"
+  },
+  {
+   "do": "click",
+   "x": 253,
+   "y": 581
+  },
+  {
+   "do": "wait",
+   "s": 1.2
+  },
+  {
+   "do": "mark",
+   "name": "curves_after"
+  },
+  {
+   "do": "click",
+   "x": 517,
+   "y": 616
+  },
+  {
+   "do": "wait",
+   "s": 2
   },
   {
    "do": "click",
@@ -75,6 +160,22 @@
   {
    "do": "mark",
    "name": "balance_dialog"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+alt+o"
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "mark",
+   "name": "open_layers_dialog"
   },
   {
    "do": "wait",

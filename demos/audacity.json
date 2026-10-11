@@ -12,11 +12,43 @@
  ],
  "steps": [
   {
-   "do": "winlist"
+   "do": "restore",
+   "title": "App updates"
   },
   {
    "do": "wait",
-   "s": 2
+   "s": 1.5
+  },
+  {
+   "do": "winlist"
+  },
+  {
+   "do": "keys",
+   "keys": "{ENTER}"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "winlist"
+  },
+  {
+   "do": "click",
+   "x": 960,
+   "y": 600
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+p"
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_prefs"
   },
   {
    "do": "winlist"
