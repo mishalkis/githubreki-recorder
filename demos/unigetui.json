@@ -1,0 +1,23 @@
+{
+ "winget_id": "MartiCliment.UniGetUI",
+ "launch": "UniGetUI",
+ "title": "UniGetUI",
+ "settle": 8,
+ "pre": [
+  "$d=\"$env:LOCALAPPDATA\\UniGetUI\\Configuration\"; New-Item -ItemType Directory -Force $d | Out-Null; Set-Content -NoNewline -Encoding ascii \"$d\\PreferredLanguage\" 'ru'; Get-ChildItem $d | % Name"
+ ],
+ "inputs": [],
+ "steps": [
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "a"
+  },
+  {
+   "do": "winlist"
+  }
+ ]
+}

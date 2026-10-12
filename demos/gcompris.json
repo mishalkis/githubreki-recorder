@@ -1,0 +1,23 @@
+{
+ "winget_id": "KDE.GCompris",
+ "launch": "GCompris",
+ "title": "GCompris",
+ "settle": 8,
+ "pre": [
+  "New-Item -ItemType Directory -Force \"$env:APPDATA\\GCompris\" | Out-Null; Get-ChildItem -Recurse -Filter *.exe \"$env:ProgramFiles\\GCompris*\" | select -First 3 | % FullName"
+ ],
+ "inputs": [],
+ "steps": [
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "a"
+  },
+  {
+   "do": "winlist"
+  }
+ ]
+}

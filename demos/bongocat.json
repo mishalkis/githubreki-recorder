@@ -1,0 +1,64 @@
+{
+ "winget_id": "ayangweb.BongoCat",
+ "launch": "notepad.exe",
+ "args": "C:\\demo\\note.txt",
+ "title": "note",
+ "settle": 3,
+ "pre": [
+  "New-Item -ItemType Directory -Force C:\\demo | Out-Null; Set-Content -Encoding utf8 C:\\demo\\note.txt 'Заметки'",
+  "Get-ChildItem -Recurse -Filter *.lnk \"$env:ProgramData\\Microsoft\\Windows\\Start Menu\",\"$env:APPDATA\\Microsoft\\Windows\\Start Menu\" | ? Name -match 'ongo' | % FullName"
+ ],
+ "inputs": [],
+ "setup": [
+  {
+   "do": "launch",
+   "target": "BongoCat"
+  },
+  {
+   "do": "wait",
+   "s": 8
+  }
+ ],
+ "steps": [
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "mark",
+   "name": "a"
+  },
+  {
+   "do": "click",
+   "x": 900,
+   "y": 400
+  },
+  {
+   "do": "type",
+   "text": "Привет, кот печатает вместе со мной"
+  },
+  {
+   "do": "wait",
+   "s": 0.3
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "mark",
+   "name": "b"
+  },
+  {
+   "do": "type",
+   "text": "asdf qwer"
+  },
+  {
+   "do": "mark",
+   "name": "c"
+  },
+  {
+   "do": "winlist"
+  }
+ ]
+}

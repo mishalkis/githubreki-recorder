@@ -1,0 +1,39 @@
+{
+ "winget_id": "QL-Win.QuickLook",
+ "launch": "explorer.exe",
+ "args": "/select,C:\\demo\\landscape.jpg",
+ "title": "demo",
+ "settle": 3,
+ "inputs": [
+  "landscape.jpg",
+  "meadow.jpg"
+ ],
+ "pre": [
+  "$p=(Get-ChildItem -Recurse -Filter QuickLook.exe \"$env:LOCALAPPDATA\\Programs\",\"$env:ProgramFiles\",\"${env:ProgramFiles(x86)}\" -ErrorAction SilentlyContinue | select -First 1).FullName; \"QL=$p\"; Start-Process $p; Start-Sleep 6"
+ ],
+ "steps": [
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "mark",
+   "name": "a"
+  },
+  {
+   "do": "hotkey",
+   "keys": "space"
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "mark",
+   "name": "b"
+  },
+  {
+   "do": "winlist"
+  }
+ ]
+}

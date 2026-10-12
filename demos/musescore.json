@@ -1,0 +1,23 @@
+{
+ "winget_id": "Musescore.Musescore",
+ "launch": "MuseScore",
+ "title": "MuseScore",
+ "settle": 10,
+ "pre": [
+  "Get-ChildItem -Recurse -Include *.mscz,*.mscx \"$env:ProgramFiles\" -ErrorAction SilentlyContinue | select -First 20 | % FullName"
+ ],
+ "inputs": [],
+ "steps": [
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "a"
+  },
+  {
+   "do": "winlist"
+  }
+ ]
+}
