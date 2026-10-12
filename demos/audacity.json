@@ -91,16 +91,38 @@
    "s": 2.5
   },
   {
-   "do": "click_text",
-   "text": "Interface"
+   "do": "click",
+   "x": 953,
+   "y": 335
   },
   {
    "do": "wait",
-   "s": 1.5
+   "s": 1
   },
   {
-   "do": "uia_dump",
-   "name": "uia_iface"
+   "do": "keys",
+   "keys": "Рус"
+  },
+  {
+   "do": "wait",
+   "s": 0.5
+  },
+  {
+   "do": "keys",
+   "keys": "{ENTER}"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "click",
+   "x": 1198,
+   "y": 728
+  },
+  {
+   "do": "wait",
+   "s": 3
   }
  ],
  "winget_version": "3.7.7"

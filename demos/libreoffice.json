@@ -119,32 +119,20 @@
    "s": 1
   },
   {
-   "do": "click_text",
-   "text": "Файл"
+   "do": "launch",
+   "target": "LibreOffice Calc"
   },
   {
    "do": "wait",
-   "s": 1
+   "s": 7
   },
   {
-   "do": "click_text",
-   "text": "Создать"
-  },
-  {
-   "do": "wait",
-   "s": 1
-  },
-  {
-   "do": "mark",
-   "name": "menu_new"
-  },
-  {
-   "do": "click_text",
-   "text": "Электронная таблица"
+   "do": "hotkey",
+   "keys": "win+up"
   },
   {
    "do": "wait",
-   "s": 3
+   "s": 1.5
   },
   {
    "do": "mark",
