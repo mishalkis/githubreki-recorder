@@ -12,37 +12,12 @@
  ],
  "steps": [
   {
-   "do": "winlist"
-  },
-  {
-   "do": "click",
-   "x": 52,
-   "y": 16
-  },
-  {
    "do": "wait",
    "s": 1
   },
   {
    "do": "mark",
-   "name": "edit_menu"
-  },
-  {
-   "do": "hotkey",
-   "keys": "esc"
-  },
-  {
-   "do": "click",
-   "x": 1891,
-   "y": 93
-  },
-  {
-   "do": "wait",
-   "s": 2
-  },
-  {
-   "do": "mark",
-   "name": "gear"
+   "name": "x"
   }
  ],
  "post": [],
@@ -50,23 +25,83 @@
  "setup": [
   {
    "do": "wait",
-   "s": 2
+   "s": 3
   },
   {
    "do": "restore",
-   "title": "Getting started"
-  },
-  {
-   "do": "wait",
-   "s": 2
-  },
-  {
-   "do": "hotkey",
-   "keys": "esc"
+   "title": "App updates"
   },
   {
    "do": "wait",
    "s": 1
+  },
+  {
+   "do": "click_text",
+   "text": "Accept & continue"
+  },
+  {
+   "do": "wait",
+   "s": 5
+  },
+  {
+   "do": "click",
+   "x": 1070,
+   "y": 873
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "click",
+   "x": 944,
+   "y": 739
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "click",
+   "x": 573,
+   "y": 821
+  },
+  {
+   "do": "wait",
+   "s": 0.5
+  },
+  {
+   "do": "click",
+   "x": 1316,
+   "y": 820
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "winlist"
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+p"
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "click_text",
+   "text": "Interface"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_iface"
   }
- ]
+ ],
+ "winget_version": "3.7.7"
 }
