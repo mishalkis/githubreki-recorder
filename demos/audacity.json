@@ -91,6 +91,14 @@
    "s": 2.5
   },
   {
+   "do": "click_text",
+   "text": "Interface"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
    "do": "click",
    "x": 953,
    "y": 335
