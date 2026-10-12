@@ -76,8 +76,8 @@
   },
   {
    "do": "move",
-   "x": 704,
-   "y": 275,
+   "x": 1548,
+   "y": 262,
    "ms": 800
   },
   {
@@ -86,8 +86,8 @@
   },
   {
    "do": "click",
-   "x": 704,
-   "y": 275
+   "x": 1548,
+   "y": 262
   },
   {
    "do": "wait",
@@ -106,28 +106,12 @@
    "s": 1
   },
   {
-   "do": "hotkey",
-   "keys": "win+shift+."
-  },
-  {
-   "do": "wait",
-   "s": 2.5
-  },
-  {
-   "do": "mark",
-   "name": "shortcut_guide"
-  },
-  {
-   "do": "hotkey",
-   "keys": "win+shift+."
-  },
-  {
    "do": "wait",
    "s": 1
   },
   {
    "do": "hotkey",
-   "keys": "win+shift+h"
+   "keys": "win+shift+p"
   },
   {
    "do": "wait",
@@ -187,7 +171,7 @@
   },
   {
    "do": "hotkey",
-   "keys": "win+shift+h"
+   "keys": "win+shift+p"
   },
   {
    "do": "wait",
