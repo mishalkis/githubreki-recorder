@@ -6,7 +6,9 @@
  "pre": [
   "New-Item -ItemType Directory -Force \"$env:APPDATA\\LibreOffice\\4\\user\" | Out-Null",
   "[IO.File]::WriteAllText(\"$env:APPDATA\\LibreOffice\\4\\user\\registrymodifications.xcu\",'<?xml version=\"1.0\" encoding=\"UTF-8\"?><oor:items xmlns:oor=\"http://openoffice.org/2001/registry\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><item oor:path=\"/org.openoffice.Setup/L10N\"><prop oor:name=\"ooLocale\" oor:op=\"fuse\"><value>ru</value></prop></item><item oor:path=\"/org.openoffice.Setup/L10N\"><prop oor:name=\"ooSetupSystemLocale\" oor:op=\"fuse\"><value>ru-RU</value></prop></item><item oor:path=\"/org.openoffice.Office.Common/Misc\"><prop oor:name=\"FirstRun\" oor:op=\"fuse\"><value>false</value></prop></item><item oor:path=\"/org.openoffice.Office.Common/Misc\"><prop oor:name=\"ShowTipOfTheDay\" oor:op=\"fuse\"><value>false</value></prop></item></oor:items>',(New-Object Text.UTF8Encoding $false))",
-  "Log (\"ru dirs: \" + ((Get-ChildItem \"C:\\Program Files\\LibreOffice\" -Recurse -Directory -Filter ru -ErrorAction SilentlyContinue | Select-Object -First 5 | ForEach-Object { $_.FullName }) -join \"; \"))"
+  "Log (\"ru dirs: \" + ((Get-ChildItem \"C:\\Program Files\\LibreOffice\" -Recurse -Directory -Filter ru -ErrorAction SilentlyContinue | Select-Object -First 5 | ForEach-Object { $_.FullName }) -join \"; \"))",
+  "Log (\"registry: \" + ((Get-ChildItem \"C:\\Program Files\\LibreOffice\\share\\registry\" | ForEach-Object { $_.Name }) -join \",\"))",
+  "Log (\"ru res files: \" + (Get-ChildItem \"C:\\Program Files\\LibreOffice\\program\\resource\\ru\" -Recurse -File | Measure-Object).Count + \" ; share\\config\\soffice.cfg\\ ru: \" + ((Get-ChildItem \"C:\\Program Files\\LibreOffice\\share\" -Recurse -Filter \"*ru*\" -ErrorAction SilentlyContinue | Select-Object -First 15 | ForEach-Object { $_.Name }) -join \",\"))"
  ],
  "inputs": [
   "report.docx"
