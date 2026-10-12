@@ -41,16 +41,20 @@
    "s": 4
   },
   {
-   "do": "uia_dump",
-   "name": "uia_welcome"
-  },
-  {
    "do": "click_text",
-   "text": "No thanks"
+   "text": "Don't show this again at start up"
   },
   {
    "do": "wait",
-   "s": 1
+   "s": 0.5
+  },
+  {
+   "do": "click_text",
+   "text": "Skip"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
   },
   {
    "do": "click_text",
@@ -67,6 +71,9 @@
   {
    "do": "wait",
    "s": 1.5
+  },
+  {
+   "do": "winlist"
   },
   {
    "do": "hotkey",
