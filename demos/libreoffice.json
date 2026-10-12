@@ -120,23 +120,54 @@
   },
   {
    "do": "wait",
-   "s": 2.5
+   "s": 1
   },
   {
-   "do": "mark",
-   "name": "saveas_dialog"
-  },
-  {
-   "do": "hotkey",
-   "keys": "esc"
+   "do": "click_text",
+   "text": "Файл"
   },
   {
    "do": "wait",
    "s": 1
   },
   {
-   "do": "uia_dump",
-   "name": "uia_writer"
+   "do": "click_text",
+   "text": "Создать"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "mark",
+   "name": "menu_new"
+  },
+  {
+   "do": "click_text",
+   "text": "Электронная таблица"
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "mark",
+   "name": "calc_open"
+  },
+  {
+   "do": "winlist"
+  },
+  {
+   "do": "keys",
+   "keys": "Месяц{TAB}Выручка{TAB}Затраты{TAB}Прибыль{ENTER}Январь{TAB}120{TAB}80{TAB}=B2-C2{ENTER}Февраль{TAB}150{TAB}85{TAB}=B3-C3{ENTER}Март{TAB}180{TAB}90{TAB}=B4-C4{ENTER}Апрель{TAB}210{TAB}95{TAB}=B5-C5{ENTER}Май{TAB}240{TAB}100{TAB}=B6-C6{ENTER}"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "mark",
+   "name": "calc_data"
   }
  ],
  "winget_args": "UI_LANGS=en_US,ru",

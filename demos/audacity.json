@@ -12,12 +12,37 @@
  ],
  "steps": [
   {
+   "do": "winlist"
+  },
+  {
+   "do": "click",
+   "x": 52,
+   "y": 16
+  },
+  {
    "do": "wait",
    "s": 1
   },
   {
    "do": "mark",
-   "name": "x"
+   "name": "edit_menu"
+  },
+  {
+   "do": "hotkey",
+   "keys": "esc"
+  },
+  {
+   "do": "click",
+   "x": 1891,
+   "y": 93
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "gear"
   }
  ],
  "post": [],
@@ -28,13 +53,20 @@
    "s": 2
   },
   {
-   "do": "click",
-   "x": 1891,
-   "y": 93
+   "do": "restore",
+   "title": "Getting started"
   },
   {
    "do": "wait",
-   "s": 3
+   "s": 2
+  },
+  {
+   "do": "hotkey",
+   "keys": "esc"
+  },
+  {
+   "do": "wait",
+   "s": 1
   }
  ]
 }
