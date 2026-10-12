@@ -38,6 +38,34 @@
   },
   {
    "do": "wait",
+   "s": 4
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_welcome"
+  },
+  {
+   "do": "click_text",
+   "text": "No thanks"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "click_text",
+   "text": "Don't show this again at start up"
+  },
+  {
+   "do": "wait",
+   "s": 0.5
+  },
+  {
+   "do": "click_text",
+   "text": "OK"
+  },
+  {
+   "do": "wait",
    "s": 1.5
   },
   {
@@ -47,10 +75,6 @@
   {
    "do": "wait",
    "s": 2.5
-  },
-  {
-   "do": "uia_dump",
-   "name": "uia_prefs"
   },
   {
    "do": "click_text",
