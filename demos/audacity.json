@@ -38,35 +38,30 @@
   },
   {
    "do": "wait",
-   "s": 4
+   "s": 5
   },
   {
-   "do": "click_text",
-   "text": "Don't show this again at start up"
-  },
-  {
-   "do": "wait",
-   "s": 0.5
-  },
-  {
-   "do": "click_text",
-   "text": "Skip"
+   "do": "click",
+   "x": 944,
+   "y": 739
   },
   {
    "do": "wait",
    "s": 1.5
   },
   {
-   "do": "click_text",
-   "text": "Don't show this again at start up"
+   "do": "click",
+   "x": 573,
+   "y": 821
   },
   {
    "do": "wait",
    "s": 0.5
   },
   {
-   "do": "click_text",
-   "text": "OK"
+   "do": "click",
+   "x": 1316,
+   "y": 820
   },
   {
    "do": "wait",
