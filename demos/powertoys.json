@@ -152,7 +152,9 @@
    "s": 1
   }
  ],
- "dump": [],
+ "dump": [
+  "%LOCALAPPDATA%\\Microsoft\\PowerToys\\settings.json"
+ ],
  "setup": [
   {
    "do": "wait",

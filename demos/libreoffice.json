@@ -5,11 +5,8 @@
  "settle": 8,
  "pre": [
   "New-Item -ItemType Directory -Force \"$env:APPDATA\\LibreOffice\\4\\user\" | Out-Null",
-  "$v=((Get-Item 'C:\\Program Files\\LibreOffice\\program\\soffice.exe').VersionInfo.ProductVersion -split '\\.')[0..2] -join '.'; Log \"LO version $v\"; foreach($base in \"https://download.documentfoundation.org/libreoffice/stable/$v\",\"https://downloadarchive.documentfoundation.org/libreoffice/old/$v.0\"){ try { $u=\"$base/win/x86_64/LibreOffice_${v}_Win_x86-64_langpack_ru.msi\"; Invoke-WebRequest -Uri $u -OutFile C:\\demo\\lp.msi -UseBasicParsing -ErrorAction Stop; Log \"langpack from $u\"; break } catch { Log \"langpack fail $u\" } }; if (Test-Path C:\\demo\\lp.msi) { Start-Process msiexec -ArgumentList '/i','C:\\demo\\lp.msi','/qn' -Wait; Log 'langpack installed' }",
-  "Start-Process 'C:\\Program Files\\LibreOffice\\program\\soffice.exe' -ArgumentList '--headless','--terminate_after_init' -Wait; Start-Sleep 3; Get-Process soffice,soffice.bin -ErrorAction SilentlyContinue | Stop-Process -Force; Start-Sleep 3",
-  "$f=\"$env:APPDATA\\LibreOffice\\4\\user\\registrymodifications.xcu\"; $x=Get-Content $f -Raw -Encoding UTF8; $x=[regex]::Replace($x,'(oor:name=\"ooLocale\"[^>]*><value>)[^<]*','${1}ru'); $x=[regex]::Replace($x,'(oor:name=\"FirstRun\"[^>]*><value>)[^<]*','${1}false'); $x=$x -replace '</oor:items>','<item oor:path=\"/org.openoffice.Office.Common/Misc\"><prop oor:name=\"ShowTipOfTheDay\" oor:op=\"fuse\"><value>false</value></prop></item></oor:items>'; $x=[regex]::Replace($x,'(oor:name=\"ooSetupSystemLocale\"[^>]*><value>)[^<]*','${1}ru-RU'); [IO.File]::WriteAllText($f,$x,(New-Object Text.UTF8Encoding $false))",
-  "Get-ChildItem 'C:\\Program Files\\LibreOffice\\share\\registry' | Select-Object -ExpandProperty Name | Out-String",
-  "(Get-ChildItem 'C:\\Program Files\\LibreOffice\\program\\resource\\ru' -Recurse -ErrorAction SilentlyContinue | Measure-Object).Count"
+  "[IO.File]::WriteAllText(\"$env:APPDATA\\LibreOffice\\4\\user\\registrymodifications.xcu\",'<?xml version=\"1.0\" encoding=\"UTF-8\"?><oor:items xmlns:oor=\"http://openoffice.org/2001/registry\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><item oor:path=\"/org.openoffice.Setup/L10N\"><prop oor:name=\"ooLocale\" oor:op=\"fuse\"><value>ru</value></prop></item><item oor:path=\"/org.openoffice.Setup/L10N\"><prop oor:name=\"ooSetupSystemLocale\" oor:op=\"fuse\"><value>ru-RU</value></prop></item><item oor:path=\"/org.openoffice.Office.Common/Misc\"><prop oor:name=\"FirstRun\" oor:op=\"fuse\"><value>false</value></prop></item><item oor:path=\"/org.openoffice.Office.Common/Misc\"><prop oor:name=\"ShowTipOfTheDay\" oor:op=\"fuse\"><value>false</value></prop></item></oor:items>',(New-Object Text.UTF8Encoding $false))",
+  "Log (\"ru dirs: \" + ((Get-ChildItem \"C:\\Program Files\\LibreOffice\" -Recurse -Directory -Filter ru -ErrorAction SilentlyContinue | Select-Object -First 5 | ForEach-Object { $_.FullName }) -join \"; \"))"
  ],
  "inputs": [
   "report.docx"
@@ -17,14 +14,15 @@
  "steps": [
   {
    "do": "wait",
-   "s": 1
+   "s": 2
   },
   {
    "do": "mark",
    "name": "writer_ready"
   },
   {
-   "do": "winlist"
+   "do": "uia_dump",
+   "name": "uia_main"
   }
  ],
  "winget_args": "UI_LANGS=en_US,ru",
@@ -35,15 +33,6 @@
   {
    "do": "wait",
    "s": 2
-  },
-  {
-   "do": "click",
-   "x": 1276,
-   "y": 327
-  },
-  {
-   "do": "wait",
-   "s": 1
   }
  ]
 }
