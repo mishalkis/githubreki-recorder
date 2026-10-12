@@ -2,23 +2,39 @@
  "winget_id": "Musescore.Musescore",
  "launch": "MuseScore",
  "title": "MuseScore|Big_Score",
- "settle": 10,
+ "settle": 15,
  "pre": [
-  "$f=\"$env:APPDATA\\MuseScore\\MuseScore4.ini\"; New-Item -ItemType Directory -Force (Split-Path $f) | Out-Null; Set-Content -Encoding utf8 $f \"[ui]`r`napplication\\language=ru`r`n[application]`r`nlanguage=ru`r`n\""
+  "$f=\"$env:APPDATA\\MuseScore\\MuseScore4.ini\"; New-Item -ItemType Directory -Force (Split-Path $f) | Out-Null; Set-Content -Encoding utf8 $f \"[ui]`r`napplication\\language=ru`r`n[application]`r`nlanguage=ru`r`n\"",
+  "Set-Culture ru-RU; Set-WinUILanguageOverride -Language ru-RU; Set-WinUserLanguageList -LanguageList ru-RU -Force; (Get-Culture).Name"
  ],
- "inputs": [],
+ "inputs": [
+  "ode.musicxml"
+ ],
  "steps": [
   {
    "do": "wait",
-   "s": 5
+   "s": 8
   },
   {
    "do": "mark",
    "name": "a"
   },
   {
+   "do": "click",
+   "x": 838,
+   "y": 753
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "mark",
+   "name": "b"
+  },
+  {
    "do": "winlist"
   }
  ],
- "args": "\"C:\\Program Files\\MuseScore 4\\autobotscripts\\data\\Big_Score.mscz\""
+ "args": "C:\\demo\\ode.musicxml"
 }
