@@ -20,7 +20,123 @@
   },
   {
    "do": "mark",
-   "name": "x"
+   "name": "writer_blank"
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+o"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "keys",
+   "keys": "C:\\demo\\report.docx{ENTER}"
+  },
+  {
+   "do": "wait",
+   "s": 3.5
+  },
+  {
+   "do": "mark",
+   "name": "writer_report"
+  },
+  {
+   "do": "hotkey",
+   "keys": "shift+f7"
+  },
+  {
+   "do": "wait",
+   "s": 0.5
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+home"
+  },
+  {
+   "do": "keys",
+   "keys": "+{END}"
+  },
+  {
+   "do": "wait",
+   "s": 0.5
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+1"
+  },
+  {
+   "do": "wait",
+   "s": 0.8
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+e"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "mark",
+   "name": "heading"
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+end"
+  },
+  {
+   "do": "type",
+   "text": " Прогноз: рост продаж сохранится."
+  },
+  {
+   "do": "wait",
+   "s": 0.8
+  },
+  {
+   "do": "keys",
+   "keys": "+{HOME}"
+  },
+  {
+   "do": "wait",
+   "s": 0.3
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+b"
+  },
+  {
+   "do": "wait",
+   "s": 0.8
+  },
+  {
+   "do": "mark",
+   "name": "edited"
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+shift+s"
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "mark",
+   "name": "saveas_dialog"
+  },
+  {
+   "do": "hotkey",
+   "keys": "esc"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_writer"
   }
  ],
  "winget_args": "UI_LANGS=en_US,ru",
