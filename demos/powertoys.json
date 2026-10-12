@@ -111,67 +111,49 @@
   },
   {
    "do": "hotkey",
-   "keys": "win+shift+p"
+   "keys": "win+ctrl+shift+b"
   },
   {
    "do": "wait",
-   "s": 0.8
-  },
-  {
-   "do": "move",
-   "x": 1750,
-   "y": 300,
-   "ms": 400
-  },
-  {
-   "do": "click",
-   "x": 1750,
-   "y": 300
-  },
-  {
-   "do": "move",
-   "x": 1800,
-   "y": 500,
-   "ms": 500
-  },
-  {
-   "do": "click",
-   "x": 1800,
-   "y": 500
-  },
-  {
-   "do": "move",
-   "x": 1700,
-   "y": 700,
-   "ms": 500
-  },
-  {
-   "do": "click",
-   "x": 1700,
-   "y": 700
-  },
-  {
-   "do": "move",
-   "x": 1800,
-   "y": 850,
-   "ms": 500
-  },
-  {
-   "do": "click",
-   "x": 1800,
-   "y": 850
+   "s": 2
   },
   {
    "do": "mark",
-   "name": "highlighter"
+   "name": "ruler_open"
+  },
+  {
+   "do": "drag",
+   "path": [
+    [
+     700,
+     300
+    ],
+    [
+     900,
+     420
+    ],
+    [
+     1100,
+     560
+    ]
+   ],
+   "ms": 1200
   },
   {
    "do": "wait",
-   "s": 0.5
+   "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "ruler_result"
   },
   {
    "do": "hotkey",
-   "keys": "win+shift+p"
+   "keys": "esc"
+  },
+  {
+   "do": "wait",
+   "s": 1
   },
   {
    "do": "wait",
