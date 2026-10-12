@@ -41,12 +41,8 @@
    "s": 3
   },
   {
-   "do": "uia_dump",
-   "name": "uia_opt"
-  },
-  {
    "do": "click_text",
-   "text": "Language Settings"
+   "text": "Languages and Locales"
   },
   {
    "do": "wait",
@@ -54,15 +50,15 @@
   },
   {
    "do": "keys",
-   "keys": "{RIGHT}"
+   "keys": "{RIGHT}{DOWN}"
   },
   {
    "do": "wait",
-   "s": 1
+   "s": 1.5
   },
   {
    "do": "uia_dump",
-   "name": "uia_opt2"
+   "name": "uia_lang"
   }
  ]
 }
