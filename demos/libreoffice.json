@@ -57,8 +57,56 @@
    "s": 1.5
   },
   {
+   "do": "click",
+   "x": 1096,
+   "y": 241
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "keys",
+   "keys": "Russian"
+  },
+  {
+   "do": "wait",
+   "s": 0.5
+  },
+  {
+   "do": "keys",
+   "keys": "{ENTER}"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
    "do": "uia_dump",
-   "name": "uia_lang"
+   "name": "uia_lang2"
+  },
+  {
+   "do": "click_text",
+   "text": "OK"
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_restart"
+  },
+  {
+   "do": "click_text",
+   "text": "Restart Now"
+  },
+  {
+   "do": "wait",
+   "s": 15
+  },
+  {
+   "do": "winlist"
   }
  ]
 }
