@@ -1,0 +1,23 @@
+{
+ "winget_id": "7zip.7zip",
+ "launch": "C:\\arnis\\arnis.exe",
+ "title": "Arnis",
+ "settle": 15,
+ "pre": [
+  "New-Item -ItemType Directory -Force C:\\arnis | Out-Null; curl.exe -sL -o C:\\arnis\\arnis.exe https://github.com/louis-e/arnis/releases/latest/download/arnis-windows.exe; (Get-Item C:\\arnis\\arnis.exe).Length"
+ ],
+ "inputs": [],
+ "steps": [
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "mark",
+   "name": "a"
+  },
+  {
+   "do": "winlist"
+  }
+ ]
+}

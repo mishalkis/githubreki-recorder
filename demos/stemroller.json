@@ -1,0 +1,25 @@
+{
+ "winget_id": "7zip.7zip",
+ "launch": "StemRoller",
+ "title": "StemRoller",
+ "settle": 20,
+ "pre": [
+  "curl.exe -sL -o C:\\sr.exe https://huggingface.co/stemrollerapp/stemroller/resolve/main/stemroller-3.1.1-win-cuda.exe; (Get-Item C:\\sr.exe).Length",
+  "Start-Process C:\\sr.exe -ArgumentList '/S' -Wait; Get-ChildItem -Recurse -Filter *.exe $env:LOCALAPPDATA\\Programs,$env:ProgramFiles -ErrorAction SilentlyContinue | ? Name -match 'tem' | select -First 5 | % FullName",
+  "Get-ChildItem -Recurse -Filter *.lnk \"$env:ProgramData\\Microsoft\\Windows\\Start Menu\",\"$env:APPDATA\\Microsoft\\Windows\\Start Menu\" | ? Name -match 'tem' | % FullName"
+ ],
+ "inputs": [],
+ "steps": [
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "mark",
+   "name": "a"
+  },
+  {
+   "do": "winlist"
+  }
+ ]
+}
