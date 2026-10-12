@@ -14,7 +14,7 @@
   },
   {
    "do": "mark",
-   "name": "settings"
+   "name": "home"
   },
   {
    "do": "scroll",
@@ -37,9 +37,61 @@
    "s": 0.5
   },
   {
+   "do": "click",
+   "x": 160,
+   "y": 161
+  },
+  {
+   "do": "wait",
+   "s": 1.2
+  },
+  {
+   "do": "mark",
+   "name": "menu_expanded"
+  },
+  {
+   "do": "click",
+   "x": 160,
+   "y": 241
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "awake_page"
+  },
+  {
+   "do": "click",
+   "x": 160,
+   "y": 281
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "cmdpal_page"
+  },
+  {
+   "do": "click",
+   "x": 160,
+   "y": 321
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "mark",
+   "name": "colorpicker_page"
+  },
+  {
    "do": "move",
-   "x": 1100,
-   "y": 300,
+   "x": 1000,
+   "y": 500,
    "ms": 500
   },
   {
@@ -56,28 +108,8 @@
   },
   {
    "do": "move",
-   "x": 1303,
-   "y": 142,
-   "ms": 900
-  },
-  {
-   "do": "wait",
-   "s": 0.6
-  },
-  {
-   "do": "move",
-   "x": 1000,
-   "y": 330,
-   "ms": 700
-  },
-  {
-   "do": "wait",
-   "s": 0.6
-  },
-  {
-   "do": "move",
-   "x": 1303,
-   "y": 142,
+   "x": 1300,
+   "y": 300,
    "ms": 800
   },
   {
@@ -85,9 +117,25 @@
    "s": 0.6
   },
   {
+   "do": "move",
+   "x": 24,
+   "y": 161,
+   "ms": 1000
+  },
+  {
+   "do": "wait",
+   "s": 0.8
+  },
+  {
+   "do": "move",
+   "x": 26,
+   "y": 163,
+   "ms": 300
+  },
+  {
    "do": "click",
-   "x": 1303,
-   "y": 142
+   "x": 26,
+   "y": 163
   },
   {
    "do": "wait",
@@ -106,12 +154,9 @@
    "s": 1
   },
   {
-   "do": "wait",
-   "s": 1
-  },
-  {
-   "do": "hotkey",
-   "keys": "win+ctrl+shift+b"
+   "do": "click",
+   "x": 160,
+   "y": 521
   },
   {
    "do": "wait",
@@ -119,45 +164,7 @@
   },
   {
    "do": "mark",
-   "name": "ruler_open"
-  },
-  {
-   "do": "drag",
-   "path": [
-    [
-     700,
-     300
-    ],
-    [
-     900,
-     420
-    ],
-    [
-     1100,
-     560
-    ]
-   ],
-   "ms": 1200
-  },
-  {
-   "do": "wait",
-   "s": 2
-  },
-  {
-   "do": "mark",
-   "name": "ruler_result"
-  },
-  {
-   "do": "hotkey",
-   "keys": "esc"
-  },
-  {
-   "do": "wait",
-   "s": 1
-  },
-  {
-   "do": "wait",
-   "s": 0.8
+   "name": "textextractor_page"
   },
   {
    "do": "winlist"
