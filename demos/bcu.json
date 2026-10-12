@@ -2,7 +2,7 @@
  "winget_id": "Klocman.BulkCrapUninstaller",
  "launch": "BCUninstaller",
  "title": "Bulk|Crap|BCU",
- "settle": 25,
+ "settle": 40,
  "pre": [
   "Set-Content -Encoding utf8 'C:\\Program Files\\BCUninstaller\\BCUninstaller.settings' '<?xml version=\"1.0\" encoding=\"utf-8\"?><Settings><MiscVersion>6.3.0.0</MiscVersion><Language>ru</Language></Settings>'"
  ],
@@ -10,11 +10,40 @@
  "steps": [
   {
    "do": "wait",
-   "s": 10
+   "s": 20
   },
   {
    "do": "mark",
    "name": "a"
+  },
+  {
+   "do": "click",
+   "x": 285,
+   "y": 61
+  },
+  {
+   "do": "wait",
+   "s": 30
+  },
+  {
+   "do": "mark",
+   "name": "reload"
+  },
+  {
+   "do": "click",
+   "x": 806,
+   "y": 61
+  },
+  {
+   "do": "wait",
+   "s": 4
+  },
+  {
+   "do": "mark",
+   "name": "settings"
+  },
+  {
+   "do": "winlist"
   }
  ]
 }

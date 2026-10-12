@@ -1,0 +1,84 @@
+{
+ "winget_id": "Xournal++.Xournal++",
+ "launch": "Xournal",
+ "title": "Xournal",
+ "settle": 6,
+ "pre": [
+  "$env:LANGUAGE='ru'; $env:LANG='ru_RU.UTF-8'",
+  "Get-ChildItem -Recurse -Filter *.lnk \"$env:ProgramData\\Microsoft\\Windows\\Start Menu\",\"$env:APPDATA\\Microsoft\\Windows\\Start Menu\" | ? Name -match 'ournal' | % FullName"
+ ],
+ "inputs": [],
+ "steps": [
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "a"
+  },
+  {
+   "do": "drag",
+   "path": [
+    [
+     500,
+     300
+    ],
+    [
+     560,
+     400
+    ],
+    [
+     620,
+     300
+    ],
+    [
+     680,
+     400
+    ],
+    [
+     740,
+     300
+    ],
+    [
+     800,
+     400
+    ]
+   ],
+   "ms": 900
+  },
+  {
+   "do": "drag",
+   "path": [
+    [
+     500,
+     520
+    ],
+    [
+     700,
+     560
+    ],
+    [
+     900,
+     500
+    ],
+    [
+     1100,
+     570
+    ]
+   ],
+   "ms": 900
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "mark",
+   "name": "b"
+  },
+  {
+   "do": "winlist"
+  }
+ ]
+}
