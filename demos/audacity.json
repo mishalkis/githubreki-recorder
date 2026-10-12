@@ -136,29 +136,32 @@
    "name": "result"
   },
   {
-   "do": "click",
-   "x": 300,
-   "y": 215
+   "do": "wait",
+   "s": 1.5
   },
   {
    "do": "hotkey",
-   "keys": "space"
+   "keys": "ctrl+z"
   },
   {
    "do": "wait",
-   "s": 4
+   "s": 2
   },
   {
    "do": "mark",
-   "name": "playback"
+   "name": "undo_before"
   },
   {
    "do": "hotkey",
-   "keys": "space"
+   "keys": "ctrl+y"
   },
   {
    "do": "wait",
-   "s": 1
+   "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "redo_after"
   }
  ],
  "post": [],
