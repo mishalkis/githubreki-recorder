@@ -28,19 +28,13 @@
    "s": 2
   },
   {
-   "do": "hotkey",
-   "keys": "ctrl+p"
+   "do": "click",
+   "x": 1891,
+   "y": 93
   },
   {
    "do": "wait",
    "s": 3
-  },
-  {
-   "do": "uia_dump",
-   "name": "uia_prefs"
-  },
-  {
-   "do": "winlist"
   }
  ]
 }
