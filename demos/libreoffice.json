@@ -152,6 +152,76 @@
   {
    "do": "mark",
    "name": "calc_data"
+  },
+  {
+   "do": "keys",
+   "keys": "Итого{TAB}=SUM(B2:B6){TAB}=SUM(C2:C6){TAB}=SUM(D2:D6){ENTER}"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "mark",
+   "name": "autosum"
+  },
+  {
+   "do": "click",
+   "x": 80,
+   "y": 148
+  },
+  {
+   "do": "wait",
+   "s": 0.5
+  },
+  {
+   "do": "keys",
+   "keys": "A1:D6{ENTER}"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "mark",
+   "name": "selected"
+  },
+  {
+   "do": "click",
+   "x": 896,
+   "y": 72
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "mark",
+   "name": "chart_wizard"
+  },
+  {
+   "do": "click_text",
+   "text": "Готово"
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "mark",
+   "name": "chart"
+  },
+  {
+   "do": "keys",
+   "keys": "{ESC}{ESC}"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "end"
   }
  ],
  "winget_args": "UI_LANGS=en_US,ru",
