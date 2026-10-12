@@ -16,15 +16,11 @@
  "steps": [
   {
    "do": "wait",
-   "s": 2
+   "s": 1
   },
   {
    "do": "mark",
-   "name": "writer_ready"
-  },
-  {
-   "do": "uia_dump",
-   "name": "uia_main"
+   "name": "x"
   }
  ],
  "winget_args": "UI_LANGS=en_US,ru",
@@ -35,6 +31,38 @@
   {
    "do": "wait",
    "s": 2
+  },
+  {
+   "do": "hotkey",
+   "keys": "alt+f12"
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_opt"
+  },
+  {
+   "do": "click_text",
+   "text": "Language Settings"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "keys",
+   "keys": "{RIGHT}"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_opt2"
   }
  ]
 }
