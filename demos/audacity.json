@@ -5,9 +5,7 @@
  "settle": 6,
  "pre": [
   "New-Item -ItemType Directory -Force \"$env:APPDATA\\audacity\" | Out-Null",
-  "Set-Content -Encoding ascii -NoNewline \"$env:APPDATA\\audacity\\audacity.cfg\" \"PrefsVersion=1.1.1r1`n[Locale]`nLanguage=ru`n[GUI]`nShowSplashScreen=0`n[Update]`nDefaultUpdatesChecking=0`nUpdateNoticeShown=1`n[Version]`nMajor=3`nMinor=7`nMicro=7`n\"",
-  "Log (\"langs: \" + ((Get-ChildItem \"C:\\Program Files\\Audacity\\Languages\" -Directory -ErrorAction SilentlyContinue | Measure-Object).Count) + \" ru: \" + (Test-Path \"C:\\Program Files\\Audacity\\Languages\\ru\\audacity.mo\"))",
-  "Log (\"cfg before: \" + ((Get-Content \"$env:APPDATA\\audacity\\audacity.cfg\") -join \" | \"))"
+  "Set-Content -Encoding ascii \"$env:APPDATA\\audacity\\audacity.cfg\" \"[Update]`nUpdateNoticeShown=1\""
  ],
  "inputs": [
   "voice_noisy.wav"
@@ -15,23 +13,56 @@
  "steps": [
   {
    "do": "wait",
-   "s": 2
+   "s": 1
   },
   {
    "do": "mark",
-   "name": "opened"
-  },
-  {
-   "do": "winlist"
-  },
-  {
-   "do": "uia_dump",
-   "name": "uia_main"
+   "name": "x"
   }
  ],
  "winget_version": "3.7.7",
- "post": [
-  "Log (\"cfg after: \" + ((Get-Content \"$env:APPDATA\\audacity\\audacity.cfg\" | ForEach-Object { if ($_.Length -gt 80) { $_.Substring(0,80) } else { $_ } }) -join \" | \"))"
- ],
- "args": "C:\\demo\\voice_noisy.wav"
+ "post": [],
+ "args": "C:\\demo\\voice_noisy.wav",
+ "setup": [
+  {
+   "do": "restore",
+   "title": "App updates"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "click_text",
+   "text": "Accept & continue"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+p"
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_prefs"
+  },
+  {
+   "do": "click_text",
+   "text": "Interface"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_iface"
+  }
+ ]
 }
