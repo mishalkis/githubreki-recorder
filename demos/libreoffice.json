@@ -124,7 +124,7 @@
   },
   {
    "do": "wait",
-   "s": 5
+   "s": 4
   },
   {
    "do": "fit",
@@ -155,7 +155,7 @@
   },
   {
    "do": "keys",
-   "keys": "Итого{TAB}=SUM{(}B2:B6{)}{TAB}=SUM{(}C2:C6{)}{TAB}=SUM{(}D2:D6{)}{ENTER}"
+   "keys": "Итого{TAB}=СУММ{(}B2:B6{)}{TAB}=СУММ{(}C2:C6{)}{TAB}=СУММ{(}D2:D6{)}{ENTER}"
   },
   {
    "do": "wait",
