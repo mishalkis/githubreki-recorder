@@ -48,7 +48,7 @@
   },
   {
    "do": "wait",
-   "s": 1.5
+   "s": 1.2
   },
   {
    "do": "mark",
@@ -62,7 +62,7 @@
   },
   {
    "do": "wait",
-   "s": 0.8
+   "s": 0.6
   },
   {
    "do": "move",
@@ -72,7 +72,7 @@
   },
   {
    "do": "wait",
-   "s": 0.8
+   "s": 0.6
   },
   {
    "do": "move",
@@ -82,7 +82,7 @@
   },
   {
    "do": "wait",
-   "s": 0.8
+   "s": 0.6
   },
   {
    "do": "click",
@@ -107,6 +107,26 @@
   },
   {
    "do": "hotkey",
+   "keys": "win+shift+."
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "mark",
+   "name": "shortcut_guide"
+  },
+  {
+   "do": "hotkey",
+   "keys": "win+shift+."
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "hotkey",
    "keys": "win+shift+h"
   },
   {
@@ -115,36 +135,47 @@
   },
   {
    "do": "move",
-   "x": 900,
-   "y": 500,
+   "x": 1750,
+   "y": 300,
    "ms": 400
   },
   {
    "do": "click",
-   "x": 900,
+   "x": 1750,
+   "y": 300
+  },
+  {
+   "do": "move",
+   "x": 1800,
+   "y": 500,
+   "ms": 500
+  },
+  {
+   "do": "click",
+   "x": 1800,
    "y": 500
   },
   {
    "do": "move",
-   "x": 1300,
-   "y": 600,
+   "x": 1700,
+   "y": 700,
    "ms": 500
   },
   {
    "do": "click",
-   "x": 1300,
-   "y": 600
+   "x": 1700,
+   "y": 700
   },
   {
    "do": "move",
-   "x": 1100,
-   "y": 400,
+   "x": 1800,
+   "y": 850,
    "ms": 500
   },
   {
    "do": "click",
-   "x": 1100,
-   "y": 400
+   "x": 1800,
+   "y": 850
   },
   {
    "do": "mark",
@@ -161,62 +192,6 @@
   {
    "do": "wait",
    "s": 0.8
-  },
-  {
-   "do": "launch",
-   "target": "notepad.exe"
-  },
-  {
-   "do": "wait",
-   "s": 3
-  },
-  {
-   "do": "type",
-   "text": "PowerToys: окно поверх всех"
-  },
-  {
-   "do": "wait",
-   "s": 0.5
-  },
-  {
-   "do": "hotkey",
-   "keys": "win+ctrl+t"
-  },
-  {
-   "do": "wait",
-   "s": 1.5
-  },
-  {
-   "do": "mark",
-   "name": "always_on_top"
-  },
-  {
-   "do": "move",
-   "x": 1400,
-   "y": 700,
-   "ms": 600
-  },
-  {
-   "do": "click",
-   "x": 1400,
-   "y": 700
-  },
-  {
-   "do": "wait",
-   "s": 0.5
-  },
-  {
-   "do": "click",
-   "x": 300,
-   "y": 600
-  },
-  {
-   "do": "wait",
-   "s": 1.5
-  },
-  {
-   "do": "mark",
-   "name": "still_on_top"
   },
   {
    "do": "winlist"
