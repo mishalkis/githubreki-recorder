@@ -127,8 +127,8 @@
    "s": 7
   },
   {
-   "do": "hotkey",
-   "keys": "win+up"
+   "do": "fit",
+   "title": "Calc"
   },
   {
    "do": "wait",
