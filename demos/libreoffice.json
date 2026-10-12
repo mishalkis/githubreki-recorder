@@ -36,7 +36,7 @@
   },
   {
    "do": "wait",
-   "s": 3.5
+   "s": 2.5
   },
   {
    "do": "mark",
@@ -124,7 +124,7 @@
   },
   {
    "do": "wait",
-   "s": 7
+   "s": 5
   },
   {
    "do": "fit",
@@ -155,7 +155,7 @@
   },
   {
    "do": "keys",
-   "keys": "Итого{TAB}=SUM(B2:B6){TAB}=SUM(C2:C6){TAB}=SUM(D2:D6){ENTER}"
+   "keys": "Итого{TAB}=СУММ(B2:B6){TAB}=СУММ(C2:C6){TAB}=СУММ(D2:D6){ENTER}"
   },
   {
    "do": "wait",
@@ -193,7 +193,7 @@
   },
   {
    "do": "wait",
-   "s": 3
+   "s": 2
   },
   {
    "do": "mark",
@@ -212,12 +212,13 @@
    "name": "chart"
   },
   {
-   "do": "keys",
-   "keys": "{ESC}{ESC}"
+   "do": "click",
+   "x": 1500,
+   "y": 800
   },
   {
    "do": "wait",
-   "s": 2
+   "s": 1.5
   },
   {
    "do": "mark",
