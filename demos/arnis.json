@@ -4,7 +4,8 @@
  "title": "Arnis",
  "settle": 15,
  "pre": [
-  "New-Item -ItemType Directory -Force C:\\arnis | Out-Null; curl.exe -sL -o C:\\arnis\\arnis.exe https://github.com/louis-e/arnis/releases/latest/download/arnis-windows.exe; (Get-Item C:\\arnis\\arnis.exe).Length"
+  "New-Item -ItemType Directory -Force C:\\arnis | Out-Null; curl.exe -sL -o C:\\arnis\\arnis.exe https://github.com/louis-e/arnis/releases/latest/download/arnis-windows.exe; (Get-Item C:\\arnis\\arnis.exe).Length",
+  "Set-Culture ru-RU; Set-WinUILanguageOverride -Language ru-RU"
  ],
  "inputs": [],
  "steps": [
@@ -13,11 +14,82 @@
    "s": 3
   },
   {
-   "do": "mark",
-   "name": "a"
+   "do": "click",
+   "x": 972,
+   "y": 609
   },
   {
-   "do": "winlist"
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "click",
+   "x": 1100,
+   "y": 168
+  },
+  {
+   "do": "type",
+   "text": "Saint Petersburg"
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 6
+  },
+  {
+   "do": "mark",
+   "name": "search"
+  },
+  {
+   "do": "click",
+   "x": 71,
+   "y": 170
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "drag",
+   "path": [
+    [
+     420,
+     380
+    ],
+    [
+     600,
+     450
+    ],
+    [
+     820,
+     620
+    ]
+   ],
+   "ms": 900
+  },
+  {
+   "do": "wait",
+   "s": 4
+  },
+  {
+   "do": "mark",
+   "name": "area"
+  },
+  {
+   "do": "click",
+   "x": 1857,
+   "y": 169
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "settings"
   }
  ]
 }
