@@ -13,11 +13,50 @@
  "steps": [
   {
    "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "mark",
+   "name": "opened"
+  },
+  {
+   "do": "drag",
+   "path": [
+    [
+     192,
+     215
+    ],
+    [
+     440,
+     215
+    ]
+   ],
+   "ms": 900
+  },
+  {
+   "do": "wait",
    "s": 1
   },
   {
    "do": "mark",
-   "name": "x"
+   "name": "noise_selected"
+  },
+  {
+   "do": "click",
+   "x": 440,
+   "y": 33
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_effect_menu"
+  },
+  {
+   "do": "mark",
+   "name": "effect_menu"
   }
  ],
  "post": [],
