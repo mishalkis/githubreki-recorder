@@ -10,7 +10,7 @@
  "steps": [
   {
    "do": "wait",
-   "s": 1
+   "s": 1.5
   },
   {
    "do": "mark",
@@ -24,7 +24,7 @@
   },
   {
    "do": "wait",
-   "s": 1.2
+   "s": 1
   },
   {
    "do": "scroll",
@@ -34,47 +34,60 @@
   },
   {
    "do": "wait",
-   "s": 1
+   "s": 0.5
+  },
+  {
+   "do": "move",
+   "x": 1100,
+   "y": 300,
+   "ms": 500
+  },
+  {
+   "do": "hotkey",
+   "keys": "win+shift+c"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "mark",
+   "name": "colorpicker_open"
+  },
+  {
+   "do": "move",
+   "x": 1548,
+   "y": 262,
+   "ms": 900
+  },
+  {
+   "do": "wait",
+   "s": 0.8
+  },
+  {
+   "do": "move",
+   "x": 1100,
+   "y": 230,
+   "ms": 700
+  },
+  {
+   "do": "wait",
+   "s": 0.8
+  },
+  {
+   "do": "move",
+   "x": 704,
+   "y": 275,
+   "ms": 800
+  },
+  {
+   "do": "wait",
+   "s": 0.8
   },
   {
    "do": "click",
-   "x": 1548,
-   "y": 711
-  },
-  {
-   "do": "wait",
-   "s": 5
-  },
-  {
-   "do": "mark",
-   "name": "run_enabled"
-  },
-  {
-   "do": "hotkey",
-   "keys": "alt+space"
-  },
-  {
-   "do": "wait",
-   "s": 2
-  },
-  {
-   "do": "winlist"
-  },
-  {
-   "do": "mark",
-   "name": "run_try"
-  },
-  {
-   "do": "hotkey",
-   "keys": "esc"
-  },
-  {
-   "do": "wait",
-   "s": 1
-  },
-  {
-   "do": "hotkey",
-   "keys": "win+alt+space"
+   "x": 704,
+   "y": 275
   },
   {
    "do": "wait",
@@ -82,19 +95,7 @@
   },
   {
    "do": "mark",
-   "name": "cmdpal_open"
-  },
-  {
-   "do": "type",
-   "text": "15*7"
-  },
-  {
-   "do": "wait",
-   "s": 2
-  },
-  {
-   "do": "mark",
-   "name": "cmdpal_result"
+   "name": "colorpicker_result"
   },
   {
    "do": "hotkey",
@@ -106,20 +107,80 @@
   },
   {
    "do": "hotkey",
-   "keys": "win+shift+`"
+   "keys": "win+shift+h"
+  },
+  {
+   "do": "wait",
+   "s": 0.8
+  },
+  {
+   "do": "move",
+   "x": 900,
+   "y": 500,
+   "ms": 400
+  },
+  {
+   "do": "click",
+   "x": 900,
+   "y": 500
+  },
+  {
+   "do": "move",
+   "x": 1300,
+   "y": 600,
+   "ms": 500
+  },
+  {
+   "do": "click",
+   "x": 1300,
+   "y": 600
+  },
+  {
+   "do": "move",
+   "x": 1100,
+   "y": 400,
+   "ms": 500
+  },
+  {
+   "do": "click",
+   "x": 1100,
+   "y": 400
+  },
+  {
+   "do": "mark",
+   "name": "highlighter"
+  },
+  {
+   "do": "wait",
+   "s": 0.5
+  },
+  {
+   "do": "hotkey",
+   "keys": "win+shift+h"
+  },
+  {
+   "do": "wait",
+   "s": 0.8
+  },
+  {
+   "do": "launch",
+   "target": "notepad.exe"
   },
   {
    "do": "wait",
    "s": 3
   },
   {
-   "do": "mark",
-   "name": "fancyzones_editor"
+   "do": "type",
+   "text": "PowerToys: окно поверх всех"
   },
   {
-   "do": "click",
-   "x": 838,
-   "y": 400
+   "do": "wait",
+   "s": 0.5
+  },
+  {
+   "do": "hotkey",
+   "keys": "win+ctrl+t"
   },
   {
    "do": "wait",
@@ -127,12 +188,27 @@
   },
   {
    "do": "mark",
-   "name": "zones_columns"
+   "name": "always_on_top"
+  },
+  {
+   "do": "move",
+   "x": 1400,
+   "y": 700,
+   "ms": 600
   },
   {
    "do": "click",
-   "x": 1294,
-   "y": 400
+   "x": 1400,
+   "y": 700
+  },
+  {
+   "do": "wait",
+   "s": 0.5
+  },
+  {
+   "do": "click",
+   "x": 300,
+   "y": 600
   },
   {
    "do": "wait",
@@ -140,21 +216,13 @@
   },
   {
    "do": "mark",
-   "name": "zones_grid"
+   "name": "still_on_top"
   },
   {
-   "do": "click",
-   "x": 1637,
-   "y": 123
-  },
-  {
-   "do": "wait",
-   "s": 1
+   "do": "winlist"
   }
  ],
- "dump": [
-  "%LOCALAPPDATA%\\Microsoft\\PowerToys\\settings.json"
- ],
+ "dump": [],
  "setup": [
   {
    "do": "wait",
