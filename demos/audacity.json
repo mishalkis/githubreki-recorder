@@ -25,56 +25,7 @@
  "setup": [
   {
    "do": "wait",
-   "s": 3
-  },
-  {
-   "do": "winlist"
-  },
-  {
-   "do": "restore",
-   "title": "App updates"
-  },
-  {
-   "do": "wait",
-   "s": 1
-  },
-  {
-   "do": "click_text",
-   "text": "Accept & continue"
-  },
-  {
-   "do": "wait",
-   "s": 5
-  },
-  {
-   "do": "winlist"
-  },
-  {
-   "do": "hotkey",
-   "keys": "esc"
-  },
-  {
-   "do": "wait",
-   "s": 1.5
-  },
-  {
-   "do": "hotkey",
-   "keys": "esc"
-  },
-  {
-   "do": "wait",
-   "s": 1.5
-  },
-  {
-   "do": "hotkey",
-   "keys": "esc"
-  },
-  {
-   "do": "wait",
-   "s": 1.5
-  },
-  {
-   "do": "winlist"
+   "s": 2
   },
   {
    "do": "hotkey",
@@ -82,19 +33,14 @@
   },
   {
    "do": "wait",
-   "s": 2.5
-  },
-  {
-   "do": "click_text",
-   "text": "Interface"
-  },
-  {
-   "do": "wait",
-   "s": 1.5
+   "s": 3
   },
   {
    "do": "uia_dump",
-   "name": "uia_iface"
+   "name": "uia_prefs"
+  },
+  {
+   "do": "winlist"
   }
  ]
 }
