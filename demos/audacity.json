@@ -20,10 +20,16 @@
    "name": "x"
   }
  ],
- "winget_version": "3.7.7",
  "post": [],
  "args": "C:\\demo\\voice_noisy.wav",
  "setup": [
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "winlist"
+  },
   {
    "do": "restore",
    "title": "App updates"
@@ -41,27 +47,27 @@
    "s": 5
   },
   {
-   "do": "click",
-   "x": 944,
-   "y": 739
+   "do": "winlist"
+  },
+  {
+   "do": "hotkey",
+   "keys": "esc"
   },
   {
    "do": "wait",
    "s": 1.5
   },
   {
-   "do": "click",
-   "x": 573,
-   "y": 821
+   "do": "hotkey",
+   "keys": "esc"
   },
   {
    "do": "wait",
-   "s": 0.5
+   "s": 1.5
   },
   {
-   "do": "click",
-   "x": 1316,
-   "y": 820
+   "do": "hotkey",
+   "keys": "esc"
   },
   {
    "do": "wait",
