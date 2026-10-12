@@ -4,11 +4,11 @@
  "title": "Writer|LibreOffice|Без имени",
  "settle": 8,
  "pre": [
-  "New-Item -ItemType Directory -Force \"$env:APPDATA\\LibreOffice\\4\\user\" | Out-Null",
-  "[IO.File]::WriteAllText(\"$env:APPDATA\\LibreOffice\\4\\user\\registrymodifications.xcu\",'<?xml version=\"1.0\" encoding=\"UTF-8\"?><oor:items xmlns:oor=\"http://openoffice.org/2001/registry\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><item oor:path=\"/org.openoffice.Setup/L10N\"><prop oor:name=\"ooLocale\" oor:op=\"fuse\"><value>ru</value></prop></item><item oor:path=\"/org.openoffice.Setup/L10N\"><prop oor:name=\"ooSetupSystemLocale\" oor:op=\"fuse\"><value>ru-RU</value></prop></item><item oor:path=\"/org.openoffice.Office.Common/Misc\"><prop oor:name=\"FirstRun\" oor:op=\"fuse\"><value>false</value></prop></item><item oor:path=\"/org.openoffice.Office.Common/Misc\"><prop oor:name=\"ShowTipOfTheDay\" oor:op=\"fuse\"><value>false</value></prop></item></oor:items>',(New-Object Text.UTF8Encoding $false))",
-  "Log (\"ru dirs: \" + ((Get-ChildItem \"C:\\Program Files\\LibreOffice\" -Recurse -Directory -Filter ru -ErrorAction SilentlyContinue | Select-Object -First 5 | ForEach-Object { $_.FullName }) -join \"; \"))",
-  "Log (\"registry: \" + ((Get-ChildItem \"C:\\Program Files\\LibreOffice\\share\\registry\" | ForEach-Object { $_.Name }) -join \",\"))",
-  "Log (\"ru res files: \" + (Get-ChildItem \"C:\\Program Files\\LibreOffice\\program\\resource\\ru\" -Recurse -File | Measure-Object).Count + \" ; share\\config\\soffice.cfg\\ ru: \" + ((Get-ChildItem \"C:\\Program Files\\LibreOffice\\share\" -Recurse -Filter \"*ru*\" -ErrorAction SilentlyContinue | Select-Object -First 15 | ForEach-Object { $_.Name }) -join \",\"))"
+  "Remove-Item \"$env:APPDATA\\LibreOffice\" -Recurse -Force -ErrorAction SilentlyContinue",
+  "Start-Process \"C:\\Program Files\\LibreOffice\\program\\soffice.exe\" -ArgumentList \"--writer\"; Start-Sleep 25; Get-Process soffice,soffice.bin -ErrorAction SilentlyContinue | Stop-Process -Force; Start-Sleep 3",
+  "Log (\"xcu \" + \"after first start\" + \": \" + ((Select-String -Path \"$env:APPDATA\\LibreOffice\\4\\user\\registrymodifications.xcu\" -Pattern \"L10N|FirstRun|Wizard|Welcome\" | ForEach-Object { $_.Line.Substring(0,[Math]::Min(150,$_.Line.Length)) }) -join \" ## \"))",
+  "$f=\"$env:APPDATA\\LibreOffice\\4\\user\\registrymodifications.xcu\"; $x=Get-Content $f -Raw -Encoding UTF8; $x=[regex]::Replace($x,'(oor:name=\"ooLocale\"[^>]*><value>)[^<]*','${1}ru'); $x=[regex]::Replace($x,'(oor:name=\"FirstRun\"[^>]*><value>)[^<]*','${1}false'); if ($x -notmatch 'ooLocale') { $x=$x -replace '</oor:items>','<item oor:path=\"/org.openoffice.Setup/L10N\"><prop oor:name=\"ooLocale\" oor:op=\"fuse\"><value>ru</value></prop></item></oor:items>' }; [IO.File]::WriteAllText($f,$x,(New-Object Text.UTF8Encoding $false))",
+  "Log (\"xcu \" + \"patched\" + \": \" + ((Select-String -Path \"$env:APPDATA\\LibreOffice\\4\\user\\registrymodifications.xcu\" -Pattern \"L10N|FirstRun|Wizard|Welcome\" | ForEach-Object { $_.Line.Substring(0,[Math]::Min(150,$_.Line.Length)) }) -join \" ## \"))"
  ],
  "inputs": [
   "report.docx"
@@ -29,7 +29,7 @@
  ],
  "winget_args": "UI_LANGS=en_US,ru",
  "post": [
-  "Select-String -Path \"$env:APPDATA\\LibreOffice\\4\\user\\registrymodifications.xcu\" -Pattern 'ooLocale|FirstRun|Tip' | ForEach-Object { $_.Line.Substring(0,[Math]::Min(160,$_.Line.Length)) }"
+  "Log (\"xcu \" + \"end\" + \": \" + ((Select-String -Path \"$env:APPDATA\\LibreOffice\\4\\user\\registrymodifications.xcu\" -Pattern \"L10N|FirstRun|Wizard|Welcome\" | ForEach-Object { $_.Line.Substring(0,[Math]::Min(150,$_.Line.Length)) }) -join \" ## \"))"
  ],
  "setup": [
   {

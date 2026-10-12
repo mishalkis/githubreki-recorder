@@ -5,7 +5,7 @@
  "settle": 6,
  "pre": [
   "New-Item -ItemType Directory -Force \"$env:APPDATA\\audacity\" | Out-Null",
-  "Set-Content -Encoding ascii \"$env:APPDATA\\audacity\\audacity.cfg\" \"[Locale]`nLanguage=ru`n[GUI]`nShowSplashScreen=0`n[Update]`nDefaultUpdatesChecking=0`nUpdateNoticeShown=1\"",
+  "Set-Content -Encoding ascii -NoNewline \"$env:APPDATA\\audacity\\audacity.cfg\" \"PrefsVersion=1.1.1r1`n[Locale]`nLanguage=ru`n[GUI]`nShowSplashScreen=0`n[Update]`nDefaultUpdatesChecking=0`nUpdateNoticeShown=1`n[Version]`nMajor=3`nMinor=7`nMicro=7`n\"",
   "Log (\"langs: \" + ((Get-ChildItem \"C:\\Program Files\\Audacity\\Languages\" -Directory -ErrorAction SilentlyContinue | Measure-Object).Count) + \" ru: \" + (Test-Path \"C:\\Program Files\\Audacity\\Languages\\ru\\audacity.mo\"))",
   "Log (\"cfg before: \" + ((Get-Content \"$env:APPDATA\\audacity\\audacity.cfg\") -join \" | \"))"
  ],
