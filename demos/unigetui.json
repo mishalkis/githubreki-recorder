@@ -1,10 +1,11 @@
 {
- "winget_id": "MartiCliment.UniGetUI",
+ "winget_id": "Devolutions.UniGetUI",
  "launch": "UniGetUI",
  "title": "UniGetUI",
  "settle": 8,
  "pre": [
-  "$d=\"$env:LOCALAPPDATA\\UniGetUI\\Configuration\"; New-Item -ItemType Directory -Force $d | Out-Null; Set-Content -NoNewline -Encoding ascii \"$d\\PreferredLanguage\" 'ru'; Get-ChildItem $d | % Name"
+  "$d=\"$env:LOCALAPPDATA\\UniGetUI\\Configuration\"; New-Item -ItemType Directory -Force $d | Out-Null; Set-Content -NoNewline -Encoding ascii \"$d\\PreferredLanguage\" 'ru'; Get-ChildItem $d | % Name",
+  "Get-ChildItem -Recurse -Filter *.lnk \"$env:ProgramData\\Microsoft\\Windows\\Start Menu\",\"$env:APPDATA\\Microsoft\\Windows\\Start Menu\" | ? Name -match 'Uni' | % FullName"
  ],
  "inputs": [],
  "steps": [

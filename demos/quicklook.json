@@ -6,7 +6,9 @@
  "settle": 3,
  "inputs": [
   "landscape.jpg",
-  "meadow.jpg"
+  "meadow.jpg",
+  "test.png",
+  "report.docx"
  ],
  "pre": [
   "$p=(Get-ChildItem -Recurse -Filter QuickLook.exe \"$env:LOCALAPPDATA\\Programs\",\"$env:ProgramFiles\",\"${env:ProgramFiles(x86)}\" -ErrorAction SilentlyContinue | select -First 1).FullName; \"QL=$p\"; Start-Process $p; Start-Sleep 6"
@@ -15,10 +17,6 @@
   {
    "do": "wait",
    "s": 1
-  },
-  {
-   "do": "mark",
-   "name": "a"
   },
   {
    "do": "hotkey",
@@ -30,10 +28,31 @@
   },
   {
    "do": "mark",
-   "name": "b"
+   "name": "ql1"
   },
   {
-   "do": "winlist"
+   "do": "hotkey",
+   "keys": "space"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "hotkey",
+   "keys": "down"
+  },
+  {
+   "do": "hotkey",
+   "keys": "space"
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "mark",
+   "name": "ql2"
   }
  ]
 }

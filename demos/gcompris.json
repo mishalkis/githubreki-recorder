@@ -4,7 +4,8 @@
  "title": "GCompris",
  "settle": 8,
  "pre": [
-  "New-Item -ItemType Directory -Force \"$env:APPDATA\\GCompris\" | Out-Null; Get-ChildItem -Recurse -Filter *.exe \"$env:ProgramFiles\\GCompris*\" | select -First 3 | % FullName"
+  "$m='C:\\gc.msi'; Invoke-WebRequest -UserAgent 'Mozilla/5.0' -Uri https://download.kde.org/stable/gcompris/qt/windows/gcompris-qt-26.2-win64-gcc.msi -OutFile $m; Start-Process msiexec -ArgumentList '/i',$m,'/qn' -Wait; Get-ChildItem -Recurse -Filter *.exe 'C:\\Program Files\\GCompris*','C:\\Program Files (x86)\\GCompris*' -ErrorAction SilentlyContinue | % FullName",
+  "Get-ChildItem -Recurse -Filter *.lnk \"$env:ProgramData\\Microsoft\\Windows\\Start Menu\",\"$env:APPDATA\\Microsoft\\Windows\\Start Menu\" | ? Name -match 'ompris' | % FullName"
  ],
  "inputs": [],
  "steps": [
