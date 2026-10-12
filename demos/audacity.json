@@ -48,15 +48,39 @@
   },
   {
    "do": "wait",
+   "s": 0.8
+  },
+  {
+   "do": "click_text",
+   "text": "Удаление шума и восстановление"
+  },
+  {
+   "do": "wait",
    "s": 1
   },
   {
    "do": "uia_dump",
-   "name": "uia_effect_menu"
+   "name": "uia_sub"
   },
   {
    "do": "mark",
-   "name": "effect_menu"
+   "name": "submenu"
+  },
+  {
+   "do": "click_text",
+   "text": "Шумоподавление"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_nr"
+  },
+  {
+   "do": "mark",
+   "name": "nr_dialog"
   }
  ],
  "post": [],
