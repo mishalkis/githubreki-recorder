@@ -1,16 +1,16 @@
 {
  "winget_id": "Musescore.Musescore",
  "launch": "MuseScore",
- "title": "MuseScore",
+ "title": "MuseScore|Big_Score",
  "settle": 10,
  "pre": [
-  "Get-ChildItem -Recurse -Include *.mscz,*.mscx \"$env:ProgramFiles\" -ErrorAction SilentlyContinue | select -First 20 | % FullName"
+  "$f=\"$env:APPDATA\\MuseScore\\MuseScore4.ini\"; New-Item -ItemType Directory -Force (Split-Path $f) | Out-Null; Set-Content -Encoding utf8 $f \"[ui]`r`napplication\\language=ru`r`n[application]`r`nlanguage=ru`r`n\""
  ],
  "inputs": [],
  "steps": [
   {
    "do": "wait",
-   "s": 2
+   "s": 5
   },
   {
    "do": "mark",
@@ -19,5 +19,6 @@
   {
    "do": "winlist"
   }
- ]
+ ],
+ "args": "\"C:\\Program Files\\MuseScore 4\\autobotscripts\\data\\Big_Score.mscz\""
 }

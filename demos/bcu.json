@@ -2,24 +2,19 @@
  "winget_id": "Klocman.BulkCrapUninstaller",
  "launch": "BCUninstaller",
  "title": "Bulk|Crap|BCU",
- "settle": 10,
+ "settle": 25,
  "pre": [
-  "Set-WinUserLanguageList -LanguageList ru-RU -Force",
-  "Get-ChildItem -Recurse -Filter *.lnk \"$env:ProgramData\\Microsoft\\Windows\\Start Menu\",\"$env:APPDATA\\Microsoft\\Windows\\Start Menu\" | ? Name -match 'BCU|Crap|Uninst' | % FullName",
-  "Get-ChildItem -Recurse -Filter *.exe \"$env:ProgramFiles\",\"${env:ProgramFiles(x86)}\",\"$env:LOCALAPPDATA\\Programs\" -ErrorAction SilentlyContinue | ? FullName -match 'BCU|Crap' | select -First 5 | % FullName"
+  "Set-Content -Encoding utf8 'C:\\Program Files\\BCUninstaller\\BCUninstaller.settings' '<?xml version=\"1.0\" encoding=\"utf-8\"?><Settings><MiscVersion>6.3.0.0</MiscVersion><Language>ru</Language></Settings>'"
  ],
  "inputs": [],
  "steps": [
   {
    "do": "wait",
-   "s": 2
+   "s": 10
   },
   {
    "do": "mark",
    "name": "a"
-  },
-  {
-   "do": "winlist"
   }
  ]
 }

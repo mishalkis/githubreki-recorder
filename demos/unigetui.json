@@ -11,14 +11,67 @@
  "steps": [
   {
    "do": "wait",
-   "s": 2
+   "s": 4
   },
   {
    "do": "mark",
-   "name": "a"
+   "name": "dlg"
   },
   {
-   "do": "winlist"
+   "do": "click",
+   "x": 985,
+   "y": 633
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "click",
+   "x": 985,
+   "y": 633
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "click",
+   "x": 1889,
+   "y": 912
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "click",
+   "x": 948,
+   "y": 34
+  },
+  {
+   "do": "type",
+   "text": "firefox"
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 15
+  },
+  {
+   "do": "mark",
+   "name": "search"
+  },
+  {
+   "do": "wait",
+   "s": 5
+  },
+  {
+   "do": "mark",
+   "name": "search2"
   }
  ]
 }

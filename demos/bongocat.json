@@ -5,7 +5,7 @@
  "title": "note",
  "settle": 3,
  "pre": [
-  "New-Item -ItemType Directory -Force C:\\demo | Out-Null; Set-Content -Encoding utf8 C:\\demo\\note.txt 'Заметки'",
+  "New-Item -ItemType Directory -Force C:\\demo | Out-Null; Set-Content -Encoding utf8 C:\\demo\\note.txt \"Список дел на неделю`r`n`r`n1. Купить продукты`r`n2. Отправить отчёт`r`n3. Позвонить маме`r`n\"",
   "Get-ChildItem -Recurse -Filter *.lnk \"$env:ProgramData\\Microsoft\\Windows\\Start Menu\",\"$env:APPDATA\\Microsoft\\Windows\\Start Menu\" | ? Name -match 'ongo' | % FullName"
  ],
  "inputs": [],
@@ -25,40 +25,33 @@
    "s": 1
   },
   {
-   "do": "mark",
-   "name": "a"
-  },
-  {
    "do": "click",
    "x": 900,
-   "y": 400
+   "y": 500
   },
   {
    "do": "type",
-   "text": "Привет, кот печатает вместе со мной"
-  },
-  {
-   "do": "wait",
-   "s": 0.3
+   "text": "4. Записаться к врачу"
   },
   {
    "do": "hotkey",
    "keys": "enter"
   },
   {
+   "do": "type",
+   "text": "5. Погулять с собакой"
+  },
+  {
    "do": "mark",
-   "name": "b"
+   "name": "a"
   },
   {
    "do": "type",
-   "text": "asdf qwer"
+   "text": "qwe asd"
   },
   {
    "do": "mark",
-   "name": "c"
-  },
-  {
-   "do": "winlist"
+   "name": "b"
   }
  ],
  "refind": false
