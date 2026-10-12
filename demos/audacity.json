@@ -59,10 +59,6 @@
    "s": 1
   },
   {
-   "do": "uia_dump",
-   "name": "uia_sub"
-  },
-  {
    "do": "mark",
    "name": "submenu"
   },
@@ -75,12 +71,94 @@
    "s": 2
   },
   {
-   "do": "uia_dump",
-   "name": "uia_nr"
+   "do": "mark",
+   "name": "nr_dialog"
+  },
+  {
+   "do": "click_text",
+   "text": "Получить профиль шума"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+a"
+  },
+  {
+   "do": "wait",
+   "s": 1
   },
   {
    "do": "mark",
-   "name": "nr_dialog"
+   "name": "select_all"
+  },
+  {
+   "do": "click",
+   "x": 440,
+   "y": 33
+  },
+  {
+   "do": "wait",
+   "s": 0.8
+  },
+  {
+   "do": "click_text",
+   "text": "Удаление шума и восстановление"
+  },
+  {
+   "do": "wait",
+   "s": 0.8
+  },
+  {
+   "do": "click_text",
+   "text": "Подавление шума"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "nr_apply"
+  },
+  {
+   "do": "click_text",
+   "text": "OK"
+  },
+  {
+   "do": "wait",
+   "s": 4
+  },
+  {
+   "do": "mark",
+   "name": "result"
+  },
+  {
+   "do": "click",
+   "x": 300,
+   "y": 215
+  },
+  {
+   "do": "hotkey",
+   "keys": "space"
+  },
+  {
+   "do": "wait",
+   "s": 4
+  },
+  {
+   "do": "mark",
+   "name": "playback"
+  },
+  {
+   "do": "hotkey",
+   "keys": "space"
+  },
+  {
+   "do": "wait",
+   "s": 1
   }
  ],
  "post": [],
