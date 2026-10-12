@@ -60,5 +60,6 @@
   {
    "do": "winlist"
   }
- ]
+ ],
+ "refind": false
 }
