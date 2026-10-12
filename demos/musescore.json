@@ -16,6 +16,46 @@
    "s": 8
   },
   {
+   "do": "click",
+   "x": 1174,
+   "y": 733
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "click",
+   "x": 1174,
+   "y": 733
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "click",
+   "x": 1174,
+   "y": 733
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "w"
+  },
+  {
+   "do": "click",
+   "x": 1174,
+   "y": 733
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
    "do": "mark",
    "name": "a"
   },
@@ -26,14 +66,11 @@
   },
   {
    "do": "wait",
-   "s": 3
+   "s": 2
   },
   {
    "do": "mark",
    "name": "b"
-  },
-  {
-   "do": "winlist"
   }
  ],
  "args": "C:\\demo\\ode.musicxml"

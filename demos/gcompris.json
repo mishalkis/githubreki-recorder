@@ -4,10 +4,20 @@
  "title": "GCompris",
  "settle": 10,
  "pre": [
+  "Set-Culture ru-RU; Set-WinUILanguageOverride -Language ru-RU",
   "New-Item -ItemType Directory -Force \"$env:LOCALAPPDATA\\gcompris-qt\" | Out-Null; Set-Content -Encoding ascii \"$env:LOCALAPPDATA\\gcompris-qt\\GCompris.conf\" \"[General]`r`nlocale=ru_RU.UTF-8`r`nisFirstRun=false`r`n\"; $m='C:\\gc.msi'; Invoke-WebRequest -UserAgent 'Mozilla/5.0' -Uri https://download.kde.org/stable/gcompris/qt/windows/gcompris-qt-26.2-win64-gcc.msi -OutFile $m; Start-Process msiexec -ArgumentList '/i',$m,'/qn' -Wait; Test-Path 'C:\\Program Files\\GCompris-Qt\\bin\\GCompris.exe'"
  ],
  "inputs": [],
  "steps": [
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "click",
+   "x": 1846,
+   "y": 72
+  },
   {
    "do": "wait",
    "s": 3
@@ -18,7 +28,7 @@
   },
   {
    "do": "wait",
-   "s": 3
+   "s": 2
   },
   {
    "do": "mark",
