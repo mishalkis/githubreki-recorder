@@ -6,7 +6,8 @@
  "pre": [
   "New-Item -ItemType Directory -Force \"$env:APPDATA\\audacity\" | Out-Null",
   "Set-Content -Encoding ascii \"$env:APPDATA\\audacity\\audacity.cfg\" \"[Locale]`nLanguage=ru`n[GUI]`nShowSplashScreen=0`n[Update]`nDefaultUpdatesChecking=0`nUpdateNoticeShown=1\"",
-  "Log (\"langs: \" + ((Get-ChildItem \"C:\\Program Files\\Audacity\\Languages\" -Directory -ErrorAction SilentlyContinue | Measure-Object).Count) + \" ru: \" + (Test-Path \"C:\\Program Files\\Audacity\\Languages\\ru\\audacity.mo\"))"
+  "Log (\"langs: \" + ((Get-ChildItem \"C:\\Program Files\\Audacity\\Languages\" -Directory -ErrorAction SilentlyContinue | Measure-Object).Count) + \" ru: \" + (Test-Path \"C:\\Program Files\\Audacity\\Languages\\ru\\audacity.mo\"))",
+  "Log (\"cfg before: \" + ((Get-Content \"$env:APPDATA\\audacity\\audacity.cfg\") -join \" | \"))"
  ],
  "inputs": [
   "voice_noisy.wav"
@@ -30,7 +31,7 @@
  ],
  "winget_version": "3.7.7",
  "post": [
-  "Get-Content \"$env:APPDATA\\audacity\\audacity.cfg\" | Select-String -Pattern \"Lang|Splash|Update\""
+  "Log (\"cfg after: \" + ((Get-Content \"$env:APPDATA\\audacity\\audacity.cfg\" | ForEach-Object { if ($_.Length -gt 80) { $_.Substring(0,80) } else { $_ } }) -join \" | \"))"
  ],
  "args": "C:\\demo\\voice_noisy.wav"
 }
