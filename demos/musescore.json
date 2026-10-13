@@ -1,7 +1,7 @@
 {
  "winget_id": "Musescore.Musescore",
  "launch": "MuseScore",
- "title": "MuseScore|Big_Score",
+ "title": "ode",
  "settle": 15,
  "pre": [
   "$f=\"$env:APPDATA\\MuseScore\\MuseScore4.ini\"; New-Item -ItemType Directory -Force (Split-Path $f) | Out-Null; Set-Content -Encoding utf8 $f \"[ui]`r`napplication\\language=ru`r`n[application]`r`nlanguage=ru`r`n\"",
@@ -13,7 +13,16 @@
  "steps": [
   {
    "do": "wait",
-   "s": 8
+   "s": 6
+  },
+  {
+   "do": "click",
+   "x": 838,
+   "y": 753
+  },
+  {
+   "do": "wait",
+   "s": 3
   },
   {
    "do": "click",
@@ -64,5 +73,6 @@
    "name": "b"
   }
  ],
- "args": "C:\\demo\\ode.musicxml"
+ "args": "C:\\demo\\ode.musicxml",
+ "refind": false
 }

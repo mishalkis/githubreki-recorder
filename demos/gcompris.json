@@ -5,6 +5,7 @@
  "settle": 10,
  "pre": [
   "Set-Culture ru-RU; Set-WinUILanguageOverride -Language ru-RU",
+  "foreach($p in \"$env:APPDATA\\gcompris-qt\",\"$env:LOCALAPPDATA\\gcompris-qt\",\"$env:APPDATA\\KDE\"){ New-Item -ItemType Directory -Force $p | Out-Null; Set-Content -Encoding ascii \"$p\\GCompris.conf\" \"[General]`r`nlocale=ru_RU.UTF-8`r`nisFirstRun=false`r`n\" }",
   "New-Item -ItemType Directory -Force \"$env:LOCALAPPDATA\\gcompris-qt\" | Out-Null; Set-Content -Encoding ascii \"$env:LOCALAPPDATA\\gcompris-qt\\GCompris.conf\" \"[General]`r`nlocale=ru_RU.UTF-8`r`nisFirstRun=false`r`n\"; $m='C:\\gc.msi'; Invoke-WebRequest -UserAgent 'Mozilla/5.0' -Uri https://download.kde.org/stable/gcompris/qt/windows/gcompris-qt-26.2-win64-gcc.msi -OutFile $m; Start-Process msiexec -ArgumentList '/i',$m,'/qn' -Wait; Test-Path 'C:\\Program Files\\GCompris-Qt\\bin\\GCompris.exe'"
  ],
  "inputs": [],
