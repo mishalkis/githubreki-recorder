@@ -34,15 +34,42 @@
   },
   {
    "do": "mark",
-   "name": "a"
+   "name": "menu"
+  },
+  {
+   "do": "click",
+   "x": 1435,
+   "y": 100
   },
   {
    "do": "wait",
-   "s": 2
+   "s": 4
   },
   {
    "do": "mark",
-   "name": "b"
+   "name": "abc"
+  },
+  {
+   "do": "click",
+   "x": 1060,
+   "y": 100
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "click",
+   "x": 1060,
+   "y": 100
+  },
+  {
+   "do": "wait",
+   "s": 4
+  },
+  {
+   "do": "mark",
+   "name": "num"
   }
  ]
 }
