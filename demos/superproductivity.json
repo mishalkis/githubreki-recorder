@@ -123,8 +123,24 @@
   },
   {
    "do": "click",
-   "x": 1701,
+   "x": 1746,
    "y": 27
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "hotkey",
+   "keys": "esc"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "hotkey",
+   "keys": "f"
   },
   {
    "do": "wait",
