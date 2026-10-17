@@ -12,18 +12,86 @@
  ],
  "steps": [
   {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "mark",
+   "name": "start"
+  },
+  {
+   "do": "mark",
+   "name": "import"
+  },
+  {
+   "do": "click",
+   "x": 355,
+   "y": 57
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "type",
+   "text": "\"C:\\demo\\scans\\dogovor_1.jpg\" \"C:\\demo\\scans\\dogovor_2.jpg\" \"C:\\demo\\scans\\spravka.jpg\""
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 4
+  },
+  {
+   "do": "mark",
+   "name": "rotate"
+  },
+  {
+   "do": "click",
+   "x": 646,
+   "y": 230
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "click",
+   "x": 934,
+   "y": 57
+  },
+  {
+   "do": "wait",
+   "s": 1.2
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_rot"
+  },
+  {
    "do": "click",
    "x": 261,
    "y": 57
   },
   {
    "do": "wait",
-   "s": 2.5
+   "s": 2
   },
   {
    "do": "click",
-   "x": 1200,
-   "y": 716
+   "x": 788,
+   "y": 453
+  },
+  {
+   "do": "click",
+   "x": 1085,
+   "y": 481
   },
   {
    "do": "wait",
@@ -31,7 +99,7 @@
   },
   {
    "do": "uia_dump",
-   "name": "uia_scrolled"
+   "name": "uia_combo"
   }
  ],
  "setup": [
@@ -52,6 +120,51 @@
   {
    "do": "wait",
    "s": 3
+  },
+  {
+   "do": "click",
+   "x": 261,
+   "y": 57
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "click",
+   "x": 1200,
+   "y": 716
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "click",
+   "x": 787,
+   "y": 340
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "click",
+   "x": 1196,
+   "y": 751
+  },
+  {
+   "do": "wait",
+   "s": 25
+  },
+  {
+   "do": "click",
+   "x": 1099,
+   "y": 596
+  },
+  {
+   "do": "wait",
+   "s": 1.5
   }
  ],
  "refind": false
