@@ -7,8 +7,7 @@
   "New-Item -ItemType Directory -Force C:\\demo | Out-Null",
   "New-Item -ItemType Directory -Force \"$env:APPDATA\\KeePassXC\" | Out-Null",
   "Set-Content -Encoding ascii \"$env:APPDATA\\KeePassXC\\keepassxc.ini\" \"[General]`nConfigVersion=2`nUpdateCheckMessageShown=true`n`n[GUI]`nLanguage=ru`nCheckForUpdates=false`nApplicationTheme=light`n\"",
-  "Get-Content \"$env:APPDATA\\KeePassXC\\keepassxc.ini\"",
-  "$env:QT_OPENGL='software'; $env:QT_ANGLE_PLATFORM='warp'; $env:QT_QPA_PLATFORM='windows:nodirectwrite'"
+  "Get-Content \"$env:APPDATA\\KeePassXC\\keepassxc.ini\""
  ],
  "inputs": [],
  "setup": [
@@ -91,6 +90,6 @@
  ],
  "refind": false,
  "post": [
-  "Add-Type -Namespace W -Name D -MemberDefinition '[DllImport(\"dwmapi.dll\")] public static extern int DwmGetWindowAttribute(IntPtr h,int a,out int v,int s); [DllImport(\"user32.dll\")] public static extern bool IsWindowVisible(IntPtr h); [DllImport(\"user32.dll\")] public static extern bool IsIconic(IntPtr h); [DllImport(\"user32.dll\")] public static extern int GetWindowLong(IntPtr h,int i);'; Get-Process | ? {$_.ProcessName -like 'keepass*'} | % { $c=0; [W.D]::DwmGetWindowAttribute($_.MainWindowHandle,14,[ref]$c,4) | Out-Null; \"KP pid=$($_.Id) title=$($_.MainWindowTitle) h=$($_.MainWindowHandle) resp=$($_.Responding) cloaked=$c vis=$([W.D]::IsWindowVisible($_.MainWindowHandle)) iconic=$([W.D]::IsIconic($_.MainWindowHandle)) style=$([W.D]::GetWindowLong($_.MainWindowHandle,-16)) ex=$([W.D]::GetWindowLong($_.MainWindowHandle,-20))\" }"
+  "Add-Type -AssemblyName System.Drawing; Add-Type -Namespace W -Name P -MemberDefinition '[DllImport(\"user32.dll\")] public static extern bool PrintWindow(IntPtr h,IntPtr dc,int f);'; $p=Get-Process KeePassXC | select -First 1; $bmp=New-Object System.Drawing.Bitmap 1920,1032; $g=[System.Drawing.Graphics]::FromImage($bmp); $dc=$g.GetHdc(); $r=[W.P]::PrintWindow($p.MainWindowHandle,$dc,2); $g.ReleaseHdc($dc); $bmp.Save('out/kp_pw.png'); \"PrintWindow=$r\""
  ]
 }
