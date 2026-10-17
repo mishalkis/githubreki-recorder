@@ -51,8 +51,25 @@
    "s": 3
   },
   {
+   "do": "click",
+   "x": 1040,
+   "y": 646
+  },
+  {
    "do": "type",
-   "text": "\"C:\\demo\\clips\\klip1.mp4\" \"C:\\demo\\clips\\klip2.mp4\" \"C:\\demo\\clips\\klip3.mp4\""
+   "text": "C:\\demo\\clips\\"
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "type",
+   "text": "\"klip1.mp4\" \"klip2.mp4\" \"klip3.mp4\""
   },
   {
    "do": "wait",
