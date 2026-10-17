@@ -8,23 +8,27 @@
  "steps": [
   {
    "do": "wait",
-   "s": 1
+   "s": 1.5
   },
   {
    "do": "mark",
    "name": "start"
   },
   {
-   "do": "hotkey",
-   "keys": "ctrl+n"
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "mark",
+   "name": "deck"
+  },
+  {
+   "do": "click_text",
+   "text": "Создать колоду"
   },
   {
    "do": "wait",
    "s": 2
-  },
-  {
-   "do": "uia_dump",
-   "name": "uia_deck"
   },
   {
    "do": "type",
@@ -32,7 +36,7 @@
   },
   {
    "do": "wait",
-   "s": 1
+   "s": 1.5
   },
   {
    "do": "hotkey",
@@ -40,7 +44,11 @@
   },
   {
    "do": "wait",
-   "s": 2
+   "s": 2.5
+  },
+  {
+   "do": "mark",
+   "name": "cards"
   },
   {
    "do": "keys",
@@ -48,11 +56,199 @@
   },
   {
    "do": "wait",
-   "s": 3
+   "s": 2.5
+  },
+  {
+   "do": "type",
+   "text": "серендипити"
+  },
+  {
+   "do": "wait",
+   "s": 0.8
+  },
+  {
+   "do": "keys",
+   "keys": "{TAB}"
+  },
+  {
+   "do": "type",
+   "text": "serendipity — счастливая случайность"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "keys",
+   "keys": "^{ENTER}"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "type",
+   "text": "ephemeral"
+  },
+  {
+   "do": "wait",
+   "s": 0.8
+  },
+  {
+   "do": "keys",
+   "keys": "{TAB}"
+  },
+  {
+   "do": "type",
+   "text": "эфемерный — недолговечный"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "keys",
+   "keys": "^{ENTER}"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "type",
+   "text": "resilience"
+  },
+  {
+   "do": "wait",
+   "s": 0.8
+  },
+  {
+   "do": "keys",
+   "keys": "{TAB}"
+  },
+  {
+   "do": "type",
+   "text": "стойкость, умение восстанавливаться"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "keys",
+   "keys": "^{ENTER}"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "type",
+   "text": "утро"
+  },
+  {
+   "do": "wait",
+   "s": 0.8
+  },
+  {
+   "do": "keys",
+   "keys": "{TAB}"
+  },
+  {
+   "do": "type",
+   "text": "morning"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "keys",
+   "keys": "^{ENTER}"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "keys",
+   "keys": "{ESC}"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "study"
   },
   {
    "do": "uia_dump",
-   "name": "uia_add"
+   "name": "uia_overview"
+  },
+  {
+   "do": "keys",
+   "keys": "{SPACE}"
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "mark",
+   "name": "answer"
+  },
+  {
+   "do": "keys",
+   "keys": "{SPACE}"
+  },
+  {
+   "do": "wait",
+   "s": 3.5
+  },
+  {
+   "do": "mark",
+   "name": "rate"
+  },
+  {
+   "do": "keys",
+   "keys": "3"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "keys",
+   "keys": "{SPACE}"
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "keys",
+   "keys": "1"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "keys",
+   "keys": "{SPACE}"
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "keys",
+   "keys": "4"
+  },
+  {
+   "do": "wait",
+   "s": 2.5
   }
  ],
  "setup": [
@@ -79,13 +275,6 @@
   {
    "do": "wait",
    "s": 10
-  },
-  {
-   "do": "winlist"
-  },
-  {
-   "do": "uia_dump",
-   "name": "uia_setup1"
   }
  ],
  "refind": true
