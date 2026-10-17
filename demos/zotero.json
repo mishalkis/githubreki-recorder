@@ -147,6 +147,31 @@
   {
    "do": "wait",
    "s": 2.5
+  },
+  {
+   "do": "mark",
+   "name": "bibliography"
+  },
+  {
+   "do": "click",
+   "x": 800,
+   "y": 396
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "type",
+   "text": "Russian"
+  },
+  {
+   "do": "wait",
+   "s": 2
   }
  ],
  "refind": false,
