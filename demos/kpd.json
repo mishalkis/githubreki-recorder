@@ -1,0 +1,33 @@
+{
+ "winget_id": "KeePassXCTeam.KeePassXC",
+ "launch": "C:\\Program Files\\KeePassXC\\KeePassXC.exe",
+ "title": "KeePassXC",
+ "settle": 4,
+ "pre": [
+  "New-Item -ItemType Directory -Force C:\\demo | Out-Null",
+  "New-Item -ItemType Directory -Force \"$env:APPDATA\\KeePassXC\" | Out-Null"
+ ],
+ "inputs": [],
+ "setup": [
+  {
+   "do": "wait",
+   "s": 2
+  }
+ ],
+ "steps": [
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "mark",
+   "name": "start"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  }
+ ],
+ "refind": false,
+ "winget_version": "2.7.6"
+}
