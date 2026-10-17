@@ -48,8 +48,8 @@ def area(h):
     return (r[2] - r[0]) * (r[3] - r[1])
 
 
-def find_main(baseline, pattern):
-    cap = lambda h: U.GetWindowLongW(h, -16) & 0xC00000 == 0xC00000  # есть заголовок: заставки не подходят
+def find_main(baseline, pattern, nocap=False):
+    cap = lambda h: nocap or U.GetWindowLongW(h, -16) & 0xC00000 == 0xC00000  # есть заголовок: заставки не подходят
     c = [h for h in windows() if h not in baseline and title(h) and cap(h) and area(h) > 400 * 300
          and (not pattern or re.search(pattern, title(h)))]
     return max(c, key=area) if c else None
@@ -251,7 +251,7 @@ else: os.startfile(launch)
 h = None; deadline = time.time() + 240
 while time.time() < deadline:
     time.sleep(1.5)
-    h = find_main(baseline, demo.get('title'))
+    h = find_main(baseline, demo.get('title'), bool(demo.get('dialog_first')))
     if h:
         if demo.get('dialog_first'):  # первое окно - диалог/приветствие: не разворачиваем, setup работает в нём
             U.SetForegroundWindow(h); time.sleep(1); break
