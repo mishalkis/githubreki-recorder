@@ -70,7 +70,7 @@
   },
   {
    "do": "wait",
-   "s": 9
+   "s": 7
   },
   {
    "do": "mark",
@@ -107,7 +107,7 @@
   },
   {
    "do": "wait",
-   "s": 9
+   "s": 7
   },
   {
    "do": "keys",
@@ -140,7 +140,7 @@
   },
   {
    "do": "wait",
-   "s": 9
+   "s": 7
   },
   {
    "do": "mark",
@@ -258,7 +258,7 @@
   },
   {
    "do": "wait",
-   "s": 0.4
+   "s": 0.15
   },
   {
    "do": "hotkey",
@@ -266,7 +266,7 @@
   },
   {
    "do": "wait",
-   "s": 0.4
+   "s": 0.15
   },
   {
    "do": "hotkey",
@@ -274,7 +274,7 @@
   },
   {
    "do": "wait",
-   "s": 0.4
+   "s": 0.15
   },
   {
    "do": "hotkey",
@@ -282,7 +282,7 @@
   },
   {
    "do": "wait",
-   "s": 0.4
+   "s": 0.15
   },
   {
    "do": "hotkey",
@@ -290,7 +290,95 @@
   },
   {
    "do": "wait",
-   "s": 0.4
+   "s": 0.15
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+="
+  },
+  {
+   "do": "wait",
+   "s": 0.15
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+="
+  },
+  {
+   "do": "wait",
+   "s": 0.15
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+="
+  },
+  {
+   "do": "wait",
+   "s": 0.15
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+="
+  },
+  {
+   "do": "wait",
+   "s": 0.15
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+="
+  },
+  {
+   "do": "wait",
+   "s": 0.15
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+="
+  },
+  {
+   "do": "wait",
+   "s": 0.15
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+="
+  },
+  {
+   "do": "wait",
+   "s": 0.15
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+="
+  },
+  {
+   "do": "wait",
+   "s": 0.15
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+="
+  },
+  {
+   "do": "wait",
+   "s": 0.15
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+="
+  },
+  {
+   "do": "wait",
+   "s": 0.15
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+="
+  },
+  {
+   "do": "wait",
+   "s": 0.15
   },
   {
    "do": "wait",

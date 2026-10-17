@@ -17,19 +17,7 @@
   },
   {
    "do": "click_text",
-   "text": "Настройки"
-  },
-  {
-   "do": "wait",
-   "s": 2.5
-  },
-  {
-   "do": "uia_dump",
-   "name": "set1"
-  },
-  {
-   "do": "click_text",
-   "text": "Безопасность"
+   "text": "Вид"
   },
   {
    "do": "wait",
@@ -37,7 +25,15 @@
   },
   {
    "do": "uia_dump",
-   "name": "set2"
+   "name": "view"
+  },
+  {
+   "do": "click_text",
+   "text": "захват"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
   },
   {
    "do": "winlist"
