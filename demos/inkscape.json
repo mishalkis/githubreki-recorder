@@ -16,12 +16,12 @@
   },
   {
    "do": "click",
-   "x": 682,
-   "y": 17
+   "x": 708,
+   "y": 40
   },
   {
    "do": "wait",
-   "s": 6
+   "s": 8
   },
   {
    "do": "winlist"
@@ -41,6 +41,5 @@
    "s": 1
   }
  ],
- "refind": false,
  "dialog_first": true
 }

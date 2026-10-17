@@ -22,7 +22,7 @@
   },
   {
    "do": "wait",
-   "s": 6
+   "s": 8
   },
   {
    "do": "winlist"
@@ -62,6 +62,5 @@
    "s": 5
   }
  ],
- "refind": false,
  "dialog_first": true
 }
