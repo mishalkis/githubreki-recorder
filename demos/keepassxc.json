@@ -170,6 +170,10 @@
    "s": 1
   },
   {
+   "do": "mark",
+   "name": "generator"
+  },
+  {
    "do": "click",
    "x": 1870,
    "y": 237
@@ -179,8 +183,200 @@
    "s": 2.5
   },
   {
+   "do": "click",
+   "x": 700,
+   "y": 450
+  },
+  {
+   "do": "keys",
+   "keys": "{HOME}"
+  },
+  {
+   "do": "keys",
+   "keys": "{RIGHT 23}"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "click",
+   "x": 866,
+   "y": 561
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
    "do": "uia_dump",
-   "name": "gen"
+   "name": "gen2"
+  },
+  {
+   "do": "click",
+   "x": 1143,
+   "y": 666
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "save"
+  },
+  {
+   "do": "click",
+   "x": 1779,
+   "y": 985
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "mark",
+   "name": "more"
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+n"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "type",
+   "text": "Банк"
+  },
+  {
+   "do": "keys",
+   "keys": "{TAB}"
+  },
+  {
+   "do": "type",
+   "text": "ivan.demo@example.com"
+  },
+  {
+   "do": "wait",
+   "s": 0.8
+  },
+  {
+   "do": "click",
+   "x": 1870,
+   "y": 237
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "click",
+   "x": 1143,
+   "y": 666
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "click",
+   "x": 1779,
+   "y": 985
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+n"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "type",
+   "text": "Соцсеть"
+  },
+  {
+   "do": "keys",
+   "keys": "{TAB}"
+  },
+  {
+   "do": "type",
+   "text": "ivan_demo"
+  },
+  {
+   "do": "wait",
+   "s": 0.8
+  },
+  {
+   "do": "click",
+   "x": 1870,
+   "y": 237
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "click",
+   "x": 1143,
+   "y": 666
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "click",
+   "x": 1779,
+   "y": 985
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "report"
+  },
+  {
+   "do": "click",
+   "x": 555,
+   "y": 76
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "uia_dump",
+   "name": "report"
+  },
+  {
+   "do": "keys",
+   "keys": "{ESC}"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "mark",
+   "name": "lock"
+  },
+  {
+   "do": "click",
+   "x": 114,
+   "y": 76
+  },
+  {
+   "do": "wait",
+   "s": 3
   }
  ],
  "refind": false
