@@ -75,6 +75,15 @@
   {
    "do": "wait",
    "s": 2
+  },
+  {
+   "do": "click",
+   "x": 700,
+   "y": 273
+  },
+  {
+   "do": "wait",
+   "s": 2
   }
  ],
  "refind": false
