@@ -15,8 +15,23 @@
    "s": 1
   },
   {
-   "do": "mark",
-   "name": "start"
+   "do": "hotkey",
+   "keys": "win+d"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "restore",
+   "title": "^VeraCrypt$"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "winlist"
   }
  ],
  "setup": [
@@ -29,7 +44,13 @@
    "s": 2
   },
   {
-   "do": "winlist"
+   "do": "click",
+   "x": -300,
+   "y": 150
+  },
+  {
+   "do": "wait",
+   "s": 2
   }
  ],
  "refind": false
