@@ -5,7 +5,8 @@
  "settle": 5,
  "pre": [
   "Set-WinUserLanguageList -LanguageList ru-RU -Force",
-  "New-Item -ItemType Directory -Force \"$env:APPDATA\\NAPS2\" | Out-Null"
+  "New-Item -ItemType Directory -Force \"$env:APPDATA\\NAPS2\" | Out-Null",
+  "New-Item -Path 'HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge' -Force | Out-Null; Set-ItemProperty -Path 'HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge' -Name HideFirstRunExperience -Value 1 -Type DWord; Set-ItemProperty -Path 'HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge' -Name BrowserSignin -Value 0 -Type DWord"
  ],
  "inputs": [
   "scans"
@@ -47,7 +48,7 @@
   },
   {
    "do": "type",
-   "text": "\"C:\\demo\\scans\\dogovor_1.jpg\" \"C:\\demo\\scans\\dogovor_2.jpg\" \"C:\\demo\\scans\\spravka.jpg\""
+   "text": "\"C:\\demo\\scans\\dogovor_1.jpg\" \"C:\\demo\\scans\\spravka.jpg\" \"C:\\demo\\scans\\dogovor_2.jpg\""
   },
   {
    "do": "wait",
@@ -67,7 +68,7 @@
   },
   {
    "do": "click",
-   "x": 646,
+   "x": 920,
    "y": 230
   },
   {
@@ -98,7 +99,7 @@
   },
   {
    "do": "click",
-   "x": 920,
+   "x": 646,
    "y": 230
   },
   {
@@ -108,16 +109,7 @@
   {
    "do": "click",
    "x": 1050,
-   "y": 41
-  },
-  {
-   "do": "wait",
-   "s": 1.5
-  },
-  {
-   "do": "click",
-   "x": 1050,
-   "y": 41
+   "y": 74
   },
   {
    "do": "wait",
@@ -165,7 +157,7 @@
   },
   {
    "do": "click",
-   "x": 1012,
+   "x": 1027,
    "y": 596
   },
   {
@@ -186,10 +178,6 @@
    "s": 2.5
   },
   {
-   "do": "uia_dump",
-   "name": "uia_save"
-  },
-  {
    "do": "type",
    "text": "C:\\demo\\Договор аренды.pdf"
   },
@@ -204,10 +192,6 @@
   {
    "do": "wait",
    "s": 8
-  },
-  {
-   "do": "uia_dump",
-   "name": "uia_saved"
   },
   {
    "do": "mark",
