@@ -13,11 +13,21 @@
  "setup": [
   {
    "do": "wait",
-   "s": 1
+   "s": 2
   },
   {
-   "do": "uia_dump",
-   "name": "setup0"
+   "do": "winlist"
+  },
+  {
+   "do": "fit",
+   "title": "^KeePassXC$"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "winlist"
   }
  ],
  "steps": [
