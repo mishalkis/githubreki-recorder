@@ -16,8 +16,13 @@
    "s": 2
   },
   {
-   "do": "uia_dump",
-   "name": "setup0"
+   "do": "click",
+   "x": 367,
+   "y": 538
+  },
+  {
+   "do": "wait",
+   "s": 6
   },
   {
    "do": "winlist"
@@ -33,9 +38,30 @@
    "name": "start"
   },
   {
+   "do": "hotkey",
+   "keys": "ctrl+i"
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "type",
+   "text": "\"C:\\demo\\clips\\klip1.mp4\" \"C:\\demo\\clips\\klip2.mp4\" \"C:\\demo\\clips\\klip3.mp4\""
+  },
+  {
    "do": "wait",
    "s": 1
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 5
   }
  ],
- "refind": false
+ "refind": false,
+ "dialog_first": true
 }

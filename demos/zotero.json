@@ -17,8 +17,13 @@
    "s": 2
   },
   {
-   "do": "uia_dump",
-   "name": "setup0"
+   "do": "click",
+   "x": 1865,
+   "y": 90
+  },
+  {
+   "do": "wait",
+   "s": 2
   }
  ],
  "steps": [
@@ -31,11 +36,92 @@
    "name": "start"
   },
   {
-   "do": "winlist"
+   "do": "mark",
+   "name": "isbn"
+  },
+  {
+   "do": "click",
+   "x": 270,
+   "y": 127
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "type",
+   "text": "9785170983403"
   },
   {
    "do": "wait",
    "s": 1
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 8
+  },
+  {
+   "do": "mark",
+   "name": "doi"
+  },
+  {
+   "do": "click",
+   "x": 270,
+   "y": 127
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "type",
+   "text": "10.1038/nature14539"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 8
+  },
+  {
+   "do": "mark",
+   "name": "select"
+  },
+  {
+   "do": "click",
+   "x": 700,
+   "y": 175
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+a"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "rclick",
+   "x": 700,
+   "y": 175
+  },
+  {
+   "do": "wait",
+   "s": 2
   }
  ],
  "refind": false

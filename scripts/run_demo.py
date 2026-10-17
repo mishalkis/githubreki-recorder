@@ -253,11 +253,13 @@ while time.time() < deadline:
     time.sleep(1.5)
     h = find_main(baseline, demo.get('title'))
     if h:
+        if demo.get('dialog_first'):  # первое окно - диалог/приветствие: не разворачиваем, setup работает в нём
+            U.SetForegroundWindow(h); time.sleep(1); break
         U.ShowWindowAsync(h, 3); U.SetForegroundWindow(h); time.sleep(1)
         if U.IsZoomed(h):
             break
 log(f'окно: {title(h) if h else None} {rect(h) if h else None}')
-if h:
+if h and not demo.get('dialog_first'):
     hide_others(h); U.ShowWindowAsync(h, 3); U.SetForegroundWindow(h); time.sleep(1)
     U.SetWindowPos(h, 0, 0, 0, 1920, 1080, 4)  # на весь экран, поверх скрытой панели задач
     log(f'окно после SetWindowPos {rect(h)} zoomed={U.IsZoomed(h)}')

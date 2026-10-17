@@ -1,6 +1,6 @@
 {
  "winget_id": "KeePassXCTeam.KeePassXC",
- "launch": "KeePassXC",
+ "launch": "C:\\Program Files\\KeePassXC\\KeePassXC.exe",
  "title": "KeePassXC",
  "settle": 4,
  "pre": [
