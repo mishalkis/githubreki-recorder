@@ -338,6 +338,73 @@
   {
    "do": "wait",
    "s": 3
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "click",
+   "x": 1480,
+   "y": 894
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+a"
+  },
+  {
+   "do": "type",
+   "text": "C:\\demo\\logo.png"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "click",
+   "x": 1610,
+   "y": 932
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "mark",
+   "name": "zoom"
+  },
+  {
+   "do": "click",
+   "x": 684,
+   "y": 396
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "keys",
+   "keys": "3"
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "keys",
+   "keys": "{+}{+}"
+  },
+  {
+   "do": "wait",
+   "s": 3
   }
  ],
  "dialog_first": true
