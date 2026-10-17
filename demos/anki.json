@@ -262,6 +262,14 @@
   {
    "do": "wait",
    "s": 2.5
+  },
+  {
+   "do": "keys",
+   "keys": "{SPACE}"
+  },
+  {
+   "do": "wait",
+   "s": 4
   }
  ],
  "setup": [
@@ -288,6 +296,35 @@
   {
    "do": "wait",
    "s": 10
+  },
+  {
+   "do": "click",
+   "x": 960,
+   "y": 600
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+="
+  },
+  {
+   "do": "wait",
+   "s": 0.5
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+="
+  },
+  {
+   "do": "wait",
+   "s": 0.5
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+="
+  },
+  {
+   "do": "wait",
+   "s": 1.5
   }
  ],
  "refind": true
