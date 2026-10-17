@@ -17,13 +17,17 @@
   {
    "do": "mark",
    "name": "start"
-  },
-  {
-   "do": "uia_dump",
-   "name": "uia_main"
   }
  ],
  "setup": [
+  {
+   "do": "restore",
+   "title": "^VeraCrypt$"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
   {
    "do": "winlist"
   }
