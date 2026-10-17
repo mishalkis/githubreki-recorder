@@ -70,7 +70,15 @@
   },
   {
    "do": "wait",
-   "s": 8
+   "s": 1.5
+  },
+  {
+   "do": "click_text",
+   "text": "Yes"
+  },
+  {
+   "do": "wait",
+   "s": 10
   },
   {
    "do": "winlist"
