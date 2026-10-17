@@ -102,15 +102,33 @@
   },
   {
    "do": "wait",
-   "s": 7
+   "s": 15
   },
   {
    "do": "mark",
    "name": "done"
   },
   {
+   "do": "click",
+   "x": 612,
+   "y": 141
+  },
+  {
    "do": "wait",
-   "s": 2
+   "s": 2.5
+  },
+  {
+   "do": "mark",
+   "name": "focus"
+  },
+  {
+   "do": "click",
+   "x": 1701,
+   "y": 27
+  },
+  {
+   "do": "wait",
+   "s": 3
   }
  ],
  "setup": [
