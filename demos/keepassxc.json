@@ -7,7 +7,8 @@
   "New-Item -ItemType Directory -Force C:\\demo | Out-Null",
   "New-Item -ItemType Directory -Force \"$env:APPDATA\\KeePassXC\" | Out-Null",
   "Set-Content -Encoding ascii \"$env:APPDATA\\KeePassXC\\keepassxc.ini\" \"[General]`nConfigVersion=2`nUpdateCheckMessageShown=true`n`n[GUI]`nLanguage=ru`nCheckForUpdates=false`nApplicationTheme=light`n\"",
-  "Get-Content \"$env:APPDATA\\KeePassXC\\keepassxc.ini\""
+  "Get-Content \"$env:APPDATA\\KeePassXC\\keepassxc.ini\"",
+  "$env:QT_OPENGL='software'; $env:QT_ANGLE_PLATFORM='warp'; $env:QT_QPA_PLATFORM='windows:nodirectwrite'"
  ],
  "inputs": [],
  "setup": [
