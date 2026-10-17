@@ -5,7 +5,7 @@
  "settle": 8,
  "pre": [
   "$p=\"$env:APPDATA\\Zotero\\Zotero\"; New-Item -ItemType Directory -Force \"$p\\Profiles\\demo.default\" | Out-Null; Set-Content -Encoding ascii \"$p\\profiles.ini\" \"[Profile0]`nName=default`nIsRelative=1`nPath=Profiles/demo.default`nDefault=1`n`n[General]`nStartWithLastProfile=1`nVersion=2`n\"",
-  "Set-Content -Encoding ascii \"$env:APPDATA\\Zotero\\Zotero\\Profiles\\demo.default\\user.js\" 'user_pref(\"intl.locale.requested\",\"ru-RU\");user_pref(\"extensions.zotero.firstRun2\",false);user_pref(\"extensions.zotero.automaticScraperUpdates\",false);user_pref(\"app.update.enabled\",false);'",
+  "Set-Content -Encoding ascii \"$env:APPDATA\\Zotero\\Zotero\\Profiles\\demo.default\\user.js\" 'user_pref(\"intl.locale.requested\",\"ru-RU\");user_pref(\"extensions.zotero.firstRun2\",false);user_pref(\"extensions.zotero.automaticScraperUpdates\",false);user_pref(\"app.update.enabled\",false);user_pref(\"extensions.zotero.sync.reminder.setUp.enabled\",false);user_pref(\"extensions.zotero.sync.reminder.autoSync.enabled\",false);user_pref(\"extensions.zotero.sync.reminder.enabled\",false);'",
   "New-Item -ItemType Directory -Force \"$env:USERPROFILE\\Zotero\\styles\" | Out-Null; Copy-Item C:\\demo\\gost-r-7-0-5-2008.csl \"$env:USERPROFILE\\Zotero\\styles\\\" -Force"
  ],
  "inputs": [
