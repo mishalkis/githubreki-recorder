@@ -46,12 +46,16 @@
    "name": "new"
   },
   {
-   "do": "hotkey",
-   "keys": "ctrl+n"
+   "do": "click_text",
+   "text": "Создать базу данных"
   },
   {
    "do": "wait",
    "s": 2.5
+  },
+  {
+   "do": "uia_dump",
+   "name": "w1"
   },
   {
    "do": "type",
@@ -62,20 +66,28 @@
    "s": 1.5
   },
   {
-   "do": "keys",
-   "keys": "{ENTER}"
+   "do": "click_text",
+   "text": "Продолжить"
   },
   {
    "do": "wait",
    "s": 2
   },
   {
-   "do": "keys",
-   "keys": "{ENTER}"
+   "do": "uia_dump",
+   "name": "w2"
+  },
+  {
+   "do": "click_text",
+   "text": "Продолжить"
   },
   {
    "do": "wait",
    "s": 2
+  },
+  {
+   "do": "uia_dump",
+   "name": "w3"
   },
   {
    "do": "type",
@@ -98,16 +110,16 @@
    "s": 1.5
   },
   {
-   "do": "uia_dump",
-   "name": "cred"
-  },
-  {
-   "do": "keys",
-   "keys": "{ENTER}"
+   "do": "click_text",
+   "text": "Готово"
   },
   {
    "do": "wait",
    "s": 2.5
+  },
+  {
+   "do": "uia_dump",
+   "name": "w4"
   },
   {
    "do": "type",
@@ -130,8 +142,8 @@
    "name": "entry"
   },
   {
-   "do": "hotkey",
-   "keys": "ctrl+n"
+   "do": "click_text",
+   "text": "Создать запись"
   },
   {
    "do": "wait",
