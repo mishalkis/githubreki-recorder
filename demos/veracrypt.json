@@ -4,8 +4,8 @@
  "title": "VeraCrypt",
  "settle": 6,
  "pre": [
-  "$b=[IO.File]::ReadAllBytes('C:\\Program Files\\VeraCrypt\\VeraCrypt.exe'); $t=[Text.Encoding]::GetEncoding(28591).GetString($b); ([regex]::Matches($t,'[A-Za-z_]{0,30}(Screen|Capture|Protect)[A-Za-z_]{0,30}') | % Value | Sort-Object -Unique) -join ' | '",
-  "$b=[IO.File]::ReadAllBytes('C:\\Program Files\\VeraCrypt\\VeraCrypt.exe'); $t=[Text.Encoding]::Unicode.GetString($b); ([regex]::Matches($t,'[A-Za-z_]{0,30}(Screen|Capture|Protect)[A-Za-z_]{0,30}') | % Value | Sort-Object -Unique) -join ' | '"
+  "New-Item -ItemType Directory -Force \"$env:APPDATA\\VeraCrypt\" | Out-Null; Set-Content -Encoding utf8 \"$env:APPDATA\\VeraCrypt\\Configuration.xml\" '<?xml version=\"1.0\" encoding=\"utf-8\"?><VeraCrypt><configuration><config key=\"Language\">ru</config></configuration></VeraCrypt>'",
+  "reg add HKLM\\SYSTEM\\CurrentControlSet\\Services\\veracrypt /v VeraCryptEnableScreenProtection /t REG_DWORD /d 0 /f; reg query HKLM\\SYSTEM\\CurrentControlSet\\Services\\veracrypt"
  ],
  "inputs": [
   "vc"
@@ -22,8 +22,12 @@
  ],
  "setup": [
   {
+   "do": "restore",
+   "title": "^VeraCrypt$"
+  },
+  {
    "do": "wait",
-   "s": 1
+   "s": 2
   }
  ],
  "refind": false
