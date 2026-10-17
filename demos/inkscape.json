@@ -78,12 +78,24 @@
   },
   {
    "do": "click",
-   "x": 1340,
-   "y": 971
+   "x": 1820,
+   "y": 830
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+a"
+  },
+  {
+   "do": "type",
+   "text": "4b2e1eff"
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
   },
   {
    "do": "wait",
-   "s": 1.5
+   "s": 1
   },
   {
    "do": "mark",
@@ -93,12 +105,12 @@
    "do": "drag",
    "path": [
     [
-     660,
-     310
+     640,
+     290
     ],
     [
-     840,
-     490
+     860,
+     510
     ]
    ],
    "ms": 900
@@ -106,15 +118,6 @@
   {
    "do": "wait",
    "s": 1.5
-  },
-  {
-   "do": "click",
-   "x": 1000,
-   "y": 971
-  },
-  {
-   "do": "wait",
-   "s": 1
   },
   {
    "do": "hotkey",
@@ -135,15 +138,16 @@
   },
   {
    "do": "wait",
-   "s": 2
+   "s": 1.5
   },
   {
-   "do": "keys",
-   "keys": "{ESC}"
+   "do": "click",
+   "x": 292,
+   "y": 160
   },
   {
    "do": "wait",
-   "s": 1
+   "s": 2.5
   },
   {
    "do": "mark",
@@ -167,7 +171,7 @@
     ],
     [
      750,
-     330
+     320
     ]
    ],
    "ms": 900
@@ -175,6 +179,27 @@
   {
    "do": "wait",
    "s": 1.5
+  },
+  {
+   "do": "click",
+   "x": 1820,
+   "y": 830
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+a"
+  },
+  {
+   "do": "type",
+   "text": "e07a2fff"
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 1
   },
   {
    "do": "mark",
@@ -204,7 +229,57 @@
   },
   {
    "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+a"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "click",
+   "x": 440,
+   "y": 69
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+a"
+  },
+  {
+   "do": "type",
+   "text": "96"
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
    "s": 1.5
+  },
+  {
+   "do": "click",
+   "x": 1820,
+   "y": 830
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+a"
+  },
+  {
+   "do": "type",
+   "text": "4b2e1eff"
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 1
   },
   {
    "do": "keys",
@@ -213,6 +288,35 @@
   {
    "do": "wait",
    "s": 1
+  },
+  {
+   "do": "click",
+   "x": 13,
+   "y": 106
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+a"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "mark",
+   "name": "align"
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+shift+a"
+  },
+  {
+   "do": "wait",
+   "s": 2.5
   }
  ],
  "dialog_first": true
