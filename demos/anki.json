@@ -1,0 +1,18 @@
+{
+ "winget_id": "Anki.Anki",
+ "launch": "Anki",
+ "title": "Anki",
+ "settle": 5,
+ "pre": [],
+ "inputs": [],
+ "steps": [
+  {"do": "wait", "s": 1},
+  {"do": "mark", "name": "start"},
+  {"do": "wait", "s": 1}
+ ],
+ "setup": [
+  {"do": "winlist"},
+  {"do": "uia_dump", "name": "uia_setup0"}
+ ],
+ "refind": false
+}
