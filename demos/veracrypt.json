@@ -3,9 +3,7 @@
  "launch": "VeraCrypt",
  "title": "VeraCrypt",
  "settle": 6,
- "pre": [
-  "New-Item -ItemType Directory -Force \"$env:APPDATA\\VeraCrypt\" | Out-Null; Set-Content -Encoding utf8 \"$env:APPDATA\\VeraCrypt\\Configuration.xml\" '<?xml version=\"1.0\" encoding=\"utf-8\"?><VeraCrypt><configuration><config key=\"Language\">ru</config></configuration></VeraCrypt>'"
- ],
+ "pre": [],
  "inputs": [
   "vc"
  ],
@@ -15,39 +13,11 @@
    "s": 1
   },
   {
-   "do": "hotkey",
-   "keys": "win+d"
-  },
-  {
-   "do": "wait",
-   "s": 2
-  },
-  {
-   "do": "restore",
-   "title": "^VeraCrypt$"
-  },
-  {
-   "do": "wait",
-   "s": 2
-  },
-  {
-   "do": "winlist"
+   "do": "mark",
+   "name": "start"
   }
  ],
  "setup": [
-  {
-   "do": "restore",
-   "title": "^VeraCrypt$"
-  },
-  {
-   "do": "wait",
-   "s": 2
-  },
-  {
-   "do": "click",
-   "x": -300,
-   "y": 150
-  },
   {
    "do": "wait",
    "s": 2
