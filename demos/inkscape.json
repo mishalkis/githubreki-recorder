@@ -216,7 +216,28 @@
   },
   {
    "do": "click",
-   "x": 640,
+   "x": 455,
+   "y": 69
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+a"
+  },
+  {
+   "do": "type",
+   "text": "96"
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "click",
+   "x": 620,
    "y": 700
   },
   {
@@ -238,27 +259,6 @@
   {
    "do": "wait",
    "s": 1
-  },
-  {
-   "do": "click",
-   "x": 440,
-   "y": 69
-  },
-  {
-   "do": "hotkey",
-   "keys": "ctrl+a"
-  },
-  {
-   "do": "type",
-   "text": "96"
-  },
-  {
-   "do": "hotkey",
-   "keys": "enter"
-  },
-  {
-   "do": "wait",
-   "s": 1.5
   },
   {
    "do": "click",
@@ -317,6 +317,27 @@
   {
    "do": "wait",
    "s": 2.5
+  },
+  {
+   "do": "click",
+   "x": 1439,
+   "y": 308
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "mark",
+   "name": "export"
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+shift+e"
+  },
+  {
+   "do": "wait",
+   "s": 3
   }
  ],
  "dialog_first": true
