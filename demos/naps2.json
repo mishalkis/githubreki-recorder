@@ -199,7 +199,8 @@
   },
   {
    "do": "launch",
-   "target": "C:\\demo\\Договор аренды.pdf"
+   "target": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+   "args": "\"C:\\demo\\Договор аренды.pdf\""
   },
   {
    "do": "wait",

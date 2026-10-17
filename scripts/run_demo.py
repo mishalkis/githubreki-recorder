@@ -212,7 +212,9 @@ def run_step(h, s, marks):
             r = rect(hw)
             if title(hw) or (r[2] - r[0]) > 200: log(f'win {title(hw)!r} {r} iconic={bool(U.IsIconic(hw))}')
     elif d == 'launch':
-        t = resolve(s['target']); log(f'launch {t}'); os.startfile(t)
+        t = resolve(s['target']); log(f'launch {t}')
+        if s.get('args'): os.startfile(t, arguments=s['args'])
+        else: os.startfile(t)
     elif d == 'mark': marks.append({'name': s['name'], 't': now()})
     else: log(f'неизвестный шаг {d}')
 
