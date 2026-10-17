@@ -1,0 +1,32 @@
+{
+ "winget_id": "IDRIX.VeraCrypt",
+ "launch": "VeraCrypt",
+ "title": "VeraCrypt",
+ "settle": 6,
+ "pre": [
+  "New-Item -ItemType Directory -Force \"$env:APPDATA\\VeraCrypt\" | Out-Null; Set-Content -Encoding utf8 \"$env:APPDATA\\VeraCrypt\\Configuration.xml\" '<?xml version=\"1.0\" encoding=\"utf-8\"?><VeraCrypt><configuration><config key=\"Language\">ru</config></configuration></VeraCrypt>'"
+ ],
+ "inputs": [
+  "vc"
+ ],
+ "steps": [
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "mark",
+   "name": "start"
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_main"
+  }
+ ],
+ "setup": [
+  {
+   "do": "winlist"
+  }
+ ],
+ "refind": false
+}
