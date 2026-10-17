@@ -22,38 +22,16 @@
   },
   {
    "do": "click",
-   "x": 1331,
-   "y": 340
+   "x": 1200,
+   "y": 716
   },
   {
    "do": "wait",
    "s": 1
   },
   {
-   "do": "click",
-   "x": 1196,
-   "y": 751
-  },
-  {
-   "do": "wait",
-   "s": 3
-  },
-  {
-   "do": "wait",
-   "s": 15
-  },
-  {
-   "do": "wait",
-   "s": 1
-  },
-  {
-   "do": "click",
-   "x": 1085,
-   "y": 481
-  },
-  {
-   "do": "wait",
-   "s": 1
+   "do": "uia_dump",
+   "name": "uia_scrolled"
   }
  ],
  "setup": [
