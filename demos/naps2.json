@@ -5,9 +5,7 @@
  "settle": 5,
  "pre": [
   "Set-WinUserLanguageList -LanguageList ru-RU -Force",
-  "New-Item -ItemType Directory -Force \"$env:APPDATA\\NAPS2\" | Out-Null",
-  "Get-ChildItem \"$env:APPDATA\\NAPS2\" -Recurse | Select-Object FullName",
-  "Get-Content \"C:\\Program Files\\NAPS2\\appsettings.xml\""
+  "New-Item -ItemType Directory -Force \"$env:APPDATA\\NAPS2\" | Out-Null"
  ],
  "inputs": [
   "scans"
@@ -30,11 +28,51 @@
   },
   {
    "do": "wait",
-   "s": 1.5
+   "s": 1
+  },
+  {
+   "do": "click",
+   "x": 1200,
+   "y": 754
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+o"
+  },
+  {
+   "do": "wait",
+   "s": 2
   },
   {
    "do": "uia_dump",
-   "name": "uia_lang"
+   "name": "uia_ocr_ru"
+  },
+  {
+   "do": "click",
+   "x": 1437,
+   "y": 340
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "click",
+   "x": 1173,
+   "y": 751
+  },
+  {
+   "do": "wait",
+   "s": 20
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_ocr_after"
   }
- ]
+ ],
+ "refind": false
 }
