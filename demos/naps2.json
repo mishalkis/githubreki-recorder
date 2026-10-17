@@ -6,21 +6,35 @@
  "pre": [
   "Set-WinUserLanguageList -LanguageList ru-RU -Force",
   "New-Item -ItemType Directory -Force \"$env:APPDATA\\NAPS2\" | Out-Null",
-  "Set-Content -Encoding utf8 \"$env:APPDATA\\NAPS2\\config.xml\" '<?xml version=\"1.0\" encoding=\"utf-8\"?><Config><Culture>ru</Culture></Config>'",
-  "Get-ChildItem 'C:\\Program Files\\NAPS2','C:\\Program Files (x86)\\NAPS2' -ErrorAction SilentlyContinue | Select-Object -First 40 FullName",
-  "Get-ChildItem 'C:\\Program Files\\NAPS2' -Recurse -ErrorAction SilentlyContinue -Include *.traineddata | Select-Object -First 20 FullName"
+  "Get-ChildItem \"$env:APPDATA\\NAPS2\" -Recurse | Select-Object FullName",
+  "Get-Content \"C:\\Program Files\\NAPS2\\appsettings.xml\""
  ],
- "inputs": ["scans"],
+ "inputs": [
+  "scans"
+ ],
  "steps": [
-  {"do": "wait", "s": 2},
-  {"do": "uia_dump", "name": "uia_main"},
-  {"do": "hotkey", "keys": "ctrl+o"},
-  {"do": "wait", "s": 2},
-  {"do": "uia_dump", "name": "uia_open"},
-  {"do": "type", "text": "C:\\demo\\scans\\dogovor_1.jpg"},
-  {"do": "hotkey", "keys": "enter"},
-  {"do": "wait", "s": 4},
-  {"do": "uia_dump", "name": "uia_after"},
-  {"do": "mark", "name": "probe"}
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "mark",
+   "name": "probe"
+  }
+ ],
+ "setup": [
+  {
+   "do": "click",
+   "x": 1085,
+   "y": 50
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_lang"
+  }
  ]
 }
