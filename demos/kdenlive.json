@@ -1,0 +1,41 @@
+{
+ "winget_id": "KDE.Kdenlive",
+ "launch": "Kdenlive",
+ "title": "Kdenlive",
+ "settle": 8,
+ "pre": [
+  "Set-Content -Encoding ascii \"$env:LOCALAPPDATA\\klanguageoverridesrc\" \"[Language]`nkdenlive=ru\"",
+  "$env:LANGUAGE='ru'; $env:LANG='ru_RU'"
+ ],
+ "inputs": [
+  "clips"
+ ],
+ "setup": [
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "uia_dump",
+   "name": "setup0"
+  },
+  {
+   "do": "winlist"
+  }
+ ],
+ "steps": [
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "mark",
+   "name": "start"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  }
+ ],
+ "refind": false
+}

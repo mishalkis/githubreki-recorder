@@ -1,0 +1,82 @@
+{
+ "winget_id": "KeePassXCTeam.KeePassXC",
+ "launch": "KeePassXC",
+ "title": "KeePassXC",
+ "settle": 4,
+ "pre": [
+  "New-Item -ItemType Directory -Force C:\\demo | Out-Null",
+  "New-Item -ItemType Directory -Force \"$env:APPDATA\\KeePassXC\" | Out-Null",
+  "Set-Content -Encoding ascii \"$env:APPDATA\\KeePassXC\\keepassxc.ini\" \"[General]`nConfigVersion=2`nUpdateCheckMessageShown=true`n`n[GUI]`nLanguage=ru`nCheckForUpdates=false`nApplicationTheme=light`n\"",
+  "Get-Content \"$env:APPDATA\\KeePassXC\\keepassxc.ini\""
+ ],
+ "inputs": [],
+ "setup": [
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "uia_dump",
+   "name": "setup0"
+  }
+ ],
+ "steps": [
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "mark",
+   "name": "start"
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+n"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "uia_dump",
+   "name": "d1"
+  },
+  {
+   "do": "type",
+   "text": "Пароли"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "click_text",
+   "text": "Продолжить"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "uia_dump",
+   "name": "d2"
+  },
+  {
+   "do": "click_text",
+   "text": "Продолжить"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "uia_dump",
+   "name": "d3"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  }
+ ],
+ "refind": false
+}

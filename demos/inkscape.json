@@ -1,0 +1,36 @@
+{
+ "winget_id": "Inkscape.Inkscape",
+ "launch": "Inkscape",
+ "title": "Inkscape",
+ "settle": 10,
+ "pre": [
+  "New-Item -ItemType Directory -Force \"$env:APPDATA\\inkscape\" | Out-Null",
+  "Set-Content -Encoding utf8 \"$env:APPDATA\\inkscape\\preferences.xml\" '<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><inkscape version=\"1\"><group id=\"ui\" language=\"ru\" /></inkscape>'",
+  "$env:LANGUAGE='ru'; $env:LANG='ru_RU'"
+ ],
+ "inputs": [],
+ "setup": [
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "winlist"
+  }
+ ],
+ "steps": [
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "mark",
+   "name": "start"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  }
+ ],
+ "refind": false
+}
