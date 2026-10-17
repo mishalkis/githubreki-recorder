@@ -48,7 +48,7 @@
   },
   {
    "do": "type",
-   "text": "\"C:\\demo\\scans\\dogovor_1.jpg\" \"C:\\demo\\scans\\spravka.jpg\" \"C:\\demo\\scans\\dogovor_2.jpg\""
+   "text": "\"C:\\demo\\scans\\scan_1.jpg\" \"C:\\demo\\scans\\scan_2.jpg\" \"C:\\demo\\scans\\scan_3.jpg\""
   },
   {
    "do": "wait",
@@ -207,7 +207,7 @@
   },
   {
    "do": "fit",
-   "title": "Microsoft Edge"
+   "title": "\\.pdf"
   },
   {
    "do": "wait",
