@@ -374,28 +374,45 @@
   },
   {
    "do": "click",
-   "x": 684,
-   "y": 396
+   "x": 1735,
+   "y": 1015
   },
   {
-   "do": "wait",
-   "s": 1.5
+   "do": "hotkey",
+   "keys": "ctrl+a"
   },
   {
-   "do": "keys",
-   "keys": "3"
+   "do": "type",
+   "text": "300"
   },
   {
-   "do": "wait",
-   "s": 3
-  },
-  {
-   "do": "keys",
-   "keys": "{+}{+}"
+   "do": "hotkey",
+   "keys": "enter"
   },
   {
    "do": "wait",
    "s": 3
+  },
+  {
+   "do": "click",
+   "x": 1735,
+   "y": 1015
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+a"
+  },
+  {
+   "do": "type",
+   "text": "900"
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 4
   }
  ],
  "dialog_first": true
