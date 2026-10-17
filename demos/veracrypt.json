@@ -3,7 +3,9 @@
  "launch": "VeraCrypt",
  "title": "VeraCrypt",
  "settle": 6,
- "pre": [],
+ "pre": [
+  "New-Item -ItemType Directory -Force \"$env:APPDATA\\VeraCrypt\" | Out-Null; Set-Content -Encoding utf8 \"$env:APPDATA\\VeraCrypt\\Configuration.xml\" '<?xml version=\"1.0\" encoding=\"utf-8\"?><VeraCrypt><configuration><config key=\"Language\">ru</config><config key=\"EnableScreenProtection\">0</config><config key=\"DisableScreenProtection\">1</config></configuration></VeraCrypt>'"
+ ],
  "inputs": [
   "vc"
  ],
@@ -24,18 +26,7 @@
   },
   {
    "do": "wait",
-   "s": 1
-  },
-  {
-   "do": "click_text",
-   "text": "Create Volume"
-  },
-  {
-   "do": "wait",
-   "s": 3
-  },
-  {
-   "do": "winlist"
+   "s": 2
   }
  ],
  "refind": false
