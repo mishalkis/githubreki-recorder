@@ -158,8 +158,29 @@
    "text": "Почта"
   },
   {
+   "do": "keys",
+   "keys": "{TAB}"
+  },
+  {
+   "do": "type",
+   "text": "ivan.demo@example.com"
+  },
+  {
    "do": "wait",
-   "s": 1.5
+   "s": 1
+  },
+  {
+   "do": "click",
+   "x": 1870,
+   "y": 237
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "uia_dump",
+   "name": "gen"
   }
  ],
  "refind": false
