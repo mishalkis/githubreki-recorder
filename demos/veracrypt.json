@@ -13,11 +13,111 @@
  "steps": [
   {
    "do": "wait",
-   "s": 1
+   "s": 1.5
   },
   {
    "do": "mark",
    "name": "start"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "mark",
+   "name": "wizard"
+  },
+  {
+   "do": "click_text",
+   "text": "Создать том"
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "uia_dump",
+   "name": "p1"
+  },
+  {
+   "do": "click_text",
+   "text": "Далее"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "uia_dump",
+   "name": "p2"
+  },
+  {
+   "do": "click_text",
+   "text": "Далее"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "uia_dump",
+   "name": "p3"
+  },
+  {
+   "do": "type",
+   "text": "C:\\demo\\сейф.hc"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "click_text",
+   "text": "Далее"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "uia_dump",
+   "name": "p4"
+  },
+  {
+   "do": "click_text",
+   "text": "Далее"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "uia_dump",
+   "name": "p5"
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+a"
+  },
+  {
+   "do": "type",
+   "text": "50"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "click_text",
+   "text": "Далее"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "uia_dump",
+   "name": "p6"
   }
  ],
  "setup": [
