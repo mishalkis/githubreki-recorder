@@ -20,6 +20,10 @@
    "name": "start"
   },
   {
+   "do": "wait",
+   "s": 1
+  },
+  {
    "do": "mark",
    "name": "import"
   },
@@ -38,7 +42,7 @@
   },
   {
    "do": "wait",
-   "s": 1
+   "s": 1.5
   },
   {
    "do": "hotkey",
@@ -68,11 +72,51 @@
   },
   {
    "do": "wait",
-   "s": 1.2
+   "s": 1.5
   },
   {
-   "do": "uia_dump",
-   "name": "uia_rot"
+   "do": "click",
+   "x": 980,
+   "y": 146
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "mark",
+   "name": "reorder"
+  },
+  {
+   "do": "click",
+   "x": 920,
+   "y": 230
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "click",
+   "x": 1050,
+   "y": 41
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "click",
+   "x": 1050,
+   "y": 41
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "mark",
+   "name": "ocr"
   },
   {
    "do": "click",
@@ -89,6 +133,10 @@
    "y": 453
   },
   {
+   "do": "wait",
+   "s": 1
+  },
+  {
    "do": "click",
    "x": 1085,
    "y": 481
@@ -98,8 +146,103 @@
    "s": 1
   },
   {
+   "do": "click",
+   "x": 1085,
+   "y": 516
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "click",
+   "x": 1012,
+   "y": 596
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "mark",
+   "name": "save"
+  },
+  {
+   "do": "click",
+   "x": 438,
+   "y": 57
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
    "do": "uia_dump",
-   "name": "uia_combo"
+   "name": "uia_save"
+  },
+  {
+   "do": "type",
+   "text": "C:\\demo\\Договор аренды.pdf"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 8
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_saved"
+  },
+  {
+   "do": "mark",
+   "name": "search"
+  },
+  {
+   "do": "launch",
+   "target": "C:\\demo\\Договор аренды.pdf"
+  },
+  {
+   "do": "wait",
+   "s": 6
+  },
+  {
+   "do": "fit",
+   "title": "Edge|PDF|Договор"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+f"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "type",
+   "text": "аренды"
+  },
+  {
+   "do": "wait",
+   "s": 0.8
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 3
   }
  ],
  "setup": [
