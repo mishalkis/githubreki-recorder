@@ -19,11 +19,23 @@
  ],
  "setup": [
   {
-   "do": "winlist"
+   "do": "restore",
+   "title": "^VeraCrypt$"
   },
   {
    "do": "wait",
-   "s": 2
+   "s": 1
+  },
+  {
+   "do": "click_text",
+   "text": "Create Volume"
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "winlist"
   }
  ],
  "refind": false
