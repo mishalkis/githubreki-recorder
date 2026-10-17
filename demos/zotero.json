@@ -162,8 +162,8 @@
    "s": 3
   },
   {
-   "do": "wait",
-   "s": 1
+   "do": "mark",
+   "name": "gost"
   },
   {
    "do": "type",
@@ -172,6 +172,96 @@
   {
    "do": "wait",
    "s": 2
+  },
+  {
+   "do": "click",
+   "x": 692,
+   "y": 720
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "click",
+   "x": 1108,
+   "y": 796
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "mark",
+   "name": "paste"
+  },
+  {
+   "do": "launch",
+   "target": "C:\\Windows\\System32\\notepad.exe"
+  },
+  {
+   "do": "wait",
+   "s": 4
+  },
+  {
+   "do": "fit",
+   "title": "^(Untitled|Безымянный).*(Notepad|Блокнот)"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+v"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+="
+  },
+  {
+   "do": "wait",
+   "s": 0.4
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+="
+  },
+  {
+   "do": "wait",
+   "s": 0.4
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+="
+  },
+  {
+   "do": "wait",
+   "s": 0.4
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+="
+  },
+  {
+   "do": "wait",
+   "s": 0.4
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+="
+  },
+  {
+   "do": "wait",
+   "s": 0.4
+  },
+  {
+   "do": "wait",
+   "s": 3
   }
  ],
  "refind": false,
