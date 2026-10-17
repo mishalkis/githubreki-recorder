@@ -6,13 +6,50 @@
  "pre": [],
  "inputs": [],
  "steps": [
-  {"do": "wait", "s": 1},
-  {"do": "mark", "name": "start"},
-  {"do": "wait", "s": 1}
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "scroll",
+   "clicks": -10,
+   "x": 1000,
+   "y": 500
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "scroll",
+   "clicks": -10,
+   "x": 1000,
+   "y": 500
+  },
+  {
+   "do": "wait",
+   "s": 1
+  }
  ],
  "setup": [
-  {"do": "winlist"},
-  {"do": "uia_dump", "name": "uia_setup0"}
+  {
+   "do": "click",
+   "x": 1721,
+   "y": 83
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "click",
+   "x": 85,
+   "y": 1007
+  },
+  {
+   "do": "wait",
+   "s": 3
+  }
  ],
  "refind": false
 }
