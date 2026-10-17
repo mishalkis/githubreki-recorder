@@ -88,23 +88,6 @@
    "name": "timeline"
   },
   {
-   "do": "click",
-   "x": 150,
-   "y": 215
-  },
-  {
-   "do": "wait",
-   "s": 1
-  },
-  {
-   "do": "hotkey",
-   "keys": "ctrl+a"
-  },
-  {
-   "do": "wait",
-   "s": 1
-  },
-  {
    "do": "drag",
    "path": [
     [
@@ -116,28 +99,63 @@
      500
     ],
     [
-     205,
+     200,
      818
     ]
    ],
-   "ms": 1600
-  },
-  {
-   "do": "wait",
-   "s": 2.5
-  },
-  {
-   "do": "mark",
-   "name": "zoom"
-  },
-  {
-   "do": "click",
-   "x": 1685,
-   "y": 1016
+   "ms": 1500
   },
   {
    "do": "wait",
    "s": 2
+  },
+  {
+   "do": "drag",
+   "path": [
+    [
+     150,
+     265
+    ],
+    [
+     300,
+     500
+    ],
+    [
+     292,
+     818
+    ]
+   ],
+   "ms": 1500
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "drag",
+   "path": [
+    [
+     150,
+     315
+    ],
+    [
+     300,
+     500
+    ],
+    [
+     380,
+     818
+    ]
+   ],
+   "ms": 1500
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "zoom"
   },
   {
    "do": "click",
@@ -146,7 +164,7 @@
   },
   {
    "do": "wait",
-   "s": 2
+   "s": 2.5
   },
   {
    "do": "mark",
@@ -162,12 +180,108 @@
   },
   {
    "do": "click",
+   "x": 450,
+   "y": 818
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "click",
    "x": 700,
    "y": 818
   },
   {
    "do": "wait",
    "s": 1.5
+  },
+  {
+   "do": "keys",
+   "keys": "v"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "click",
+   "x": 530,
+   "y": 818
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "hotkey",
+   "keys": "delete"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "mix"
+  },
+  {
+   "do": "click",
+   "x": 800,
+   "y": 818
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "keys",
+   "keys": "u"
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "mark",
+   "name": "play"
+  },
+  {
+   "do": "click",
+   "x": 200,
+   "y": 716
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "keys",
+   "keys": " "
+  },
+  {
+   "do": "wait",
+   "s": 5
+  },
+  {
+   "do": "keys",
+   "keys": " "
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "mark",
+   "name": "render"
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+enter"
+  },
+  {
+   "do": "wait",
+   "s": 4
   }
  ],
  "dialog_first": true
