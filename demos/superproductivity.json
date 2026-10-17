@@ -8,47 +8,109 @@
  "steps": [
   {
    "do": "wait",
-   "s": 1
+   "s": 1.5
   },
   {
-   "do": "scroll",
-   "clicks": -3,
-   "x": 1000,
-   "y": 780
+   "do": "mark",
+   "name": "start"
+  },
+  {
+   "do": "click",
+   "x": 70,
+   "y": 71
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "tasks"
+  },
+  {
+   "do": "hotkey",
+   "keys": "shift+a"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "type",
+   "text": "Сдать отчёт"
   },
   {
    "do": "wait",
    "s": 1
   },
   {
-   "do": "scroll",
-   "clicks": -3,
-   "x": 1000,
-   "y": 780
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "type",
+   "text": "Позвонить маме"
   },
   {
    "do": "wait",
    "s": 1
   },
   {
-   "do": "scroll",
-   "clicks": -3,
-   "x": 1000,
-   "y": 780
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "type",
+   "text": "Купить корм коту"
   },
   {
    "do": "wait",
    "s": 1
   },
   {
-   "do": "scroll",
-   "clicks": -3,
-   "x": 1000,
-   "y": 780
+   "do": "hotkey",
+   "keys": "enter"
   },
   {
    "do": "wait",
-   "s": 1
+   "s": 1.5
+  },
+  {
+   "do": "hotkey",
+   "keys": "esc"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "track"
+  },
+  {
+   "do": "click",
+   "x": 1601,
+   "y": 27
+  },
+  {
+   "do": "wait",
+   "s": 7
+  },
+  {
+   "do": "mark",
+   "name": "done"
+  },
+  {
+   "do": "wait",
+   "s": 2
   }
  ],
  "setup": [
@@ -87,6 +149,25 @@
   {
    "do": "wait",
    "s": 1.5
+  },
+  {
+   "do": "scroll",
+   "clicks": -9,
+   "x": 1000,
+   "y": 780
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "click",
+   "x": 700,
+   "y": 643
+  },
+  {
+   "do": "wait",
+   "s": 2
   }
  ],
  "refind": false
