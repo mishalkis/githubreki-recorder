@@ -11,61 +11,44 @@
    "s": 1
   },
   {
-   "do": "click",
-   "x": 70,
-   "y": 71
-  },
-  {
-   "do": "wait",
-   "s": 2
-  },
-  {
-   "do": "hotkey",
-   "keys": "shift+a"
-  },
-  {
-   "do": "wait",
-   "s": 1.5
-  },
-  {
-   "do": "type",
-   "text": "Сдать отчёт"
+   "do": "scroll",
+   "clicks": -3,
+   "x": 1000,
+   "y": 780
   },
   {
    "do": "wait",
    "s": 1
   },
   {
-   "do": "hotkey",
-   "keys": "enter"
-  },
-  {
-   "do": "wait",
-   "s": 1.5
-  },
-  {
-   "do": "type",
-   "text": "Позвонить маме"
+   "do": "scroll",
+   "clicks": -3,
+   "x": 1000,
+   "y": 780
   },
   {
    "do": "wait",
    "s": 1
   },
   {
-   "do": "hotkey",
-   "keys": "enter"
+   "do": "scroll",
+   "clicks": -3,
+   "x": 1000,
+   "y": 780
   },
   {
    "do": "wait",
-   "s": 1.5
+   "s": 1
   },
   {
-   "do": "hotkey",
-   "keys": "esc"
+   "do": "scroll",
+   "clicks": -3,
+   "x": 1000,
+   "y": 780
   },
   {
    "do": "wait",
-   "s": 1.5
+   "s": 1
   }
  ],
  "setup": [
@@ -104,22 +87,6 @@
   {
    "do": "wait",
    "s": 1.5
-  },
-  {
-   "do": "type",
-   "text": "Рус"
-  },
-  {
-   "do": "wait",
-   "s": 1
-  },
-  {
-   "do": "hotkey",
-   "keys": "enter"
-  },
-  {
-   "do": "wait",
-   "s": 2
   }
  ],
  "refind": false
