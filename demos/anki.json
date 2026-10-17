@@ -6,13 +6,79 @@
  "pre": [],
  "inputs": [],
  "steps": [
-  {"do": "wait", "s": 1},
-  {"do": "mark", "name": "start"},
-  {"do": "wait", "s": 1}
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "mark",
+   "name": "start"
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+n"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_deck"
+  },
+  {
+   "do": "type",
+   "text": "Английский"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "keys",
+   "keys": "a"
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_add"
+  }
  ],
  "setup": [
-  {"do": "winlist"},
-  {"do": "uia_dump", "name": "uia_setup0"}
+  {
+   "do": "click_text",
+   "text": "Pусский язык"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "click_text",
+   "text": "OK"
+  },
+  {
+   "do": "wait",
+   "s": 8
+  },
+  {
+   "do": "winlist"
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_setup1"
+  }
  ],
- "refind": false
+ "refind": true
 }
