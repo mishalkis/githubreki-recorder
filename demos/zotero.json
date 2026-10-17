@@ -36,45 +36,8 @@
    "name": "start"
   },
   {
-   "do": "click",
-   "x": 270,
-   "y": 92
-  },
-  {
-   "do": "wait",
-   "s": 2
-  },
-  {
-   "do": "type",
-   "text": "10.1038/nature14539"
-  },
-  {
-   "do": "wait",
-   "s": 1.5
-  },
-  {
-   "do": "hotkey",
-   "keys": "enter"
-  },
-  {
-   "do": "wait",
-   "s": 6
-  },
-  {
-   "do": "wait",
-   "s": 6
-  },
-  {
-   "do": "wait",
-   "s": 6
-  },
-  {
-   "do": "wait",
-   "s": 6
-  },
-  {
-   "do": "wait",
-   "s": 6
+   "do": "mark",
+   "name": "isbn"
   },
   {
    "do": "click",
@@ -99,23 +62,11 @@
   },
   {
    "do": "wait",
-   "s": 6
+   "s": 8
   },
   {
-   "do": "wait",
-   "s": 6
-  },
-  {
-   "do": "wait",
-   "s": 6
-  },
-  {
-   "do": "wait",
-   "s": 6
-  },
-  {
-   "do": "wait",
-   "s": 6
+   "do": "mark",
+   "name": "doi"
   },
   {
    "do": "click",
@@ -128,7 +79,7 @@
   },
   {
    "do": "type",
-   "text": "9785170878840"
+   "text": "10.1038/nature14539"
   },
   {
    "do": "wait",
@@ -140,23 +91,62 @@
   },
   {
    "do": "wait",
-   "s": 6
+   "s": 8
+  },
+  {
+   "do": "click",
+   "x": 270,
+   "y": 92
   },
   {
    "do": "wait",
-   "s": 6
+   "s": 2
+  },
+  {
+   "do": "type",
+   "text": "10.1145/3065386"
   },
   {
    "do": "wait",
-   "s": 6
+   "s": 1.5
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
   },
   {
    "do": "wait",
-   "s": 6
+   "s": 8
+  },
+  {
+   "do": "mark",
+   "name": "select"
+  },
+  {
+   "do": "click",
+   "x": 700,
+   "y": 165
   },
   {
    "do": "wait",
-   "s": 6
+   "s": 1
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+a"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "rclick",
+   "x": 700,
+   "y": 165
+  },
+  {
+   "do": "wait",
+   "s": 2.5
   }
  ],
  "refind": false,
