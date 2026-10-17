@@ -34,7 +34,16 @@
   },
   {
    "do": "wait",
-   "s": 2
+   "s": 3
+  },
+  {
+   "do": "click",
+   "x": 465,
+   "y": 495
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+a"
   },
   {
    "do": "type",
@@ -214,7 +223,7 @@
   },
   {
    "do": "fit",
-   "title": "Edge|PDF|Договор"
+   "title": "Microsoft Edge"
   },
   {
    "do": "wait",
