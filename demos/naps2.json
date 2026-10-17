@@ -13,11 +13,71 @@
  "steps": [
   {
    "do": "wait",
-   "s": 1
+   "s": 1.5
   },
   {
    "do": "mark",
-   "name": "probe"
+   "name": "start"
+  },
+  {
+   "do": "mark",
+   "name": "import"
+  },
+  {
+   "do": "click",
+   "x": 355,
+   "y": 57
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "type",
+   "text": "\"C:\\demo\\scans\\dogovor_1.jpg\" \"C:\\demo\\scans\\dogovor_2.jpg\" \"C:\\demo\\scans\\spravka.jpg\""
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 4
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_imp"
+  },
+  {
+   "do": "click",
+   "x": 261,
+   "y": 57
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "click",
+   "x": 788,
+   "y": 453
+  },
+  {
+   "do": "click",
+   "x": 1085,
+   "y": 481
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "uia_dump",
+   "name": "uia_combo"
   }
  ],
  "setup": [
@@ -49,12 +109,8 @@
    "s": 2.5
   },
   {
-   "do": "uia_dump",
-   "name": "uia_ocr_ru"
-  },
-  {
    "do": "click",
-   "x": 1437,
+   "x": 1413,
    "y": 340
   },
   {
@@ -63,7 +119,7 @@
   },
   {
    "do": "click",
-   "x": 1173,
+   "x": 1196,
    "y": 751
   },
   {
@@ -71,8 +127,13 @@
    "s": 20
   },
   {
-   "do": "uia_dump",
-   "name": "uia_ocr_after"
+   "do": "click",
+   "x": 1099,
+   "y": 596
+  },
+  {
+   "do": "wait",
+   "s": 1.5
   }
  ],
  "refind": false
