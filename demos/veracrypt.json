@@ -19,6 +19,9 @@
  ],
  "setup": [
   {
+   "do": "winlist"
+  },
+  {
    "do": "wait",
    "s": 2
   }

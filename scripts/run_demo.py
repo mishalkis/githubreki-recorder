@@ -210,7 +210,9 @@ def run_step(h, s, marks):
     elif d == 'winlist':
         for hw in windows():
             r = rect(hw)
-            if title(hw) or (r[2] - r[0]) > 200: log(f'win {title(hw)!r} {r} iconic={bool(U.IsIconic(hw))}')
+            if title(hw) or (r[2] - r[0]) > 200:
+                ck = ctypes.c_int(0); ctypes.windll.dwmapi.DwmGetWindowAttribute(hw, 14, ctypes.byref(ck), 4)
+                log(f'win {title(hw)!r} {r} iconic={bool(U.IsIconic(hw))} cloaked={ck.value} exstyle={U.GetWindowLongW(hw, -20):#x} fg={U.GetForegroundWindow() == hw}')
     elif d == 'launch':
         t = resolve(s['target']); log(f'launch {t}')
         if s.get('args'): os.startfile(t, arguments=s['args'])
