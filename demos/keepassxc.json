@@ -14,6 +14,33 @@
   {
    "do": "wait",
    "s": 2
+  },
+  {
+   "do": "click_text",
+   "text": "Настройки"
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "uia_dump",
+   "name": "set1"
+  },
+  {
+   "do": "click_text",
+   "text": "Безопасность"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "uia_dump",
+   "name": "set2"
+  },
+  {
+   "do": "winlist"
   }
  ],
  "steps": [
@@ -26,88 +53,8 @@
    "name": "start"
   },
   {
-   "do": "mark",
-   "name": "new"
-  },
-  {
-   "do": "hotkey",
-   "keys": "ctrl+n"
-  },
-  {
-   "do": "wait",
-   "s": 2.5
-  },
-  {
-   "do": "type",
-   "text": "Пароли"
-  },
-  {
-   "do": "wait",
-   "s": 1.5
-  },
-  {
-   "do": "click_text",
-   "text": "Продолжить"
-  },
-  {
-   "do": "wait",
-   "s": 2
-  },
-  {
-   "do": "click_text",
-   "text": "Продолжить"
-  },
-  {
-   "do": "wait",
-   "s": 2
-  },
-  {
-   "do": "type",
-   "text": "Kofe-Test-2026!"
-  },
-  {
    "do": "wait",
    "s": 1
-  },
-  {
-   "do": "keys",
-   "keys": "{TAB}"
-  },
-  {
-   "do": "type",
-   "text": "Kofe-Test-2026!"
-  },
-  {
-   "do": "wait",
-   "s": 1.5
-  },
-  {
-   "do": "uia_dump",
-   "name": "cred"
-  },
-  {
-   "do": "click_text",
-   "text": "Готово"
-  },
-  {
-   "do": "wait",
-   "s": 2.5
-  },
-  {
-   "do": "type",
-   "text": "C:\\demo\\пароли.kdbx"
-  },
-  {
-   "do": "wait",
-   "s": 1
-  },
-  {
-   "do": "hotkey",
-   "keys": "enter"
-  },
-  {
-   "do": "wait",
-   "s": 3
   }
  ],
  "refind": false
