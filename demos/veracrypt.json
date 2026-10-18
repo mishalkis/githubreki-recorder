@@ -5,7 +5,8 @@
  "settle": 6,
  "pre": [
   "New-Item -ItemType Directory -Force \"$env:APPDATA\\VeraCrypt\" | Out-Null; Set-Content -Encoding utf8 \"$env:APPDATA\\VeraCrypt\\Configuration.xml\" '<?xml version=\"1.0\" encoding=\"utf-8\"?><VeraCrypt><configuration><config key=\"Language\">ru</config></configuration></VeraCrypt>'",
-  "reg add HKLM\\SYSTEM\\CurrentControlSet\\Services\\veracrypt /v VeraCryptEnableScreenProtection /t REG_DWORD /d 0 /f; reg query HKLM\\SYSTEM\\CurrentControlSet\\Services\\veracrypt"
+  "reg add HKLM\\SYSTEM\\CurrentControlSet\\Services\\veracrypt /v VeraCryptEnableScreenProtection /t REG_DWORD /d 0 /f; reg query HKLM\\SYSTEM\\CurrentControlSet\\Services\\veracrypt",
+  "Set-Clipboard -Path 'C:\\demo\\vc\\паспорт_скан.jpg'; 'clip: ' + ((Get-Clipboard -Format FileDropList) -join ',')"
  ],
  "inputs": [
   "vc"
@@ -21,11 +22,280 @@
   },
   {
    "do": "wait",
-   "s": 1.5
+   "s": 1
   },
   {
    "do": "mark",
-   "name": "wizard"
+   "name": "password"
+  },
+  {
+   "do": "type",
+   "text": "Сейф-Паспорт-Ключ-2026-Длинный-Пароль"
+  },
+  {
+   "do": "keys",
+   "keys": "{TAB}"
+  },
+  {
+   "do": "type",
+   "text": "Сейф-Паспорт-Ключ-2026-Длинный-Пароль"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "click_text",
+   "text": "Показывать пароль"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "click_text",
+   "text": "Далее"
+  },
+  {
+   "do": "wait",
+   "s": 1.8
+  },
+  {
+   "do": "mark",
+   "name": "entropy"
+  },
+  {
+   "do": "drag",
+   "path": [
+    [
+     23,
+     254
+    ],
+    [
+     273,
+     344
+    ],
+    [
+     523,
+     354
+    ]
+   ],
+   "ms": 800
+  },
+  {
+   "do": "drag",
+   "path": [
+    [
+     523,
+     254
+    ],
+    [
+     283,
+     364
+    ],
+    [
+     43,
+     394
+    ]
+   ],
+   "ms": 800
+  },
+  {
+   "do": "drag",
+   "path": [
+    [
+     23,
+     334
+    ],
+    [
+     298,
+     344
+    ],
+    [
+     573,
+     274
+    ]
+   ],
+   "ms": 800
+  },
+  {
+   "do": "drag",
+   "path": [
+    [
+     223,
+     234
+    ],
+    [
+     273,
+     364
+    ],
+    [
+     323,
+     414
+    ]
+   ],
+   "ms": 800
+  },
+  {
+   "do": "mark",
+   "name": "format"
+  },
+  {
+   "do": "click_text",
+   "text": "Разметить"
+  },
+  {
+   "do": "wait",
+   "s": 6
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "click_text",
+   "text": "Выход"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "mark",
+   "name": "mount"
+  },
+  {
+   "do": "scroll",
+   "clicks": -12,
+   "x": 273,
+   "y": 184
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "click_text",
+   "text": "Z:"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "click",
+   "x": 243,
+   "y": 373
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+a"
+  },
+  {
+   "do": "type",
+   "text": "C:\\demo\\сейф.hc"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "click_text",
+   "text": "Смонтировать"
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "uia_dump",
+   "name": "pwdlg"
+  },
+  {
+   "do": "type",
+   "text": "Сейф-Паспорт-Ключ-2026-Длинный-Пароль"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 14
+  },
+  {
+   "do": "mark",
+   "name": "explorer"
+  },
+  {
+   "do": "launch",
+   "target": "explorer.exe",
+   "args": "Z:\\"
+  },
+  {
+   "do": "wait",
+   "s": 4
+  },
+  {
+   "do": "winlist"
+  },
+  {
+   "do": "fit",
+   "title": "Z:"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+v"
+  },
+  {
+   "do": "wait",
+   "s": 3.5
+  },
+  {
+   "do": "mark",
+   "name": "unmount"
+  },
+  {
+   "do": "restore",
+   "title": "^VeraCrypt$"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "uia_dump",
+   "name": "mounted"
+  },
+  {
+   "do": "click_text",
+   "text": "Размонтировать"
+  },
+  {
+   "do": "wait",
+   "s": 3
+  }
+ ],
+ "setup": [
+  {
+   "do": "restore",
+   "title": "^VeraCrypt$"
+  },
+  {
+   "do": "wait",
+   "s": 2
   },
   {
    "do": "click_text",
@@ -116,162 +386,6 @@
   {
    "do": "wait",
    "s": 1.8
-  },
-  {
-   "do": "type",
-   "text": "Сейф-Паспорт-Ключ-2026-Длинный-Пароль"
-  },
-  {
-   "do": "keys",
-   "keys": "{TAB}"
-  },
-  {
-   "do": "type",
-   "text": "Сейф-Паспорт-Ключ-2026-Длинный-Пароль"
-  },
-  {
-   "do": "wait",
-   "s": 1.5
-  },
-  {
-   "do": "click_text",
-   "text": "Далее"
-  },
-  {
-   "do": "wait",
-   "s": 1.8
-  },
-  {
-   "do": "mark",
-   "name": "entropy"
-  },
-  {
-   "do": "drag",
-   "path": [
-    [
-     23,
-     254
-    ],
-    [
-     273,
-     344
-    ],
-    [
-     523,
-     354
-    ]
-   ],
-   "ms": 900
-  },
-  {
-   "do": "drag",
-   "path": [
-    [
-     523,
-     254
-    ],
-    [
-     283,
-     364
-    ],
-    [
-     43,
-     394
-    ]
-   ],
-   "ms": 900
-  },
-  {
-   "do": "drag",
-   "path": [
-    [
-     23,
-     334
-    ],
-    [
-     298,
-     344
-    ],
-    [
-     573,
-     274
-    ]
-   ],
-   "ms": 900
-  },
-  {
-   "do": "drag",
-   "path": [
-    [
-     223,
-     234
-    ],
-    [
-     273,
-     364
-    ],
-    [
-     323,
-     414
-    ]
-   ],
-   "ms": 900
-  },
-  {
-   "do": "drag",
-   "path": [
-    [
-     573,
-     384
-    ],
-    [
-     328,
-     379
-    ],
-    [
-     83,
-     294
-    ]
-   ],
-   "ms": 900
-  },
-  {
-   "do": "wait",
-   "s": 0.5
-  },
-  {
-   "do": "click_text",
-   "text": "Разметить"
-  },
-  {
-   "do": "wait",
-   "s": 6
-  },
-  {
-   "do": "uia_dump",
-   "name": "after_fmt"
-  },
-  {
-   "do": "hotkey",
-   "keys": "enter"
-  },
-  {
-   "do": "wait",
-   "s": 2
-  },
-  {
-   "do": "uia_dump",
-   "name": "after_ok"
-  }
- ],
- "setup": [
-  {
-   "do": "restore",
-   "title": "^VeraCrypt$"
-  },
-  {
-   "do": "wait",
-   "s": 2
   }
  ],
  "refind": false
