@@ -3,7 +3,9 @@
  "launch": "Anki",
  "title": "Anki",
  "settle": 5,
- "pre": [],
+ "pre": [
+  "$env:QT_SCALE_FACTOR='1.6'"
+ ],
  "inputs": [],
  "steps": [
   {
@@ -287,54 +289,6 @@
   {
    "do": "wait",
    "s": 10
-  },
-  {
-   "do": "click_text",
-   "text": "Вид"
-  },
-  {
-   "do": "wait",
-   "s": 0.5
-  },
-  {
-   "do": "click_text",
-   "text": "Приблизить"
-  },
-  {
-   "do": "wait",
-   "s": 0.6
-  },
-  {
-   "do": "click_text",
-   "text": "Вид"
-  },
-  {
-   "do": "wait",
-   "s": 0.5
-  },
-  {
-   "do": "click_text",
-   "text": "Приблизить"
-  },
-  {
-   "do": "wait",
-   "s": 0.6
-  },
-  {
-   "do": "click_text",
-   "text": "Вид"
-  },
-  {
-   "do": "wait",
-   "s": 0.5
-  },
-  {
-   "do": "click_text",
-   "text": "Приблизить"
-  },
-  {
-   "do": "wait",
-   "s": 0.6
   },
   {
    "do": "click_text",
