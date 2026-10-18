@@ -217,6 +217,11 @@ def run_step(h, s, marks):
             if re.search(s['title'], title(hw)):
                 U.ShowWindow(hw, 9); U.SetWindowPos(hw, 0, 0, 0, 1920, 1032, 4); U.SetForegroundWindow(hw)
                 log(f'fit {title(hw)!r} {rect(hw)}'); time.sleep(0.8)
+    elif d == 'place':  # окно по заголовку (regexp) заданного размера по центру экрана
+        for hw in windows():
+            if re.search(s['title'], title(hw)):
+                U.ShowWindow(hw, 9); U.SetWindowPos(hw, 0, (1920 - s['w']) // 2, (1080 - s['h']) // 2, s['w'], s['h'], 4); U.SetForegroundWindow(hw)
+                log(f'place {title(hw)!r} {rect(hw)}'); time.sleep(0.6)
     elif d == 'winlist':
         for hw in windows():
             r = rect(hw)
