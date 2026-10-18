@@ -58,9 +58,9 @@ def find_main(baseline, pattern, nocap=False):
 def place(h, final=False):
     """Окно на весь экран, либо (demo.win=[w,h]) окно заданного размера по центру экрана."""
     if demo.get('win') and final:  # размер окна только после setup (диалоги первого запуска нужны большими)
-        ww, wh = demo['win']
+        ww, wh, *wy = demo['win']  # [w, h] по центру или [w, h, y] по центру по горизонтали
         U.ShowWindow(h, 9); time.sleep(0.5)
-        U.SetWindowPos(h, 0, (1920 - ww) // 2, (1080 - wh) // 2, ww, wh, 4)
+        U.SetWindowPos(h, 0, (1920 - ww) // 2, wy[0] if wy else (1080 - wh) // 2, ww, wh, 4)
     else:
         U.SetWindowPos(h, 0, 0, 0, 1920, 1080, 4)  # на весь экран, поверх скрытой панели задач
 
@@ -220,7 +220,7 @@ def run_step(h, s, marks):
     elif d == 'place':  # окно по заголовку (regexp) заданного размера по центру экрана
         for hw in windows():
             if re.search(s['title'], title(hw)):
-                U.ShowWindow(hw, 9); U.SetWindowPos(hw, 0, (1920 - s['w']) // 2, (1080 - s['h']) // 2, s['w'], s['h'], 4); U.SetForegroundWindow(hw)
+                U.ShowWindow(hw, 9); U.SetWindowPos(hw, 0, (1920 - s['w']) // 2, s.get('y', (1080 - s['h']) // 2), s['w'], s['h'], 4); U.SetForegroundWindow(hw)
                 log(f'place {title(hw)!r} {rect(hw)}'); time.sleep(0.6)
     elif d == 'winlist':
         for hw in windows():
