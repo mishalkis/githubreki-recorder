@@ -55,9 +55,9 @@ def find_main(baseline, pattern, nocap=False):
     return max(c, key=area) if c else None
 
 
-def place(h):
+def place(h, final=False):
     """Окно на весь экран, либо (demo.win=[w,h]) окно заданного размера по центру экрана."""
-    if demo.get('win'):
+    if demo.get('win') and final:  # размер окна только после setup (диалоги первого запуска нужны большими)
         ww, wh = demo['win']
         U.ShowWindow(h, 9); time.sleep(0.5)
         U.SetWindowPos(h, 0, (1920 - ww) // 2, (1080 - wh) // 2, ww, wh, 4)
@@ -287,7 +287,7 @@ if demo.get('setup'):  # подготовка до записи: закрыть 
         h2 = find_main(set(), demo.get('title'))
         if h2:
             h = h2; hide_others(h); U.ShowWindowAsync(h, 3); U.SetForegroundWindow(h); time.sleep(1)
-            place(h); time.sleep(1)
+            place(h, True); time.sleep(1)
             log(f'окно после setup: {title(h)} {rect(h)}')
 
 ff = subprocess.Popen(['ffmpeg', '-y', '-f', 'gdigrab', '-framerate', '30', '-draw_mouse', '1', '-i', 'desktop',

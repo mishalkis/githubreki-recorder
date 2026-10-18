@@ -12,22 +12,6 @@
   },
   {
    "do": "click_text",
-   "text": "Вид"
-  },
-  {
-   "do": "wait",
-   "s": 1
-  },
-  {
-   "do": "uia_dump",
-   "name": "view_menu"
-  },
-  {
-   "do": "keys",
-   "keys": "{ESC}"
-  },
-  {
-   "do": "click_text",
    "text": "Создать колоду"
   },
   {
@@ -99,6 +83,22 @@
   {
    "do": "wait",
    "s": 2
+  },
+  {
+   "do": "click_text",
+   "text": "Вид"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "uia_dump",
+   "name": "view_menu"
+  },
+  {
+   "do": "keys",
+   "keys": "{ESC}"
   }
  ],
  "refind": true,
