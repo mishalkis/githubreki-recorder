@@ -4,9 +4,9 @@
  "title": "VeraCrypt",
  "settle": 6,
  "pre": [
+  "Set-WinUserLanguageList -LanguageList ru-RU -Force",
   "New-Item -ItemType Directory -Force \"$env:APPDATA\\VeraCrypt\" | Out-Null; Set-Content -Encoding utf8 \"$env:APPDATA\\VeraCrypt\\Configuration.xml\" '<?xml version=\"1.0\" encoding=\"utf-8\"?><VeraCrypt><configuration><config key=\"Language\">ru</config></configuration></VeraCrypt>'",
-  "reg add HKLM\\SYSTEM\\CurrentControlSet\\Services\\veracrypt /v VeraCryptEnableScreenProtection /t REG_DWORD /d 0 /f; reg query HKLM\\SYSTEM\\CurrentControlSet\\Services\\veracrypt",
-  "Set-Clipboard -Path 'C:\\demo\\vc\\паспорт_скан.jpg'; 'clip: ' + ((Get-Clipboard -Format FileDropList) -join ',')"
+  "reg add HKLM\\SYSTEM\\CurrentControlSet\\Services\\veracrypt /v VeraCryptEnableScreenProtection /t REG_DWORD /d 0 /f; reg query HKLM\\SYSTEM\\CurrentControlSet\\Services\\veracrypt"
  ],
  "inputs": [
   "vc"
@@ -39,14 +39,6 @@
   {
    "do": "type",
    "text": "Сейф-Паспорт-Ключ-2026-Длинный-Пароль"
-  },
-  {
-   "do": "wait",
-   "s": 2
-  },
-  {
-   "do": "click_text",
-   "text": "Показывать пароль"
   },
   {
    "do": "wait",
@@ -212,10 +204,6 @@
    "s": 2.5
   },
   {
-   "do": "uia_dump",
-   "name": "pwdlg"
-  },
-  {
    "do": "type",
    "text": "Сейф-Паспорт-Ключ-2026-Длинный-Пароль"
   },
@@ -229,7 +217,7 @@
   },
   {
    "do": "wait",
-   "s": 14
+   "s": 9
   },
   {
    "do": "mark",
@@ -238,22 +226,52 @@
   {
    "do": "launch",
    "target": "explorer.exe",
+   "args": "C:\\demo\\vc"
+  },
+  {
+   "do": "wait",
+   "s": 3.5
+  },
+  {
+   "do": "fit",
+   "title": "^vc$"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+a"
+  },
+  {
+   "do": "wait",
+   "s": 0.8
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+c"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "launch",
+   "target": "explorer.exe",
    "args": "Z:\\"
   },
   {
    "do": "wait",
-   "s": 4
-  },
-  {
-   "do": "winlist"
+   "s": 3.5
   },
   {
    "do": "fit",
-   "title": "Z:"
+   "title": "\\(Z:\\)|^Z:"
   },
   {
    "do": "wait",
-   "s": 2
+   "s": 1.5
   },
   {
    "do": "hotkey",
@@ -274,10 +292,6 @@
   {
    "do": "wait",
    "s": 2
-  },
-  {
-   "do": "uia_dump",
-   "name": "mounted"
   },
   {
    "do": "click_text",
