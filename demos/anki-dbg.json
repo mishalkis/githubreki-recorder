@@ -1,0 +1,109 @@
+{
+ "winget_id": "Anki.Anki",
+ "launch": "Anki",
+ "title": "Anki",
+ "settle": 5,
+ "pre": [],
+ "inputs": [],
+ "steps": [
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "click_text",
+   "text": "Вид"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "uia_dump",
+   "name": "view_menu"
+  },
+  {
+   "do": "keys",
+   "keys": "{ESC}"
+  },
+  {
+   "do": "click_text",
+   "text": "Создать колоду"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "type",
+   "text": "Английский"
+  },
+  {
+   "do": "hotkey",
+   "keys": "enter"
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "uia_dump",
+   "name": "after_deck"
+  },
+  {
+   "do": "keys",
+   "keys": "a"
+  },
+  {
+   "do": "wait",
+   "s": 2.5
+  },
+  {
+   "do": "uia_dump",
+   "name": "add_dialog"
+  },
+  {
+   "do": "keys",
+   "keys": "{ESC}"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  }
+ ],
+ "setup": [
+  {
+   "do": "click_text",
+   "text": "Pусский язык"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "click_text",
+   "text": "OK"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "click_text",
+   "text": "Yes"
+  },
+  {
+   "do": "wait",
+   "s": 10
+  },
+  {
+   "do": "wait",
+   "s": 2
+  }
+ ],
+ "refind": true,
+ "win": [
+  760,
+  720
+ ]
+}

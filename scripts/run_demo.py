@@ -55,6 +55,16 @@ def find_main(baseline, pattern, nocap=False):
     return max(c, key=area) if c else None
 
 
+def place(h):
+    """Окно на весь экран, либо (demo.win=[w,h]) окно заданного размера по центру экрана."""
+    if demo.get('win'):
+        ww, wh = demo['win']
+        U.ShowWindow(h, 9); time.sleep(0.5)
+        U.SetWindowPos(h, 0, (1920 - ww) // 2, (1080 - wh) // 2, ww, wh, 4)
+    else:
+        U.SetWindowPos(h, 0, 0, 0, 1920, 1080, 4)  # на весь экран, поверх скрытой панели задач
+
+
 def hide_others(keep):
     for h in windows():
         cls = ctypes.create_unicode_buffer(64)
@@ -263,7 +273,7 @@ while time.time() < deadline:
 log(f'окно: {title(h) if h else None} {rect(h) if h else None}')
 if h and not demo.get('dialog_first'):
     hide_others(h); U.ShowWindowAsync(h, 3); U.SetForegroundWindow(h); time.sleep(1)
-    U.SetWindowPos(h, 0, 0, 0, 1920, 1080, 4)  # на весь экран, поверх скрытой панели задач
+    place(h)
     log(f'окно после SetWindowPos {rect(h)} zoomed={U.IsZoomed(h)}')
 time.sleep(demo.get('settle', 3))
 if demo.get('setup'):  # подготовка до записи: закрыть приветствия, сменить язык и т.п.
@@ -277,7 +287,7 @@ if demo.get('setup'):  # подготовка до записи: закрыть 
         h2 = find_main(set(), demo.get('title'))
         if h2:
             h = h2; hide_others(h); U.ShowWindowAsync(h, 3); U.SetForegroundWindow(h); time.sleep(1)
-            U.SetWindowPos(h, 0, 0, 0, 1920, 1080, 4); time.sleep(1)
+            place(h); time.sleep(1)
             log(f'окно после setup: {title(h)} {rect(h)}')
 
 ff = subprocess.Popen(['ffmpeg', '-y', '-f', 'gdigrab', '-framerate', '30', '-draw_mouse', '1', '-i', 'desktop',
