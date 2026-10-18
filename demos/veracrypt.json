@@ -106,6 +106,27 @@
   },
   {
    "do": "click_text",
+   "text": "МиБ"
+  },
+  {
+   "do": "click",
+   "x": 253,
+   "y": 148
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+a"
+  },
+  {
+   "do": "type",
+   "text": "50"
+  },
+  {
+   "do": "wait",
+   "s": 1
+  },
+  {
+   "do": "click_text",
    "text": "Далее"
   },
   {
@@ -115,6 +136,46 @@
   {
    "do": "uia_dump",
    "name": "p6"
+  },
+  {
+   "do": "type",
+   "text": "Сейф-Паспорт-Ключ-2026-Длинный-Пароль"
+  },
+  {
+   "do": "keys",
+   "keys": "{TAB}"
+  },
+  {
+   "do": "type",
+   "text": "Сейф-Паспорт-Ключ-2026-Длинный-Пароль"
+  },
+  {
+   "do": "wait",
+   "s": 1.5
+  },
+  {
+   "do": "click_text",
+   "text": "Далее"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "uia_dump",
+   "name": "p7"
+  },
+  {
+   "do": "click_text",
+   "text": "Далее"
+  },
+  {
+   "do": "wait",
+   "s": 2
+  },
+  {
+   "do": "uia_dump",
+   "name": "p8"
   }
  ],
  "setup": [
