@@ -64,6 +64,15 @@
    "name": "p3"
   },
   {
+   "do": "click",
+   "x": 273,
+   "y": 125
+  },
+  {
+   "do": "hotkey",
+   "keys": "ctrl+a"
+  },
+  {
    "do": "type",
    "text": "C:\\demo\\сейф.hc"
   },
@@ -94,18 +103,6 @@
   {
    "do": "uia_dump",
    "name": "p5"
-  },
-  {
-   "do": "hotkey",
-   "keys": "ctrl+a"
-  },
-  {
-   "do": "type",
-   "text": "50"
-  },
-  {
-   "do": "wait",
-   "s": 1
   },
   {
    "do": "click_text",
