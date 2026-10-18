@@ -3,9 +3,7 @@
  "launch": "Anki",
  "title": "Anki",
  "settle": 5,
- "pre": [
-  "$env:QT_SCALE_FACTOR='1.6'"
- ],
+ "pre": [],
  "inputs": [],
  "steps": [
   {
@@ -289,6 +287,31 @@
   {
    "do": "wait",
    "s": 10
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "setenv",
+   "name": "QT_SCALE_FACTOR",
+   "value": "1.6"
+  },
+  {
+   "do": "kill",
+   "image": "anki.exe"
+  },
+  {
+   "do": "wait",
+   "s": 3
+  },
+  {
+   "do": "launch",
+   "target": "Anki"
+  },
+  {
+   "do": "wait",
+   "s": 15
   },
   {
    "do": "click_text",

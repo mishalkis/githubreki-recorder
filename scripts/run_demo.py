@@ -227,6 +227,8 @@ def run_step(h, s, marks):
         t = resolve(s['target']); log(f'launch {t}')
         if s.get('args'): os.startfile(t, arguments=s['args'])
         else: os.startfile(t)
+    elif d == 'setenv': os.environ[s['name']] = s['value']  # для программ, запущенных дальше (например QT_SCALE_FACTOR)
+    elif d == 'kill': subprocess.run(['taskkill', '/F', '/T', '/IM', s['image']], capture_output=True)
     elif d == 'mark': marks.append({'name': s['name'], 't': now()})
     else: log(f'неизвестный шаг {d}')
 
