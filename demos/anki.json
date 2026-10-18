@@ -47,9 +47,8 @@
    "s": 2.5
   },
   {
-   "do": "click",
-   "x": 760,
-   "y": 190
+   "do": "click_text",
+   "text": "Английский"
   },
   {
    "do": "wait",
@@ -76,9 +75,8 @@
    "s": 0.8
   },
   {
-   "do": "click",
-   "x": 960,
-   "y": 470
+   "do": "keys",
+   "keys": "{TAB}"
   },
   {
    "do": "type",
@@ -105,9 +103,8 @@
    "s": 0.8
   },
   {
-   "do": "click",
-   "x": 960,
-   "y": 470
+   "do": "keys",
+   "keys": "{TAB}"
   },
   {
    "do": "type",
@@ -134,9 +131,8 @@
    "s": 0.8
   },
   {
-   "do": "click",
-   "x": 960,
-   "y": 470
+   "do": "keys",
+   "keys": "{TAB}"
   },
   {
    "do": "type",
@@ -163,9 +159,8 @@
    "s": 0.8
   },
   {
-   "do": "click",
-   "x": 960,
-   "y": 470
+   "do": "keys",
+   "keys": "{TAB}"
   },
   {
    "do": "type",
@@ -194,10 +189,6 @@
   {
    "do": "mark",
    "name": "study"
-  },
-  {
-   "do": "uia_dump",
-   "name": "uia_overview"
   },
   {
    "do": "keys",
@@ -298,34 +289,93 @@
    "s": 10
   },
   {
-   "do": "click",
-   "x": 960,
-   "y": 600
-  },
-  {
-   "do": "hotkey",
-   "keys": "ctrl+="
+   "do": "click_text",
+   "text": "Вид"
   },
   {
    "do": "wait",
    "s": 0.5
   },
   {
-   "do": "hotkey",
-   "keys": "ctrl+="
+   "do": "click_text",
+   "text": "Приблизить"
+  },
+  {
+   "do": "wait",
+   "s": 0.6
+  },
+  {
+   "do": "click_text",
+   "text": "Вид"
   },
   {
    "do": "wait",
    "s": 0.5
   },
   {
-   "do": "hotkey",
-   "keys": "ctrl+="
+   "do": "click_text",
+   "text": "Приблизить"
   },
   {
    "do": "wait",
-   "s": 1.5
+   "s": 0.6
+  },
+  {
+   "do": "click_text",
+   "text": "Вид"
+  },
+  {
+   "do": "wait",
+   "s": 0.5
+  },
+  {
+   "do": "click_text",
+   "text": "Приблизить"
+  },
+  {
+   "do": "wait",
+   "s": 0.6
+  },
+  {
+   "do": "click_text",
+   "text": "Вид"
+  },
+  {
+   "do": "wait",
+   "s": 0.5
+  },
+  {
+   "do": "click_text",
+   "text": "Приблизить"
+  },
+  {
+   "do": "wait",
+   "s": 0.6
+  },
+  {
+   "do": "click_text",
+   "text": "Вид"
+  },
+  {
+   "do": "wait",
+   "s": 0.5
+  },
+  {
+   "do": "click_text",
+   "text": "Приблизить"
+  },
+  {
+   "do": "wait",
+   "s": 0.6
+  },
+  {
+   "do": "wait",
+   "s": 1
   }
  ],
- "refind": true
+ "refind": true,
+ "win": [
+  760,
+  720
+ ]
 }
