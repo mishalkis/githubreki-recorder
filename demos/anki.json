@@ -69,8 +69,8 @@
   {
    "do": "place",
    "title": "^Добавить",
-   "w": 840,
-   "h": 560
+   "w": 830,
+   "h": 580
   },
   {
    "do": "wait",
@@ -305,7 +305,7 @@
   {
    "do": "setenv",
    "name": "QT_SCALE_FACTOR",
-   "value": "1.3"
+   "value": "1.45"
   },
   {
    "do": "kill",
@@ -356,13 +356,45 @@
    "s": 0.6
   },
   {
+   "do": "click_text",
+   "text": "Вид"
+  },
+  {
+   "do": "wait",
+   "s": 0.5
+  },
+  {
+   "do": "click_text",
+   "text": "Приблизить"
+  },
+  {
+   "do": "wait",
+   "s": 0.6
+  },
+  {
+   "do": "click_text",
+   "text": "Вид"
+  },
+  {
+   "do": "wait",
+   "s": 0.5
+  },
+  {
+   "do": "click_text",
+   "text": "Приблизить"
+  },
+  {
+   "do": "wait",
+   "s": 0.6
+  },
+  {
    "do": "wait",
    "s": 1
   }
  ],
  "refind": true,
  "win": [
-  840,
-  680
+  830,
+  700
  ]
 }
